@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Sénégal Patrimoines</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Charte reprise de « Parlons de nos Territoires » (PDNT) : fond vert profond, jaune soleil, filet tricolore, titres Bricolage Grotesque, texte Source Sans 3, étiquettes IBM Plex Mono.
+   Layout : en-tête blanc collant, bandeau d'accueil vert profond, bande des thématiques, application carte/liste, pied de page blanc. */
+:root{
+  --bg:#f6f8f5; --surface:#ffffff; --surface-2:#eaf0ea; --line:#d3ddd6; --fg:#10251c; --muted:#4d6157;
+  --indigo:#0b7a4b; --ochre:#f2b705; --sun-soft:#fdf1c7; --red:#d8432f; --green-dk:#0a3d2a; --on-deep:#f2f7f3;
+  --c-bati:#2f5d8a; --c-culte:#b07a1e; --c-memoire:#a5432a; --c-nature:#3f7a4f; --c-immat:#7d4f9e; --c-culture:#16807f;
+  --sea:#eef1f3; --land:#e3e4e2; --land-line:#ffffff; --gambia:#f2f2f0; --cluster:#0b7a4b;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1712; --surface:#13221b; --surface-2:#182b22; --line:#27402f; --fg:#e6efe9; --muted:#9db3a7;
+  --indigo:#3fc184; --ochre:#f5c63a; --sun-soft:#3a3214; --red:#f0715c; --green-dk:#0f3324; --on-deep:#eef6f0;
+  --c-bati:#7ea9d6; --c-culte:#e0aa4c; --c-memoire:#e07a5c; --c-nature:#7cc08c; --c-immat:#bf97de; --c-culture:#5cc4c2;
+  --sea:#0f1c16; --land:#1d2c25; --land-line:#0f1c16; --gambia:#16231d; --cluster:#3fc184; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1712; --surface:#13221b; --surface-2:#182b22; --line:#27402f; --fg:#e6efe9; --muted:#9db3a7;
+  --indigo:#3fc184; --ochre:#f5c63a; --sun-soft:#3a3214; --red:#f0715c; --green-dk:#0f3324; --on-deep:#eef6f0;
+  --c-bati:#7ea9d6; --c-culte:#e0aa4c; --c-memoire:#e07a5c; --c-nature:#7cc08c; --c-immat:#bf97de; --c-culture:#5cc4c2;
+  --sea:#0f1c16; --land:#1d2c25; --land-line:#0f1c16; --gambia:#16231d; --cluster:#3fc184; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:2px;border-radius:4px}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header.site{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:1200}
+.top{display:flex;align-items:center;gap:20px;flex-wrap:wrap;min-height:72px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.mark{width:42px;height:42px;border-radius:10px;background:var(--green-dk);display:grid;place-items:center;position:relative;overflow:hidden;flex:none}
+.mark::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--indigo) 0 33.3%,var(--ochre) 33.3% 66.6%,var(--red) 66.6%)}
+.mark svg{color:var(--ochre)}
+.brand h1{font-family:var(--display);font-weight:800;font-size:1.05rem;margin:0;line-height:1.05;color:var(--fg)}
+.brand span{display:block;font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.hd-cta{display:inline-flex;align-items:center;font:600 .92rem/1 var(--body);padding:10px 16px;border-radius:999px;border:0;background:var(--ochre);color:#1d1a08;cursor:pointer}
+.hero{background:var(--green-dk);color:var(--on-deep);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:8px;background:linear-gradient(90deg,var(--indigo) 0 33.3%,var(--ochre) 33.3% 66.6%,var(--red) 66.6%)}
+.hero-in{position:relative;padding-block:clamp(32px,5vw,56px) clamp(36px,5vw,60px)}
+.hero .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);font-weight:500}
+.hero h2{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.02em;margin:12px 0 14px;text-wrap:balance}
+.hero h2 em{font-style:normal;color:var(--ochre)}
+.hero p{margin:0;max-width:64ch;color:color-mix(in srgb,var(--on-deep) 82%,transparent);font-size:1.1rem}
+.next-ev{grid-column:1/-1;display:flex;gap:10px;align-items:center;background:rgba(0,0,0,.18);border-radius:10px;padding:10px 12px;font-size:.84rem;cursor:pointer;border:0;color:#fff;text-align:left}
+.next-ev strong{color:#fdef42}
+footer.site{background:var(--surface);border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+footer.site .in{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px;padding-block:40px 24px}
+footer.site h4{font-family:var(--display);color:var(--fg);font-size:1rem;margin:0 0 8px}
+footer.site p,footer.site li{margin:0 0 6px}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+footer.site a,footer.site button.lk{color:var(--muted);text-decoration:none;background:none;border:0;padding:0;cursor:pointer;font:inherit;text-align:left}
+footer.site a:hover,footer.site button.lk:hover{color:var(--fg)}
+.flagline{height:4px;width:72px;margin-top:14px;background:linear-gradient(90deg,var(--indigo) 0 33%,var(--ochre) 33% 66%,var(--red) 66%)}
+footer.site .legal{border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:18px;font-size:.84rem}
+@media (max-width:860px){footer.site .in{grid-template-columns:1fr 1fr}}
+@media (max-width:980px){.hd-cta{display:none}}
+@media (max-width:520px){footer.site .in{grid-template-columns:1fr}}
+/* événements */
+.evbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px}
+.evbar .seg{border-color:var(--indigo)}
+.evbar select{border:1px solid var(--line);border-radius:999px;background:var(--surface);padding:7px 12px}
+.evlist{display:grid;gap:12px}
+.ev{display:grid;grid-template-columns:62px minmax(0,1fr);gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;align-items:start}
+.ev.past{opacity:.72}
+.ev .d{border-radius:8px;background:var(--indigo);color:#fff;text-align:center;padding:8px 4px;font-family:var(--mono)}
+.ev.past .d{background:var(--muted)}
+.ev .d b{display:block;font-size:1.5rem;font-weight:500;line-height:1.1}
+.ev[data-type="Religieux"] .d{background:var(--ochre);color:#1d1a08}.ev[data-type="Cinéma"] .d{background:var(--red)}
+.ev .d span{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+.ev h3{margin:0 0 4px;font-family:var(--display);font-size:1.05rem;line-height:1.25}
+.ev .meta2{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.ev p{margin:0 0 8px;font-size:.9rem;max-width:70ch}
+.ev .acts{display:flex;flex-wrap:wrap;gap:8px}
+.ev .acts button,.ev .acts a{border:1.5px solid var(--indigo);color:var(--indigo);background:none;border-radius:999px;padding:4px 11px;font-size:.78rem;font-weight:700;cursor:pointer;text-decoration:none}
+.pill{display:inline-block;font:700 .66rem var(--display);letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px}
+.pill.soon{background:#fdef42;color:#1d2233}.pill.past{background:var(--line);color:var(--muted)}.pill.tbc{background:color-mix(in srgb,var(--red) 15%,var(--surface));color:var(--red)}
+.month{font-family:var(--display);font-weight:800;color:var(--indigo);margin:18px 0 2px;font-size:1rem;text-transform:capitalize}
+nav.tabs{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.tabs button{background:none;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;font:600 .95rem var(--body);color:var(--muted)}
+nav.tabs button:hover{color:var(--fg);background:var(--surface-2)}
+nav.tabs button[aria-selected="true"]{color:var(--fg);background:var(--surface-2)}
+
+.band{background:var(--surface);color:var(--fg);border-bottom:1px solid var(--line)}
+.band-in{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:thin}
+.theme{flex:none;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:5px 14px 5px 6px;cursor:pointer;font:600 .92rem var(--body);white-space:nowrap}
+.theme:hover{background:var(--surface-2)}
+.theme .ic{width:12px;height:12px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none}
+.theme small{font-family:var(--mono);font-weight:400;color:var(--muted);font-size:.74rem}
+.theme[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.theme[aria-pressed="true"] small{color:var(--bg);opacity:.8}
+.theme.all{padding-left:14px}
+.theme.all[aria-pressed="true"]{background:var(--ochre);border-color:var(--ochre);color:#1d1a08}
+.theme.all[aria-pressed="true"] small{color:#1d1a08}
+
+#v-carte{display:grid;grid-template-columns:minmax(360px,44%) 1fr;height:calc(100vh - 120px);min-height:560px}
+
+/* --- panneau gauche (Explorer / Filtrer) --- */
+.panel{background:var(--surface);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;min-width:0}
+.ptop{padding:12px 12px 8px;display:grid;gap:10px;border-bottom:1px solid var(--line);background:var(--surface)}
+.searchbar{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:999px;padding:4px 6px 4px 14px;background:var(--bg)}
+.searchbar:focus-within{border-color:var(--indigo)}
+.searchbar input{flex:1;border:0;background:transparent;outline:none;padding:6px 0;min-width:0}
+.searchbar svg{color:var(--muted);flex:none}
+.searchbar .clr{border:0;background:none;color:var(--muted);cursor:pointer;font-size:1.1rem;padding:2px 8px}
+.where{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.where label{display:grid;gap:2px;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:0}
+.where select{width:100%;min-width:0;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-size:.84rem;font-weight:500;letter-spacing:0;text-transform:none;color:var(--fg)}
+.where select:disabled{opacity:.5}
+.tools-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.mode{border:0;background:var(--surface);color:var(--fg);padding:7px 14px;font:600 .85rem var(--body);cursor:pointer}
+.mode[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.tools-row select{border:1px solid var(--line);border-radius:999px;background:var(--surface);padding:5px 10px;font-size:.8rem}
+.tog{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;font-size:.8rem;cursor:pointer;background:var(--surface)}
+.tog[aria-pressed="true"]{border-color:var(--ochre);background:color-mix(in srgb,var(--ochre) 16%,var(--surface));font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--sun-soft);color:var(--fg);border-radius:999px;padding:4px 6px 4px 11px;font-size:.78rem;font-weight:600;cursor:pointer}
+.chip b{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--surface);font-size:.8rem;line-height:1}
+.chip:hover b{background:var(--ochre);color:#fff}
+.clear-all{border:0;background:none;color:var(--indigo);font-weight:700;font-size:.78rem;cursor:pointer;padding:2px 4px}
+.meta-line{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 14px 2px;font-size:.8rem;color:var(--muted)}
+.meta-line strong{color:var(--fg);font-variant-numeric:tabular-nums}
+.scroll{overflow:auto;flex:1;min-height:0}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:6px 8px 16px}
+.card-ph{all:unset;box-sizing:border-box;position:relative;display:grid;grid-template-columns:50% minmax(0,1fr);border-radius:12px;overflow:hidden;cursor:pointer;background:var(--surface);border:1px solid var(--line)}
+.card-ph:hover{border-color:var(--indigo)}
+.thumb{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--land)}
+.card-ph:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.card-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.card-ph:hover img,.card-ph:hover .cover svg{transform:scale(1.05)}
+.cover{position:absolute;inset:0;overflow:hidden}
+.cover svg{width:100%;height:100%;display:block;transition:transform .3s}
+.illu{position:absolute;bottom:10px;right:10px;font:600 .6rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.42);padding:2px 6px;border-radius:3px}
+.intro{margin:4px 12px 10px;padding:16px 18px;border-radius:14px;background:color-mix(in srgb,var(--indigo) 8%,var(--surface));border:1px solid var(--line)}
+.intro h2{font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1.15;margin:0 0 8px;color:var(--indigo);text-wrap:balance}
+.intro p{margin:0 0 10px;font-size:.92rem;max-width:62ch}
+.intro .figs{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.8rem;color:var(--muted)}
+.intro .figs b{font:600 1.05rem var(--mono);color:var(--fg);margin-right:4px}
+.intro button{border:0;background:none;color:var(--indigo);font-weight:700;cursor:pointer;padding:0;font-size:.82rem;margin-top:8px}
+.ttl{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:8px 10px;color:var(--fg);font-weight:700;font-size:.86rem;line-height:1.25;min-width:0}
+.ttl small{font-weight:500;font-size:.74rem;color:var(--muted)}
+.card-ph.cur{outline:3px solid var(--ochre);outline-offset:2px}
+.badge-r{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.badge-r span{padding:1px 7px;border-radius:999px;font:600 .62rem/1.6 var(--mono);letter-spacing:.05em}
+.badge-r .u{background:var(--sun-soft);color:var(--fg)}
+.badge-r .li{background:transparent;color:var(--fg);border:1px dashed var(--muted)}
+.pin.li{box-shadow:0 0 0 1px var(--surface),0 0 0 2.5px var(--muted),0 1px 6px rgba(0,0,0,.3)}
+.ublock{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;margin:14px 0;padding:12px 14px;border-radius:10px;background:color-mix(in srgb,#0077d4 8%,var(--surface));border:1px solid color-mix(in srgb,#0077d4 30%,var(--line))}
+.ublock.li{background:var(--bg);border-style:dashed}
+.ublock .ulogo{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:2px solid #0077d4;color:#0077d4;font:800 .8rem var(--display)}
+.ublock.li .ulogo{border-color:var(--muted);color:var(--muted);border-style:dashed}
+.ublock strong{font-family:var(--display);font-size:.9rem}
+.ublock p{margin:2px 0 4px;font-size:.86rem}
+.ublock a{font-size:.82rem;font-weight:700;color:#0077d4}
+.badge-r .o{background:#7ebc6f;color:#14301a}
+.badge{position:absolute;top:7px;left:7px;display:flex;gap:4px}
+.badge span{display:grid;place-items:center;width:10px;height:10px;border-radius:50%;color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.badge .u{width:auto;padding:0 7px;border-radius:999px;background:rgba(255,255,255,.92);color:#1d2233;font:600 .64rem var(--mono);letter-spacing:.06em}
+.empty{padding:24px 16px;color:var(--muted)}
+
+/* filtrer */
+.filters{padding:14px 16px 24px;display:flex;flex-direction:column;gap:18px}
+.fgroup h3{margin:0 0 8px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fopt{display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.fopt input{width:18px;height:18px;accent-color:var(--indigo);margin:0}
+.fopt .ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none}
+.fopt small{margin-left:auto;font-family:var(--mono);color:var(--muted)}
+.filters select{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.btn{align-self:flex-start;border:2px solid transparent;background:var(--indigo);color:#fff;border-radius:999px;padding:10px 18px;font:600 .95rem/1 var(--body);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:currentColor}
+
+/* fiche dans le panneau */
+.fiche-hero{position:relative;aspect-ratio:16/10;background:var(--land);overflow:hidden}
+.crumbs{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:.8rem;color:var(--muted);margin-top:4px}
+.crumbs button{border:0;background:none;padding:0;color:var(--indigo);font-weight:600;cursor:pointer;font-size:.8rem}
+.actions{position:sticky;top:0;z-index:3;display:flex;gap:6px;overflow-x:auto;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--line)}
+.actions a,.actions button{flex:none;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--indigo);color:var(--indigo);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:700;text-decoration:none;cursor:pointer}
+.actions .pri{background:var(--indigo);color:var(--surface)}
+.fiche-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.back{position:absolute;top:12px;left:12px;z-index:2;border:0;background:rgba(255,255,255,.95);color:#1d2233;border-radius:999px;padding:7px 14px;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.credit{position:absolute;right:8px;bottom:6px;font-size:.68rem;color:#fff;background:rgba(0,0,0,.45);padding:1px 6px;border-radius:3px}
+.fiche-body{padding:18px 20px 32px}
+.eyebrow{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow .ic{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.fiche-body h2{font-family:var(--display);font-weight:800;font-size:1.9rem;line-height:1.1;margin:10px 0 12px;text-wrap:balance}
+.fiche-body p{max-width:62ch}
+dl.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:18px 0;padding:14px 0;border-block:1px solid var(--line);font-size:.88rem}
+dl.facts dt{color:var(--muted)}
+dl.facts dd{margin:0}
+.related{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.related button{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:4px 10px;font-size:.8rem;cursor:pointer}
+.h3{font-weight:700;font-size:.85rem;margin-top:18px}
+.photo-admin{margin-top:18px;padding:14px;border:1px dashed var(--line);border-radius:10px;display:grid;gap:8px;font-size:.85rem}
+.photo-admin input[type=text]{padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.photo-admin .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.note{font-size:.82rem;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.links a{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--indigo);color:var(--indigo);border-radius:999px;padding:5px 12px;font-size:.82rem;font-weight:700;text-decoration:none}
+.links a.sv{background:var(--indigo);color:var(--surface)}
+.links a:hover{filter:brightness(1.1)}
+.osmtag{display:inline-block;font:600 .64rem var(--mono);letter-spacing:.05em;background:#7ebc6f;color:#14301a;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge .o{width:auto;padding:0 7px;border-radius:999px;background:#7ebc6f;color:#14301a;font:600 .62rem var(--mono)}
+.osmbox{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:8px;font-size:.86rem}
+.osmbox pre{margin:0;max-height:140px;overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;font:.72rem/1.4 var(--mono);white-space:pre-wrap}
+.osmbox .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.osmbox a{color:var(--indigo);font-weight:700}
+.more{display:block;margin:4px auto 20px}
+.attrib{position:absolute;right:8px;bottom:6px;z-index:1000;font-size:.68rem;color:var(--muted);background:var(--surface);padding:1px 6px;border-radius:4px;border:1px solid var(--line)}
+.attrib a{color:inherit}
+
+/* --- carte --- */
+.mapbox{position:relative;min-height:0;background:var(--sea);overflow:hidden}
+#map{position:absolute;inset:0;background:var(--sea)}
+.tools{position:absolute;z-index:1000;display:flex;flex-direction:column;gap:8px}
+.tools.l{top:12px;left:12px}
+.tools.r{top:12px;right:calc(12px + env(safe-area-inset-right,0px))}
+.tgroup{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.12);overflow:hidden}
+.tgroup button{width:34px;height:34px;border:0;border-bottom:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;color:var(--fg)}
+.tgroup button:last-child{border-bottom:0}
+.tgroup button:hover{background:var(--bg)}
+.tgroup button[aria-pressed="true"]{background:var(--indigo);color:var(--surface)}
+.legend{position:absolute;right:56px;top:12px;z-index:1000;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.78rem;display:grid;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);min-width:210px}
+.legend div{display:flex;gap:8px;align-items:center}
+.legend .ic{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none}
+.legend .cl{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--cluster);display:grid;place-items:center;font:700 10px var(--body);color:var(--cluster);background:var(--surface)}
+.rbanner{position:absolute;bottom:76px;left:12px;right:12px;max-width:420px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--ochre);border-radius:6px;padding:10px 12px;z-index:1000;font-size:.85rem;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.rbanner button{border:0;background:none;padding:0;cursor:pointer;color:var(--indigo);font-weight:700;font-size:.8rem;margin-top:6px}
+
+/* Leaflet */
+.leaflet-pane,.leaflet-marker-icon,.leaflet-pane>svg,.leaflet-layer{position:absolute;left:0;top:0}
+.leaflet-container{overflow:hidden;-webkit-tap-highlight-color:transparent;font:inherit}
+.leaflet-container svg,.leaflet-container img{max-width:none!important;max-height:none!important}
+.leaflet-tile-pane{z-index:200}.leaflet-tile,.leaflet-tile-container{position:absolute;left:0;top:0}
+.leaflet-tile{visibility:hidden;user-select:none;border:0}.leaflet-tile-loaded{visibility:inherit}
+.leaflet-fade-anim .leaflet-tile{will-change:opacity}
+#map.ortho{background:#14202a}
+#map.ortho .leaflet-tooltip.region{color:#fff;opacity:1;text-shadow:0 0 3px #000,0 0 6px #000}
+.basemap{position:absolute;left:12px;bottom:34px;z-index:1000;display:flex;border-radius:8px;overflow:hidden;border:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.basemap button{border:0;background:var(--surface);color:var(--fg);padding:7px 12px;font-weight:700;font-size:.78rem;cursor:pointer}
+.basemap button[aria-pressed="true"]{background:var(--indigo);color:var(--surface)}
+.bmnote{position:absolute;left:12px;bottom:72px;z-index:1000;max-width:300px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--ochre);border-radius:6px;padding:8px 10px;font-size:.76rem;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.leaflet-container.leaflet-touch-zoom{touch-action:pan-x pan-y}
+.leaflet-container.leaflet-touch-drag{touch-action:none}
+.leaflet-pane{z-index:400}.leaflet-overlay-pane{z-index:400}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}
+.leaflet-map-pane svg{z-index:200}
+.leaflet-zoom-animated{transform-origin:0 0}
+.leaflet-zoom-anim .leaflet-zoom-animated{transition:transform .25s cubic-bezier(0,0,.25,1)}
+.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}
+.leaflet-interactive{cursor:pointer}
+.leaflet-grab{cursor:grab}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-interactive{cursor:grabbing}
+.leaflet-marker-icon,.leaflet-pane>svg path{pointer-events:none}
+.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive{pointer-events:auto}
+.leaflet-control-container .leaflet-bottom{position:absolute;z-index:1000;pointer-events:none;bottom:0}
+.leaflet-left{left:0}
+.leaflet-control{position:relative;pointer-events:auto;float:left;clear:both;margin:0 0 10px 12px}
+.leaflet-control-scale-line{border:2px solid var(--fg);border-top:0;font-size:11px;line-height:1.2;padding:0 5px;background:var(--surface);color:var(--fg)}
+.leaflet-tooltip{position:absolute;padding:3px 8px;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:5px;white-space:nowrap;pointer-events:none;font-size:12px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.leaflet-tooltip.region{background:transparent;border:0;box-shadow:none;color:var(--muted);font:600 10.5px var(--body);letter-spacing:1.2px;text-transform:uppercase;opacity:.85}
+.pin{display:grid;place-items:center;width:15px;height:15px;margin:-7.5px 0 0 -7.5px;border-radius:50%;color:#fff;border:1.5px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,.35);transition:transform .15s}
+.pin.u{box-shadow:0 0 0 1px var(--surface),0 0 0 2.5px var(--ochre),0 1px 6px rgba(0,0,0,.3)}
+.pin.on{transform:scale(1.5)}
+.clu{display:grid;place-items:center;border-radius:50%;background:color-mix(in srgb,var(--surface) 82%,transparent);border:1.5px solid var(--cluster);color:var(--cluster);font:800 13px var(--body)}
+.step{display:grid;place-items:center;width:20px;height:20px;margin:-34px 0 0 4px;border-radius:50%;background:var(--fg);color:var(--surface);font:700 11px var(--mono);border:2px solid var(--surface)}
+
+/* --- pages --- */
+.page{min-height:60vh}
+.page-in{max-width:1100px;margin:0 auto;padding-block:32px 48px}
+.page h2{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.01em;margin:0 0 10px;color:var(--fg);text-wrap:balance}
+.lead{color:var(--muted);max-width:65ch;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-family:var(--display);font-weight:800;font-size:1.35rem;margin:0;line-height:1.15}
+.card p{margin:0;color:var(--muted);font-size:.92rem}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:26px 1fr;gap:8px;padding:6px 0;border-top:1px dashed var(--line);font-size:.88rem}
+ol.steps li::before{content:counter(s);font-family:var(--mono);font-size:.75rem;color:var(--ochre);padding-top:2px}
+.meta{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+form.contrib{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+form.contrib .full{grid-column:1/-1}
+form.contrib label{display:flex;flex-direction:column;gap:5px;font-size:.85rem;font-weight:600}
+form.contrib input,form.contrib select,form.contrib textarea{font-weight:400;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+form.contrib textarea{min-height:130px;resize:vertical}
+.ok{color:var(--c-nature);font-weight:600}
+.mine{margin-top:26px;display:grid;gap:10px}
+.prose{max-width:68ch}
+.prose h3{font-family:var(--display);font-weight:800;font-size:1.4rem;margin:28px 0 6px}
+.count{font-family:var(--mono);font-size:.75rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+
+@media (max-width:860px){
+  .where{grid-template-columns:1fr 1fr}
+  #v-carte{grid-template-columns:1fr}
+  #v-carte{height:auto;min-height:0}
+  .mapbox{height:60vh;order:-1}
+  .panel{border-right:0;border-top:1px solid var(--line)}
+  .scroll{overflow:visible}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  form.contrib{grid-template-columns:1fr}
+  nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap}
+  nav button{white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="site">
+  <div class="top wrap">
+    <a class="brand" href="#carte" id="home"><span class="mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 10h16M12 3l9 5H3zM6 10v8M10 10v8M14 10v8M18 10v8"/></svg></span>
+      <span><h1>Sénégal Patrimoines</h1><span>Patrimoine · Sénégal</span></span></a>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" data-v="carte" aria-selected="true">Carte interactive</button>
+      <button role="tab" data-v="parcours" aria-selected="false">Parcours</button>
+      <button role="tab" data-v="evenements" aria-selected="false">Événements</button>
+      <button role="tab" data-v="contribuer" aria-selected="false">Contribuer</button>
+      <button role="tab" data-v="apropos" aria-selected="false">À propos</button>
+    </nav>
+    <button class="hd-cta" id="hd-cta" type="button">Proposer un lieu</button>
+  </div>
+</header>
+<section class="hero" id="hero" aria-label="Présentation de la plateforme">
+  <div class="hero-in wrap">
+    <div>
+      <span class="kicker">Patrimoine · Mémoire · Territoires</span>
+      <h2>Découvrir, protéger et partager le patrimoine du <em>Sénégal</em></h2>
+      <p>Sénégal Patrimoines rassemble sur une même carte les monuments, lieux de culte, sites de mémoire, paysages et traditions vivantes des 14 régions du pays. Chaque fiche présente l'histoire du lieu, sa localisation jusqu'à la commune et des vues immersives. Les habitants peuvent contribuer en partageant récits, photos et documents.</p>
+    </div>
+  </div>
+</section>
+<div class="band"><div class="band-in wrap" id="band" role="group" aria-label="Thématiques"></div></div>
+
+<main>
+  <section class="view" id="v-carte">
+    <aside class="panel" id="panel">
+      <div id="p-list" class="ptop">
+        <label class="searchbar" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input type="search" id="q" placeholder="Rechercher un lieu, une ville, une commune…" aria-label="Rechercher" autocomplete="off"><button class="clr" id="q-clr" type="button" aria-label="Effacer la recherche" hidden>×</button></label>
+        <div class="where" role="group" aria-label="Localisation">
+          <label for="w-reg">Région<select id="w-reg"></select></label>
+          <label for="w-dep">Département<select id="w-dep"></select></label>
+          <label for="w-com">Commune<select id="w-com"></select></label>
+        </div>
+        <div class="tools-row">
+          <div class="seg" role="group" aria-label="Affichage"><button class="mode" id="m-explore" aria-pressed="true">Explorer</button><button class="mode" id="m-filter" aria-pressed="false">Filtrer</button></div>
+          <select id="sort" aria-label="Trier"><option value="az">Nom A → Z</option><option value="reg">Par région</option><option value="unesco">UNESCO d'abord</option><option value="near">Proches du centre de la carte</option></select>
+          <button class="tog" id="bbox" type="button" aria-pressed="false" title="N'afficher que les lieux visibles sur la carte">Zone visible</button>
+        </div>
+        <div class="chips" id="chips" hidden></div>
+      </div>
+      <div class="meta-line"><span id="count"></span></div>
+      <div class="scroll" id="scroll"></div>
+    </aside>
+    <div class="mapbox">
+      <div id="map" role="application" aria-label="Carte du Sénégal et des lieux patrimoniaux"></div>
+      <div class="tools l">
+        <div class="tgroup">
+          <button id="zin" aria-label="Zoomer" title="Zoomer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+          <button id="zout" aria-label="Dézoomer" title="Dézoomer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></button>
+        </div>
+        <div class="tgroup"><button id="zhome" aria-label="Vue du Sénégal" title="Vue du Sénégal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 4l9 7M5 10v10h14V10"/></svg></button></div>
+        <div class="tgroup"><button id="zdakar" aria-label="Zoomer sur Dakar" title="Zoomer sur Dakar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></button></div>
+      </div>
+      <div class="tools r">
+        <div class="tgroup">
+          <button id="t-legend" aria-label="Légende" title="Légende" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></button>
+          <button id="t-cluster" aria-label="Regrouper les lieux" title="Regrouper les lieux" aria-pressed="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="4"/><circle cx="16" cy="16" r="4"/><circle cx="17" cy="7" r="2"/></svg></button>
+        </div>
+      </div>
+      <div class="legend" id="legend" hidden></div>
+      <div class="rbanner" id="rbanner" hidden></div>
+      <div class="attrib" id="attrib">Limites : Natural Earth</div>
+      <div class="basemap" role="group" aria-label="Fond de carte"><button id="bm-ortho" aria-pressed="true">Orthophoto</button><button id="bm-plan" aria-pressed="false">Plan</button></div>
+      <div class="bmnote" id="bmnote" hidden></div>
+    </div>
+  </section>
+
+  <section class="view page" id="v-parcours" hidden><div class="page-in wrap">
+    <h2>Parcours</h2>
+    <p class="lead">Des itinéraires commentés pour découvrir le patrimoine région par région. Chaque parcours s'affiche sur la carte, étape par étape.</p>
+    <div class="grid" id="parcours"></div>
+  </div></section>
+
+  <section class="view page" id="v-evenements" hidden><div class="page-in wrap">
+    <h2>Événements culturels et patrimoniaux</h2>
+    <p class="lead">Festivals, pèlerinages, biennale, célébrations : l'agenda des rendez-vous qui font vivre le patrimoine sur le territoire. Les dates proviennent des annonces publiques et peuvent évoluer ; vérifiez auprès des organisateurs.</p>
+    <div class="evbar">
+      <div class="seg" role="group" aria-label="Période"><button class="mode" data-p="soon" aria-pressed="true">À venir</button><button class="mode" data-p="past" aria-pressed="false">Passés</button><button class="mode" data-p="all" aria-pressed="false">Tous</button></div>
+      <select id="ev-type" aria-label="Type d'événement"></select>
+      <select id="ev-reg" aria-label="Région"></select>
+    </div>
+    <div class="evlist" id="evlist"></div>
+  </div></section>
+
+  <section class="view page" id="v-contribuer" hidden><div class="page-in wrap">
+    <h2>Contribuer</h2>
+    <p class="lead">Un lieu, une photo de famille, un récit transmis par les anciens : le patrimoine se construit aussi avec les habitants. Proposez un lieu ou un témoignage à l'équipe éditoriale.</p>
+    <form class="contrib" id="form">
+      <label>Votre nom<input id="f-nom" required placeholder="Ex. Aminata Diop"></label>
+      <label>Nom du lieu ou du sujet<input id="f-lieu" required placeholder="Ex. Ancienne gare de Thiès"></label>
+      <label>Thématique<select id="f-cat"></select></label>
+      <label>Région<select id="f-region"></select></label>
+      <label class="full">Votre récit ou description<textarea id="f-recit" required placeholder="Histoire du lieu, souvenirs, personnes liées, dates connues…"></textarea></label>
+      <label class="full">Source ou témoin (facultatif)<input id="f-source" placeholder="Ex. récit de mon grand-père, archives de la commune…"></label>
+      <div class="full" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+        <span class="note" id="f-msg">Prototype : les contributions sont conservées sur cet appareil uniquement.</span>
+        <button class="btn" type="submit">Envoyer la contribution</button>
+      </div>
+    </form>
+    <div class="mine" id="mine"></div>
+  </div></section>
+
+  <section class="view page" id="v-apropos" hidden><div class="page-in wrap prose">
+    <h2>À propos</h2>
+    <p class="lead">Sénégal Patrimoines est une plateforme de découverte et de partage de l'histoire et des patrimoines du Sénégal, pensée pour les habitants, les écoles, les visiteurs et les acteurs culturels.</p>
+    <h3>Ce que propose la plateforme</h3>
+    <p>Une carte interactive des lieux patrimoniaux, des fiches illustrées, des parcours thématiques et un espace de contribution où chacun peut proposer un lieu, un récit ou un document.</p>
+    <h3>Un patrimoine au sens large</h3>
+    <p>Monuments et architecture coloniale, mosquées, églises et bois sacrés, sites de mémoire de la traite atlantique, paysages naturels et culturels, et patrimoine immatériel inscrit par l'UNESCO : le Kankurang, le Xooy des Sereer, le ceebu jën.</p>
+    <h3>Contenus de ce prototype</h3>
+    <p>Les fiches présentées sont une première sélection de démonstration, à compléter et valider avec la Direction du Patrimoine culturel, les musées, les autorités religieuses et les collectivités territoriales. Les positions sont indicatives. Fond de carte : limites administratives Natural Earth.</p>
+  </div></section>
+</main>
+<footer class="site">
+  <div class="in wrap">
+    <div><h4>Sénégal Patrimoines</h4><p>Plateforme de découverte et de partage du patrimoine culturel, religieux, naturel et immatériel du Sénégal.</p><p>Prototype conçu par CEGIT, Centre d'Expertise en Géomatique et Ingénierie Territoriale.</p><div class="flagline" aria-hidden="true"></div></div>
+    <div><h4>Explorer</h4><ul><li><button class="lk" data-go="carte">Carte interactive</button></li><li><button class="lk" data-go="parcours">Parcours</button></li><li><button class="lk" data-go="evenements">Événements</button></li><li><button class="lk" data-go="contribuer">Contribuer</button></li><li><button class="lk" data-go="apropos">À propos</button></li></ul></div>
+    <div><h4>Thématiques</h4><ul id="ft-themes"></ul></div>
+    <div><h4>Données et crédits</h4><ul><li>Limites : Natural Earth</li><li>Orthophoto : Esri, Maxar, Earthstar Geographics</li><li>Lieux complémentaires : © contributeurs <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></li><li>Photos : <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> et contributeurs</li><li>Agenda : annonces publiques des organisateurs</li></ul></div>
+  </div>
+  <div class="legal wrap"><span>© 2026 Sénégal Patrimoines · prototype non officiel, contenus et positions indicatifs</span><span>Données à valider avec les services du patrimoine culturel</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const REGIONS = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"c":"SEN","n":"Kédougou"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-11.9,13.382],[-11.898,13.371],[-11.855,13.351],[-11.84,13.317],[-11.823,13.307],[-11.775,13.343],[-11.767,13.383],[-11.741,13.408],[-11.727,13.406],[-11.704,13.38],[-11.65,13.384],[-11.644,13.356],[-11.613,13.361],[-11.606,13.32],[-11.554,13.257],[-11.572,13.217],[-11.569,13.199],[-11.539,13.163],[-11.533,13.112],[-11.45,13.075],[-11.459,13.055],[-11.423,13.009],[-11.433,12.997],[-11.439,12.959],[-11.412,12.961],[-11.402,12.989],[-11.393,12.981],[-11.384,12.933],[-11.403,12.916],[-11.427,12.919],[-11.415,12.897],[-11.433,12.836],[-11.408,12.804],[-11.405,12.782],[-11.415,12.76],[-11.402,12.732],[-11.41,12.719],[-11.437,12.712],[-11.462,12.673],[-11.461,12.658],[-11.437,12.637],[-11.437,12.571],[-11.44,12.559],[-11.468,12.544],[-11.449,12.535],[-11.43,12.508],[-11.417,12.529],[-11.401,12.48],[-11.39,12.498],[-11.378,12.48],[-11.388,12.404],[-11.515,12.432],[-11.643,12.418],[-11.758,12.383],[-11.84,12.387],[-11.924,12.419],[-11.998,12.386],[-12.104,12.407],[-12.192,12.349],[-12.361,12.306],[-12.377,12.314],[-12.406,12.356],[-12.467,12.384],[-12.505,12.39],[-12.594,12.362],[-12.648,12.426],[-12.688,12.436],[-12.773,12.435],[-12.783,12.453],[-12.839,12.466],[-12.849,12.476],[-12.849,12.495],[-12.913,12.536],[-12.949,12.536],[-12.97,12.477],[-12.981,12.467],[-13.052,12.472],[-13.078,12.496],[-13.083,12.516],[-13.059,12.603],[-13.076,12.636],[-13.127,12.635],[-13.145,12.644],[-13.155,12.633],[-13.202,12.633],[-13.222,12.648],[-13.255,12.642],[-13.284,12.653],[-13.339,12.639],[-13.36,12.65],[-13.365,12.685],[-13.378,12.691],[-13.43,12.682],[-13.466,12.695],[-13.483,12.715],[-13.473,12.771],[-13.489,12.812],[-13.477,12.835],[-13.485,12.852],[-13.465,12.861],[-13.473,12.892],[-13.504,12.923],[-13.514,12.951],[-13.512,12.996],[-13.533,13.01],[-13.529,13.029],[-13.57,13.066],[-13.572,13.09],[-13.607,13.13],[-13.613,13.226],[-13.623,13.24],[-13.623,13.249],[-13.6,13.26],[-13.599,13.313],[-13.582,13.325],[-13.586,13.308],[-13.568,13.298],[-13.547,13.317],[-13.513,13.33],[-13.5,13.326],[-13.507,13.304],[-13.494,13.309],[-13.476,13.338],[-13.397,13.331],[-13.365,13.341],[-13.356,13.325],[-13.378,13.292],[-13.377,13.276],[-13.366,13.249],[-13.353,13.249],[-13.328,13.229],[-13.321,13.191],[-13.328,13.164],[-13.315,13.154],[-13.356,13.133],[-13.335,13.124],[-13.328,13.044],[-13.309,13.022],[-13.29,13.017],[-13.203,13.04],[-13.112,13.014],[-13.094,13.037],[-13.073,13.037],[-13.032,13.058],[-12.977,13.058],[-12.853,12.984],[-12.845,13.011],[-12.803,13.025],[-12.792,13.052],[-12.742,13.046],[-12.733,13.081],[-12.695,13.113],[-12.701,13.16],[-12.686,13.172],[-12.645,13.175],[-12.616,13.193],[-12.586,13.175],[-12.531,13.181],[-12.513,13.193],[-12.487,13.248],[-12.466,13.251],[-12.445,13.278],[-12.396,13.278],[-12.369,13.251],[-12.357,13.254],[-12.337,13.307],[-12.266,13.307],[-12.252,13.325],[-12.258,13.348],[-12.293,13.401],[-12.278,13.416],[-12.278,13.439],[-12.255,13.448],[-12.14,13.378],[-12.079,13.36],[-12.067,13.316],[-12.046,13.316],[-11.993,13.363],[-11.9,13.382]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Tambacounda"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-12.264,14.775],[-12.257,14.746],[-12.223,14.703],[-12.18,14.693],[-12.19,14.656],[-12.165,14.642],[-12.166,14.625],[-12.198,14.588],[-12.204,14.554],[-12.23,14.537],[-12.236,14.519],[-12.22,14.435],[-12.222,14.391],[-12.116,14.355],[-12.113,14.33],[-12.128,14.324],[-12.12,14.311],[-12.098,14.288],[-12.044,14.265],[-11.998,14.166],[-12.003,14.103],[-12.025,14.027],[-12.025,13.985],[-12.015,13.959],[-11.963,13.909],[-11.957,13.89],[-11.963,13.829],[-11.979,13.785],[-12.012,13.751],[-12.098,13.704],[-12.07,13.673],[-12.015,13.564],[-11.939,13.503],[-11.918,13.475],[-11.89,13.465],[-11.883,13.454],[-11.9,13.382],[-11.993,13.363],[-12.046,13.316],[-12.067,13.316],[-12.079,13.36],[-12.14,13.378],[-12.255,13.448],[-12.278,13.439],[-12.278,13.416],[-12.293,13.401],[-12.258,13.348],[-12.252,13.325],[-12.266,13.307],[-12.337,13.307],[-12.357,13.254],[-12.369,13.251],[-12.396,13.278],[-12.445,13.278],[-12.466,13.251],[-12.487,13.248],[-12.513,13.193],[-12.531,13.181],[-12.586,13.175],[-12.616,13.193],[-12.645,13.175],[-12.686,13.172],[-12.701,13.16],[-12.695,13.113],[-12.733,13.081],[-12.742,13.046],[-12.792,13.052],[-12.803,13.025],[-12.845,13.011],[-12.853,12.984],[-12.977,13.058],[-13.032,13.058],[-13.073,13.037],[-13.094,13.037],[-13.112,13.014],[-13.203,13.04],[-13.29,13.017],[-13.309,13.022],[-13.328,13.044],[-13.335,13.124],[-13.356,13.133],[-13.315,13.154],[-13.328,13.164],[-13.321,13.191],[-13.328,13.229],[-13.353,13.249],[-13.366,13.249],[-13.377,13.276],[-13.378,13.292],[-13.356,13.325],[-13.365,13.341],[-13.397,13.331],[-13.476,13.338],[-13.494,13.309],[-13.507,13.304],[-13.5,13.326],[-13.513,13.33],[-13.547,13.317],[-13.568,13.298],[-13.586,13.308],[-13.582,13.325],[-13.599,13.313],[-13.6,13.26],[-13.623,13.249],[-13.623,13.24],[-13.641,13.241],[-13.658,13.274],[-13.69,13.294],[-13.688,13.325],[-13.705,13.341],[-13.695,13.372],[-13.77,13.375],[-13.757,13.428],[-13.729,13.464],[-13.764,13.478],[-13.795,13.468],[-13.808,13.474],[-13.798,13.534],[-13.83,13.536],[-13.844,13.515],[-13.883,13.504],[-13.901,13.542],[-13.918,13.555],[-13.988,13.579],[-14.197,13.519],[-14.271,13.477],[-14.33,13.456],[-14.366,13.455],[-14.47,13.522],[-14.523,13.626],[-14.586,13.66],[-14.627,13.664],[-14.667,13.653],[-14.741,13.615],[-14.796,13.645],[-14.831,13.736],[-14.86,13.766],[-14.813,13.84],[-14.716,13.863],[-14.629,13.939],[-14.619,13.999],[-14.586,14.024],[-14.577,14.082],[-14.593,14.222],[-14.634,14.323],[-14.633,14.511],[-14.509,14.54],[-14.398,14.631],[-14.357,14.644],[-14.304,14.585],[-14.269,14.563],[-13.834,14.402],[-13.785,14.394],[-13.511,14.399],[-13.219,14.595],[-12.949,14.546],[-12.755,14.566],[-12.731,14.585],[-12.649,14.706],[-12.573,14.894],[-12.582,14.949],[-12.69,15.092],[-12.632,15.105],[-12.53,15.034],[-12.485,15.017],[-12.472,14.998],[-12.448,14.907],[-12.382,14.846],[-12.32,14.817],[-12.264,14.775]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Kolda"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-13.36,12.65],[-13.405,12.662],[-13.728,12.673],[-15.146,12.679],[-15.154,12.741],[-15.131,12.802],[-15.131,12.884],[-15.169,12.937],[-15.169,12.999],[-15.236,13.043],[-15.242,13.099],[-15.278,13.175],[-15.325,13.184],[-15.36,13.207],[-15.366,13.243],[-15.342,13.363],[-15.277,13.38],[-15.248,13.399],[-15.228,13.425],[-15.218,13.515],[-15.16,13.581],[-15.138,13.59],[-15.015,13.496],[-14.95,13.463],[-14.863,13.447],[-14.79,13.417],[-14.732,13.359],[-14.698,13.345],[-14.662,13.341],[-14.592,13.353],[-14.53,13.307],[-14.47,13.298],[-14.431,13.261],[-14.369,13.236],[-14.202,13.23],[-14.117,13.282],[-13.901,13.315],[-13.851,13.336],[-13.823,13.378],[-13.819,13.429],[-13.843,13.477],[-13.883,13.504],[-13.844,13.515],[-13.83,13.536],[-13.803,13.536],[-13.796,13.53],[-13.808,13.474],[-13.795,13.468],[-13.764,13.478],[-13.729,13.464],[-13.757,13.428],[-13.77,13.375],[-13.692,13.369],[-13.705,13.341],[-13.688,13.325],[-13.69,13.294],[-13.658,13.274],[-13.648,13.246],[-13.615,13.233],[-13.607,13.13],[-13.572,13.09],[-13.57,13.066],[-13.529,13.029],[-13.531,13.006],[-13.512,12.996],[-13.512,12.946],[-13.5,12.915],[-13.473,12.892],[-13.465,12.861],[-13.485,12.852],[-13.477,12.841],[-13.488,12.806],[-13.473,12.771],[-13.481,12.709],[-13.443,12.684],[-13.365,12.685],[-13.36,12.65]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Sédhiou"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.146,12.679],[-15.224,12.675],[-15.25,12.664],[-15.425,12.555],[-15.677,12.439],[-15.712,12.432],[-15.884,12.442],[-15.947,12.54],[-15.962,12.57],[-15.964,12.602],[-15.94,12.581],[-15.864,12.578],[-15.84,12.557],[-15.806,12.565],[-15.769,12.593],[-15.748,12.584],[-15.73,12.591],[-15.716,12.582],[-15.699,12.584],[-15.68,12.55],[-15.657,12.538],[-15.588,12.558],[-15.51,12.636],[-15.507,12.65],[-15.53,12.666],[-15.521,12.674],[-15.543,12.758],[-15.535,12.783],[-15.466,12.796],[-15.446,12.825],[-15.407,12.8],[-15.394,12.81],[-15.392,12.838],[-15.407,12.822],[-15.453,12.831],[-15.493,12.807],[-15.549,12.794],[-15.555,12.722],[-15.542,12.649],[-15.641,12.559],[-15.672,12.571],[-15.666,12.601],[-15.697,12.614],[-15.768,12.625],[-15.833,12.591],[-15.86,12.612],[-15.902,12.598],[-15.953,12.625],[-15.956,12.646],[-15.981,12.653],[-16.013,12.696],[-16.024,12.738],[-16.009,12.822],[-15.986,12.857],[-15.987,12.927],[-15.902,13.079],[-15.907,13.094],[-15.928,13.103],[-15.924,13.123],[-15.897,13.157],[-15.827,13.162],[-15.819,13.334],[-15.693,13.36],[-15.596,13.356],[-15.52,13.387],[-15.342,13.363],[-15.366,13.243],[-15.36,13.207],[-15.325,13.184],[-15.278,13.175],[-15.242,13.099],[-15.236,13.043],[-15.169,12.999],[-15.169,12.937],[-15.131,12.884],[-15.131,12.802],[-15.154,12.741],[-15.146,12.679]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Ziguinchor"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.973,12.437],[-16.091,12.464],[-16.182,12.443],[-16.222,12.455],[-16.412,12.362],[-16.533,12.348],[-16.669,12.357],[-16.728,12.333],[-16.744,12.379],[-16.799,12.431],[-16.803,12.485],[-16.781,12.523],[-16.732,12.552],[-16.679,12.55],[-16.58,12.633],[-16.547,12.574],[-16.533,12.565],[-16.522,12.593],[-16.505,12.598],[-16.371,12.55],[-16.31,12.598],[-16.247,12.588],[-16.212,12.606],[-16.193,12.578],[-16.115,12.606],[-16.058,12.616],[-16.03,12.633],[-16.008,12.632],[-15.964,12.602],[-15.962,12.57],[-15.947,12.54],[-15.884,12.442],[-15.973,12.437]]],[[[-16.674,13.164],[-15.897,13.157],[-15.929,13.111],[-15.902,13.079],[-15.987,12.927],[-15.986,12.857],[-16.009,12.822],[-16.022,12.729],[-16.045,12.69],[-16.049,12.656],[-16.155,12.612],[-16.228,12.619],[-16.269,12.605],[-16.324,12.61],[-16.347,12.598],[-16.371,12.565],[-16.445,12.596],[-16.467,12.622],[-16.49,12.632],[-16.493,12.649],[-16.467,12.674],[-16.492,12.682],[-16.501,12.708],[-16.508,12.625],[-16.566,12.674],[-16.57,12.694],[-16.599,12.664],[-16.615,12.66],[-16.635,12.669],[-16.638,12.694],[-16.591,12.762],[-16.597,12.797],[-16.604,12.763],[-16.651,12.705],[-16.647,12.632],[-16.721,12.584],[-16.755,12.572],[-16.773,12.583],[-16.783,12.643],[-16.761,12.713],[-16.735,12.733],[-16.701,12.722],[-16.699,12.736],[-16.734,12.751],[-16.752,12.745],[-16.784,12.713],[-16.796,12.715],[-16.788,12.732],[-16.796,12.749],[-16.77,12.793],[-16.775,12.811],[-16.794,12.795],[-16.803,12.814],[-16.755,12.903],[-16.762,12.951],[-16.75,13.014],[-16.749,13.099],[-16.708,13.157],[-16.674,13.164]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Saint-Louis"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-14.949,16.671],[-14.931,16.643],[-14.912,16.641],[-14.882,16.648],[-14.711,16.636],[-14.656,16.646],[-14.608,16.629],[-14.555,16.641],[-14.493,16.632],[-14.407,16.661],[-14.343,16.637],[-14.331,16.624],[-14.335,16.586],[-14.278,16.581],[-14.268,16.548],[-14.214,16.535],[-14.073,16.401],[-13.978,16.338],[-13.971,16.324],[-13.979,16.3],[-13.963,16.272],[-13.964,16.23],[-13.884,16.194],[-13.845,16.126],[-13.811,16.122],[-13.779,16.143],[-13.747,16.182],[-13.711,16.189],[-13.72,16.136],[-13.761,16.051],[-13.863,16.012],[-13.877,15.975],[-13.99,15.877],[-14.298,15.638],[-14.338,15.667],[-14.498,15.747],[-14.592,15.877],[-14.705,15.954],[-14.757,15.95],[-14.854,15.997],[-15.427,15.999],[-15.434,15.932],[-15.591,15.921],[-15.841,16.182],[-15.891,16.147],[-15.922,16.103],[-16.116,15.997],[-16.151,15.969],[-16.168,15.938],[-16.226,15.905],[-16.257,15.845],[-16.304,15.839],[-16.378,15.809],[-16.541,15.806],[-16.52,15.846],[-16.508,16.01],[-16.47,16.106],[-16.459,16.194],[-16.407,16.215],[-16.385,16.235],[-16.335,16.456],[-16.314,16.493],[-16.274,16.523],[-16.195,16.523],[-16.132,16.555],[-16.11,16.547],[-16.074,16.505],[-16.054,16.495],[-16.007,16.496],[-15.986,16.506],[-15.958,16.498],[-15.897,16.518],[-15.862,16.51],[-15.813,16.514],[-15.672,16.481],[-15.61,16.521],[-15.551,16.515],[-15.525,16.522],[-15.491,16.565],[-15.464,16.581],[-15.449,16.58],[-15.415,16.548],[-15.328,16.572],[-15.232,16.566],[-15.125,16.583],[-15.093,16.6],[-15.118,16.643],[-15.108,16.665],[-15.079,16.665],[-15.044,16.632],[-15.024,16.64],[-14.997,16.682],[-14.974,16.691],[-14.949,16.671]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Matam"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-13.72,16.136],[-13.669,16.106],[-13.635,16.122],[-13.485,16.155],[-13.502,16.095],[-13.492,16.088],[-13.44,16.102],[-13.389,16.052],[-13.37,15.985],[-13.316,15.93],[-13.316,15.882],[-13.28,15.823],[-13.286,15.77],[-13.251,15.743],[-13.228,15.711],[-13.249,15.657],[-13.238,15.623],[-13.178,15.628],[-13.11,15.596],[-13.092,15.575],[-13.095,15.515],[-13.084,15.493],[-13.039,15.487],[-12.996,15.514],[-12.964,15.509],[-12.933,15.438],[-12.919,15.365],[-12.847,15.313],[-12.828,15.284],[-12.833,15.27],[-12.884,15.271],[-12.894,15.263],[-12.888,15.251],[-12.857,15.222],[-12.806,15.223],[-12.787,15.214],[-12.779,15.2],[-12.78,15.146],[-12.755,15.139],[-12.717,15.103],[-12.69,15.092],[-12.582,14.949],[-12.573,14.894],[-12.649,14.706],[-12.731,14.585],[-12.755,14.566],[-12.949,14.546],[-13.219,14.595],[-13.511,14.399],[-13.785,14.394],[-13.834,14.402],[-14.269,14.563],[-14.304,14.585],[-14.357,14.644],[-14.413,14.623],[-14.461,14.573],[-14.509,14.54],[-14.633,14.511],[-14.639,14.557],[-14.844,14.622],[-14.863,14.638],[-14.824,14.665],[-14.81,14.745],[-14.766,14.774],[-14.73,14.847],[-14.774,14.941],[-14.803,15.039],[-14.734,15.065],[-14.621,15.079],[-14.542,15.102],[-14.585,15.123],[-14.534,15.369],[-14.618,15.358],[-14.785,15.442],[-14.748,15.496],[-14.741,15.678],[-14.661,15.707],[-14.541,15.805],[-14.498,15.747],[-14.338,15.667],[-14.298,15.638],[-13.99,15.877],[-13.877,15.975],[-13.863,16.012],[-13.761,16.051],[-13.72,16.136]]]]}},{"type":"Feature","properties":{"c":"GMB","n":"Central River"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.098,13.82],[-15.017,13.797],[-14.916,13.792],[-14.879,13.781],[-14.831,13.736],[-14.803,13.652],[-14.741,13.615],[-14.627,13.664],[-14.586,13.66],[-14.543,13.641],[-14.51,13.609],[-14.48,13.533],[-14.462,13.517],[-14.519,13.453],[-14.489,13.399],[-14.526,13.384],[-14.552,13.323],[-14.592,13.353],[-14.662,13.341],[-14.698,13.345],[-14.732,13.359],[-14.79,13.417],[-14.863,13.447],[-14.95,13.463],[-15.015,13.496],[-15.138,13.59],[-15.302,13.496],[-15.361,13.538],[-15.373,13.566],[-15.368,13.626],[-15.498,13.642],[-15.479,13.691],[-15.436,13.741],[-15.394,13.772],[-15.348,13.789],[-15.304,13.782],[-15.267,13.742],[-15.171,13.794],[-15.098,13.82]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Kaffrine"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-14.86,13.766],[-14.916,13.792],[-15.017,13.797],[-15.098,13.82],[-15.171,13.794],[-15.267,13.742],[-15.304,13.782],[-15.348,13.789],[-15.394,13.772],[-15.445,13.795],[-15.514,13.798],[-15.583,13.827],[-15.623,13.766],[-15.641,13.758],[-15.666,13.769],[-15.71,13.827],[-15.699,13.878],[-15.702,13.904],[-15.746,13.929],[-15.782,13.965],[-15.811,14.031],[-15.855,14.038],[-15.855,14.154],[-15.8,14.288],[-15.799,14.385],[-15.71,14.477],[-15.661,14.491],[-15.594,14.544],[-15.431,14.574],[-15.401,14.607],[-15.38,14.698],[-15.3,14.651],[-15.249,14.633],[-15.063,14.6],[-15.02,14.613],[-14.898,14.677],[-14.844,14.622],[-14.639,14.557],[-14.631,14.538],[-14.634,14.323],[-14.593,14.222],[-14.577,14.082],[-14.586,14.024],[-14.619,13.999],[-14.629,13.939],[-14.716,13.863],[-14.813,13.84],[-14.86,13.766]]]]}},{"type":"Feature","properties":{"c":"GMB","n":"North Bank"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.518,13.583],[-15.502,13.588],[-15.498,13.642],[-15.368,13.626],[-15.373,13.566],[-15.361,13.538],[-15.302,13.496],[-15.311,13.468],[-15.333,13.455],[-15.416,13.473],[-15.465,13.51],[-15.491,13.503],[-15.556,13.528],[-15.576,13.523],[-15.611,13.489],[-15.672,13.503],[-15.77,13.465],[-16.09,13.44],[-16.142,13.455],[-16.16,13.451],[-16.273,13.363],[-16.289,13.366],[-16.289,13.407],[-16.306,13.392],[-16.302,13.372],[-16.316,13.366],[-16.302,13.353],[-16.322,13.343],[-16.391,13.337],[-16.522,13.359],[-16.504,13.393],[-16.504,13.417],[-16.52,13.451],[-16.557,13.486],[-16.548,13.548],[-16.561,13.587],[-15.518,13.583]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Kaolack"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.498,13.642],[-15.502,13.588],[-15.518,13.583],[-16.085,13.585],[-16.094,13.612],[-16.154,13.678],[-16.166,13.738],[-16.241,13.805],[-16.238,13.842],[-16.206,13.875],[-16.197,13.898],[-16.209,13.974],[-16.248,14.021],[-16.232,14.059],[-16.235,14.104],[-16.302,14.16],[-16.38,14.168],[-16.306,14.294],[-16.257,14.34],[-16.113,14.36],[-16.099,14.349],[-16.014,14.335],[-15.954,14.37],[-15.831,14.365],[-15.799,14.385],[-15.8,14.288],[-15.855,14.154],[-15.855,14.038],[-15.811,14.031],[-15.782,13.965],[-15.746,13.929],[-15.702,13.904],[-15.699,13.878],[-15.71,13.827],[-15.666,13.769],[-15.641,13.758],[-15.623,13.766],[-15.583,13.827],[-15.514,13.798],[-15.445,13.795],[-15.394,13.772],[-15.468,13.708],[-15.498,13.642]]]]}},{"type":"Feature","properties":{"c":"GMB","n":"Upper River"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-14.462,13.517],[-14.39,13.466],[-14.347,13.452],[-14.093,13.555],[-14.034,13.56],[-14.002,13.577],[-13.967,13.576],[-13.918,13.555],[-13.901,13.542],[-13.885,13.506],[-13.843,13.477],[-13.819,13.429],[-13.823,13.378],[-13.851,13.336],[-13.901,13.315],[-14.117,13.282],[-14.202,13.23],[-14.369,13.236],[-14.431,13.261],[-14.47,13.298],[-14.53,13.307],[-14.552,13.323],[-14.526,13.384],[-14.489,13.399],[-14.519,13.453],[-14.462,13.517]]]]}},{"type":"Feature","properties":{"c":"GMB","n":"Lower River"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.181,13.56],[-15.218,13.515],[-15.228,13.425],[-15.277,13.38],[-15.342,13.363],[-15.379,13.363],[-15.52,13.387],[-15.596,13.356],[-15.693,13.36],[-15.807,13.34],[-15.823,13.319],[-15.824,13.249],[-15.979,13.28],[-16.041,13.268],[-16.063,13.273],[-16.09,13.253],[-16.108,13.266],[-16.118,13.289],[-16.137,13.291],[-16.199,13.259],[-16.211,13.313],[-16.227,13.334],[-16.216,13.373],[-16.161,13.429],[-15.995,13.413],[-15.891,13.427],[-15.871,13.441],[-15.764,13.437],[-15.669,13.476],[-15.645,13.458],[-15.621,13.455],[-15.59,13.468],[-15.555,13.509],[-15.5,13.488],[-15.47,13.496],[-15.451,13.491],[-15.419,13.455],[-15.341,13.441],[-15.305,13.455],[-15.298,13.505],[-15.197,13.561],[-15.181,13.56]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Fatick"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-16.085,13.585],[-16.561,13.587],[-16.576,13.612],[-16.576,13.64],[-16.508,13.688],[-16.529,13.701],[-16.507,13.728],[-16.509,13.74],[-16.529,13.743],[-16.531,13.707],[-16.542,13.694],[-16.557,13.695],[-16.564,13.674],[-16.599,13.654],[-16.636,13.678],[-16.63,13.76],[-16.576,13.839],[-16.549,13.825],[-16.557,13.846],[-16.522,13.852],[-16.513,13.813],[-16.502,13.802],[-16.487,13.805],[-16.501,13.873],[-16.516,13.88],[-16.487,14.003],[-16.518,13.952],[-16.526,13.91],[-16.549,13.869],[-16.57,13.873],[-16.58,13.86],[-16.638,13.846],[-16.7,13.769],[-16.71,13.774],[-16.715,13.806],[-16.737,13.82],[-16.742,13.839],[-16.734,13.873],[-16.744,13.902],[-16.743,13.961],[-16.703,13.99],[-16.646,13.983],[-16.638,13.962],[-16.599,13.997],[-16.576,13.989],[-16.577,14.011],[-16.542,14.037],[-16.568,14.03],[-16.591,14.044],[-16.546,14.071],[-16.489,14.128],[-16.457,14.137],[-16.441,14.157],[-16.429,14.161],[-16.405,14.145],[-16.372,14.163],[-16.297,14.157],[-16.235,14.104],[-16.232,14.059],[-16.248,14.021],[-16.209,13.974],[-16.197,13.906],[-16.201,13.883],[-16.238,13.842],[-16.241,13.805],[-16.166,13.738],[-16.154,13.678],[-16.094,13.612],[-16.085,13.585]]],[[[-16.38,14.168],[-16.455,14.18],[-16.453,14.202],[-16.469,14.194],[-16.472,14.164],[-16.46,14.154],[-16.473,14.147],[-16.513,14.151],[-16.557,14.072],[-16.6,14.054],[-16.632,14.01],[-16.654,14.003],[-16.721,14.016],[-16.697,14.065],[-16.68,14.069],[-16.652,14.1],[-16.666,14.096],[-16.679,14.076],[-16.728,14.065],[-16.717,14.042],[-16.769,13.962],[-16.769,13.839],[-16.775,13.839],[-16.781,14.031],[-16.811,14.125],[-16.77,14.147],[-16.778,14.174],[-16.746,14.208],[-16.759,14.228],[-16.695,14.427],[-16.648,14.433],[-16.594,14.471],[-16.546,14.53],[-16.519,14.599],[-16.462,14.607],[-16.377,14.603],[-16.333,14.581],[-16.264,14.592],[-16.197,14.578],[-16.14,14.545],[-16.031,14.526],[-15.933,14.535],[-15.874,14.555],[-15.816,14.61],[-15.803,14.715],[-15.773,14.742],[-15.724,14.707],[-15.656,14.716],[-15.633,14.693],[-15.468,14.628],[-15.445,14.609],[-15.431,14.574],[-15.594,14.544],[-15.661,14.491],[-15.71,14.477],[-15.773,14.405],[-15.831,14.365],[-15.954,14.37],[-16.014,14.335],[-16.099,14.349],[-16.113,14.36],[-16.257,14.34],[-16.306,14.294],[-16.38,14.168]]]]}},{"type":"Feature","properties":{"c":"GMB","n":"West Coast"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.824,13.249],[-15.827,13.162],[-15.833,13.157],[-16.674,13.164],[-16.708,13.157],[-16.749,13.099],[-16.754,13.065],[-16.787,13.09],[-16.776,13.113],[-16.797,13.177],[-16.795,13.236],[-16.82,13.281],[-16.817,13.311],[-16.83,13.339],[-16.81,13.38],[-16.763,13.405],[-16.704,13.338],[-16.663,13.335],[-16.596,13.385],[-16.591,13.339],[-16.554,13.296],[-16.495,13.288],[-16.429,13.262],[-16.414,13.24],[-16.419,13.208],[-16.4,13.224],[-16.378,13.215],[-16.415,13.267],[-16.44,13.27],[-16.44,13.276],[-16.385,13.284],[-16.375,13.264],[-16.258,13.325],[-16.23,13.316],[-16.228,13.256],[-16.21,13.251],[-16.137,13.291],[-16.118,13.289],[-16.108,13.266],[-16.09,13.253],[-16.063,13.273],[-16.041,13.268],[-15.979,13.28],[-15.824,13.249]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Louga"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-16.735,15.477],[-16.67,15.562],[-16.539,15.774],[-16.541,15.806],[-16.378,15.809],[-16.304,15.839],[-16.257,15.845],[-16.226,15.905],[-16.168,15.938],[-16.151,15.969],[-16.116,15.997],[-15.922,16.103],[-15.891,16.147],[-15.841,16.182],[-15.591,15.921],[-15.434,15.932],[-15.427,15.999],[-14.854,15.997],[-14.757,15.95],[-14.705,15.954],[-14.592,15.877],[-14.541,15.805],[-14.661,15.707],[-14.741,15.678],[-14.748,15.496],[-14.785,15.442],[-14.618,15.358],[-14.534,15.369],[-14.585,15.123],[-14.542,15.102],[-14.621,15.079],[-14.734,15.065],[-14.803,15.039],[-14.774,14.941],[-14.73,14.847],[-14.766,14.774],[-14.81,14.745],[-14.824,14.665],[-14.863,14.638],[-14.898,14.677],[-14.915,14.673],[-15.02,14.613],[-15.063,14.6],[-15.097,14.603],[-15.249,14.633],[-15.3,14.651],[-15.416,14.72],[-15.442,14.747],[-15.459,14.838],[-15.547,14.835],[-15.621,14.857],[-15.7,14.848],[-15.718,14.862],[-15.73,14.902],[-15.776,14.927],[-15.792,14.953],[-15.81,14.963],[-15.817,15.001],[-16.077,15.002],[-16.1,14.996],[-16.132,14.969],[-16.182,14.991],[-16.199,15.01],[-16.212,15.053],[-16.252,15.104],[-16.264,15.139],[-16.268,15.209],[-16.286,15.242],[-16.318,15.236],[-16.332,15.307],[-16.344,15.318],[-16.451,15.321],[-16.51,15.247],[-16.528,15.203],[-16.591,15.134],[-16.609,15.128],[-16.623,15.145],[-16.621,15.191],[-16.662,15.219],[-16.691,15.26],[-16.723,15.282],[-16.72,15.343],[-16.69,15.427],[-16.7,15.451],[-16.735,15.477]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Thiès"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-17.182,14.897],[-17.139,14.928],[-16.878,15.233],[-16.735,15.477],[-16.7,15.451],[-16.69,15.427],[-16.72,15.343],[-16.723,15.282],[-16.691,15.26],[-16.662,15.219],[-16.621,15.191],[-16.623,15.145],[-16.614,15.131],[-16.595,15.131],[-16.528,15.203],[-16.51,15.247],[-16.451,15.321],[-16.344,15.318],[-16.332,15.307],[-16.318,15.236],[-16.286,15.242],[-16.268,15.209],[-16.262,15.129],[-16.212,15.053],[-16.199,15.01],[-16.182,14.991],[-16.132,14.969],[-16.136,14.956],[-16.193,14.926],[-16.226,14.924],[-16.242,14.931],[-16.254,14.961],[-16.315,15.0],[-16.363,14.994],[-16.399,15.012],[-16.659,14.935],[-16.678,14.878],[-16.645,14.856],[-16.643,14.786],[-16.613,14.76],[-16.618,14.724],[-16.592,14.702],[-16.587,14.686],[-16.621,14.636],[-16.62,14.624],[-16.603,14.609],[-16.531,14.581],[-16.546,14.53],[-16.594,14.471],[-16.648,14.433],[-16.695,14.427],[-16.759,14.228],[-16.746,14.208],[-16.778,14.174],[-16.77,14.147],[-16.811,14.125],[-16.83,14.154],[-16.879,14.175],[-16.899,14.26],[-16.945,14.301],[-16.94,14.356],[-16.957,14.39],[-16.988,14.421],[-17.059,14.454],[-17.111,14.53],[-17.148,14.613],[-17.131,14.76],[-17.182,14.897]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Dakar"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-17.148,14.613],[-17.207,14.679],[-17.331,14.736],[-17.417,14.738],[-17.44,14.722],[-17.419,14.709],[-17.44,14.688],[-17.427,14.675],[-17.44,14.654],[-17.536,14.757],[-17.371,14.8],[-17.322,14.839],[-17.182,14.897],[-17.129,14.75],[-17.148,14.613]]]]}},{"type":"Feature","properties":{"c":"GMB","n":"Banjul"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-16.763,13.405],[-16.679,13.496],[-16.671,13.479],[-16.652,13.468],[-16.635,13.477],[-16.601,13.472],[-16.585,13.443],[-16.613,13.439],[-16.624,13.427],[-16.596,13.385],[-16.663,13.335],[-16.704,13.338],[-16.763,13.405]]]]}},{"type":"Feature","properties":{"c":"SEN","n":"Diourbel"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-15.621,14.857],[-15.547,14.835],[-15.481,14.841],[-15.456,14.834],[-15.442,14.747],[-15.38,14.698],[-15.401,14.607],[-15.431,14.574],[-15.445,14.609],[-15.468,14.628],[-15.633,14.693],[-15.656,14.716],[-15.724,14.707],[-15.773,14.742],[-15.803,14.715],[-15.813,14.614],[-15.87,14.557],[-15.933,14.535],[-16.031,14.526],[-16.154,14.549],[-16.231,14.588],[-16.274,14.591],[-16.333,14.581],[-16.367,14.601],[-16.462,14.607],[-16.519,14.599],[-16.531,14.581],[-16.603,14.609],[-16.618,14.62],[-16.621,14.636],[-16.595,14.667],[-16.588,14.692],[-16.617,14.719],[-16.616,14.764],[-16.643,14.786],[-16.645,14.856],[-16.679,14.882],[-16.669,14.92],[-16.64,14.944],[-16.399,15.012],[-16.363,14.994],[-16.315,15.0],[-16.254,14.961],[-16.242,14.931],[-16.218,14.922],[-16.145,14.951],[-16.1,14.996],[-16.077,15.002],[-15.832,15.003],[-15.817,15.001],[-15.813,14.967],[-15.792,14.953],[-15.78,14.93],[-15.73,14.902],[-15.718,14.862],[-15.7,14.848],[-15.621,14.857]]]]}}]};
+
+const CATS={
+  bati:{label:"Architecture & bâti",icon:"building"},
+  culte:{label:"Patrimoine religieux",icon:"mosque"},
+  memoire:{label:"Musées & mémoire",icon:"gate"},
+  nature:{label:"Paysages & nature",icon:"leaf"},
+  immat:{label:"Patrimoine immatériel",icon:"mask"},
+  culture:{label:"Arts & culture",icon:"drum"}
+};
+const REGIONS_LIST=["Dakar","Diourbel","Fatick","Kaffrine","Kaolack","Kédougou","Kolda","Louga","Matam","Saint-Louis","Sédhiou","Tambacounda","Thiès","Ziguinchor"];
+const ICONS={
+  building:'<path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-5h6v5M9 12h.01M15 12h.01"/>',
+  fort:'<path d="M4 21V8h3v2h2V8h2v2h2V8h2v2h2V8h3v13zM10 21v-4a2 2 0 0 1 4 0v4"/>',
+  bridge:'<path d="M2 15h20M4 15v5M20 15v5M4 15c3-6 13-6 16 0M9 12v3M15 12v3"/>',
+  statue:'<path d="M8 21h8M10 21l1-11h2l1 11M12 10V7M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>',
+  museum:'<path d="M3 21h18M4 10h16M12 3l9 5H3zM6 10v8M10 10v8M14 10v8M18 10v8"/>',
+  gate:'<path d="M5 21V10a7 7 0 0 1 14 0v11M3 21h18M9 21v-8a3 3 0 0 1 6 0v8"/>',
+  stones:'<path d="M5 20v-8a2 2 0 0 1 4 0v8M10 20V8a2 2 0 0 1 4 0v12M15 20v-6a2 2 0 0 1 4 0v6M3 20h18"/>',
+  bird:'<path d="M3 14c3 0 5-5 9-5 2 0 3 1 3 1l6-1-3 3c0 4-3 7-8 7-3 0-5-1-7-5zM16 10.5h.01"/>',
+  leaf:'<path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15zM5 19l8-8"/>',
+  waves:'<path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0M7 7l2-3 2 3"/>',
+  hills:'<path d="M2 20l6-10 4 6 3-4 7 8zM16 6a2 2 0 1 0 0-.01"/>',
+  mosque:'<path d="M3 21h14M5 21v-6a5 5 0 0 1 10 0v6M10 10V7M19 21V9M18 9h2M19 9V5M8.5 21v-3a1.5 1.5 0 0 1 3 0v3"/>',
+  church:'<path d="M12 2v5M10 4h4M6 21V11l6-4 6 4v10M10 21v-4a2 2 0 0 1 4 0v4M4 21h16"/>',
+  mausoleum:'<path d="M4 21h16M6 21v-8h12v8M6 13a6 6 0 0 1 12 0M12 7V4M10 21v-4h4v4"/>',
+  tree:'<path d="M12 21v-6M12 15c-4 0-6-2.5-6-5.5S8.5 3 12 3s6 3 6 6.5S16 15 12 15zM9 21h6"/>',
+  mask:'<path d="M6 3h12v8a6 6 0 0 1-12 0zM9 9h.01M15 9h.01M10 14h4M12 17v4M8 21h8"/>',
+  eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>',
+  bowl:'<path d="M3 12h18a9 9 0 0 1-18 0zM8 8c0-2 2-2 2-4M14 8c0-2 2-2 2-4"/>',
+  drum:'<path d="M6 8c0-2 3-3 6-3s6 1 6 3-3 3-6 3-6-1-6-3zM6 8v6c0 3 3 6 6 6s6-3 6-6V8M8 11l2 8M16 11l-2 8M4 3l5 4M20 3l-5 4"/>',
+  lighthouse:'<path d="M9 21l1.5-13h3L15 21M8 21h8M10 8h4V5h-4zM12 5V3M5 6l3 1M19 6l-3 1M10.5 13h3"/>',
+  market:'<path d="M3 21h18M4 21V11l8-6 8 6v10M8 21v-6h8v6M12 5V2"/>',
+  falls:'<path d="M4 4h6v6c0 4 2 8 2 11M14 4h6M15 8v13M19 8v13M4 21h16"/>',
+  dunes:'<path d="M2 18c3-4 6-6 10-4s7 1 10-2M2 21h20M15 6a2 2 0 1 0 0-.01"/>',
+  plane:'<path d="M2 13l8-2 4-8 2 1-2 7 6-1 2 2-8 3-3 6-2-1 1-5-6 2z"/>',
+  palm:'<path d="M2 20c4-2 16-2 20 0M12 18V7M12 7c-3-1-6 0-7 2M12 7c3-1 6 0 7 2M12 7c-1-2-3-3-5-3M12 7c1-2 3-3 5-3"/>'
+};
+const svgIcon=(k,size=18)=>`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]||ICONS.building}</svg>`;
+
+const EDITO=[
+ {id:"goree",wh:26,dp:"Dakar",cm:"Gorée",wp:"Île de Gorée",i:"gate",n:"Île de Gorée",c:"memoire",r:"Dakar",lat:14.667,lon:-17.398,u:"1978",ep:"XVe – XIXe siècle",pr:"Patrimoine mondial UNESCO (1978)",
+  d:"Petite île au large de Dakar, Gorée fut du XVe au XIXe siècle l'un des principaux comptoirs de la traite atlantique, occupé successivement par les Portugais, les Hollandais, les Anglais et les Français. Ses maisons à balcons et ses ruelles sablonneuses en font aujourd'hui un lieu de mémoire et de réconciliation visité dans le monde entier."},
+ {id:"esclaves",wh:26,dp:"Dakar",cm:"Gorée",wp:"Maison des Esclaves",i:"gate",n:"Maison des Esclaves",c:"memoire",r:"Dakar",lat:14.6655,lon:-17.3992,ep:"Fin XVIIIe siècle",pr:"Dans le site UNESCO de Gorée",
+  d:"Maison de commerce construite à la fin du XVIIIe siècle, devenue musée-mémorial. Sa « porte du voyage sans retour » ouverte sur l'océan est l'un des symboles les plus forts de la mémoire de la traite. Le lieu a été longtemps animé par son conservateur Boubacar Joseph Ndiaye."},
+ {id:"goree-eglise",wh:26,dp:"Dakar",cm:"Gorée",wp:"",i:"church",n:"Église Saint-Charles-Borromée de Gorée",c:"culte",r:"Dakar",lat:14.6676,lon:-17.3968,ep:"1830",pr:"Dans le site UNESCO de Gorée",
+  d:"Petite église paroissiale de l'île de Gorée, au cœur du site classé. Sa façade sobre à fronton fait partie du paysage des ruelles de l'île."},
+ {id:"saintlouis",wh:956,dp:"Saint-Louis",cm:"Saint-Louis",wp:"Saint-Louis (Sénégal)",i:"building",n:"Île de Saint-Louis",c:"bati",r:"Saint-Louis",lat:16.027,lon:-16.505,u:"2000",ep:"1659 – XXe siècle",pr:"Patrimoine mondial UNESCO (2000)",
+  d:"Fondée en 1659 sur une île de l'embouchure du fleuve Sénégal, Saint-Louis fut la capitale de la colonie puis de l'Afrique-Occidentale française. Son plan en damier, ses maisons à balcons et galeries et ses quais témoignent d'une culture métisse singulière, celle des signares et des grandes familles saint-louisiennes."},
+ {id:"faidherbe",wh:956,dp:"Saint-Louis",cm:"Saint-Louis",wp:"Pont Faidherbe",i:"bridge",n:"Pont Faidherbe",c:"bati",r:"Saint-Louis",lat:16.0235,lon:-16.497,ep:"1897",pr:"Monument historique",
+  d:"Pont métallique de plus de 500 mètres reliant l'île de Saint-Louis au continent, inauguré en 1897. Sa travée tournante permettait le passage des navires. Entièrement réhabilité au début des années 2010, il reste l'emblème de la ville."},
+ {id:"sl-cathedrale",wh:956,dp:"Saint-Louis",cm:"Saint-Louis",wp:"Cathédrale de Saint-Louis du Sénégal",i:"church",n:"Cathédrale de Saint-Louis",c:"culte",r:"Saint-Louis",lat:16.0245,lon:-16.5065,ep:"1828",pr:"Monument historique",
+  d:"Considérée comme la plus ancienne église du Sénégal, elle a été édifiée en 1828 sur l'île de Saint-Louis. Sa façade néoclassique à colonnes a été restaurée au début des années 2020."},
+ {id:"sl-mosquee",wh:956,dp:"Saint-Louis",cm:"Saint-Louis",wp:"Grande mosquée de Saint-Louis",i:"mosque",n:"Grande Mosquée de Saint-Louis",c:"culte",r:"Saint-Louis",lat:16.0305,lon:-16.5045,ep:"Milieu du XIXe siècle",pr:"Monument historique",
+  d:"Mosquée du nord de l'île de Saint-Louis, reconnaissable à ses deux minarets et à l'horloge de sa façade, rare exemple de mosquée dotée d'une horloge publique."},
+ {id:"ceebu",ich:"01748",dp:"Saint-Louis",cm:"Saint-Louis",wp:"Thiéboudienne",i:"bowl",n:"Le ceebu jën",c:"immat",r:"Saint-Louis",lat:16.035,lon:-16.49,u:"2021",ep:"Tradition vivante",pr:"Patrimoine culturel immatériel UNESCO (2021)",
+  d:"Plat national à base de riz, de poisson et de légumes, dont l'origine est associée à Saint-Louis. Au-delà de la recette, l'UNESCO a reconnu les savoir-faire, les gestes de partage autour du bol commun et le rôle social du repas dans les familles sénégalaises."},
+ {id:"djoudj",wh:25,dp:"Dagana",cm:"Ross Béthio",wp:"Parc national des oiseaux du Djoudj",i:"bird",n:"Parc national des oiseaux du Djoudj",c:"nature",r:"Saint-Louis",lat:16.36,lon:-16.28,u:"1981",ep:"Créé en 1971",pr:"Patrimoine mondial UNESCO (1981)",
+  d:"Zone humide du delta du fleuve Sénégal, l'un des premiers sanctuaires d'oiseaux d'Afrique de l'Ouest. Des centaines de milliers d'oiseaux migrateurs venus d'Europe y hivernent : pélicans blancs, flamants, cormorans, hérons."},
+ {id:"podor",li:2078,dp:"Podor",cm:"Podor",wp:"Podor",i:"fort",n:"Fort de Podor",c:"bati",r:"Saint-Louis",lat:16.652,lon:-14.958,ep:"Milieu du XIXe siècle",pr:"Monument historique · Liste indicative « Escales du fleuve Sénégal » (2005)",
+  d:"Fort érigé sur la rive gauche du fleuve Sénégal pour contrôler le commerce de la gomme arabique. Les quais de Podor, avec leurs anciennes maisons de commerce, rappellent l'activité des escales du fleuve."},
+ {id:"bakel",dp:"Bakel",cm:"Bakel",wp:"Bakel",i:"fort",n:"Fort de Bakel",c:"bati",r:"Tambacounda",lat:14.902,lon:-12.458,ep:"XIXe siècle",pr:"Monument historique",
+  d:"Poste militaire et commercial perché sur une colline au bord du fleuve, aux confins du Sénégal, du Mali et de la Mauritanie. Bakel fut une escale importante du commerce fluvial en pays soninké."},
+ {id:"niokolo",wh:153,dp:"Tambacounda",cm:"Dialacoto",wp:"Parc national du Niokolo-Koba",i:"leaf",n:"Parc national du Niokolo-Koba",c:"nature",r:"Tambacounda",lat:13.07,lon:-12.72,u:"1981",ep:"Créé en 1954",pr:"Patrimoine mondial UNESCO (1981), inscrit sur la Liste en péril de 2007 à 2024",
+  d:"Plus grand parc national du pays, traversé par la Gambie et ses affluents. Forêts galeries, savanes et collines abritent éléphants, lions, hippopotames, chimpanzés et élans de Derby."},
+ {id:"bassari",wh:1407,dp:"Salémata",cm:"Salémata",wp:"Pays Bassari",i:"hills",n:"Pays Bassari",c:"nature",r:"Kédougou",lat:12.58,lon:-12.85,u:"2012",ep:"Paysage culturel vivant",pr:"Patrimoine mondial UNESCO (2012)",
+  d:"Paysages culturels bassari, peul et bédik dans les collines du Sénégal oriental. Villages perchés, terrasses agricoles, rites d'initiation et masques témoignent d'une relation ancienne entre les communautés et leur environnement."},
+ {id:"saloum",wh:1359,dp:"Foundiougne",cm:"Toubacouta",wp:"Delta du Saloum",i:"waves",n:"Delta du Saloum",c:"nature",r:"Fatick",lat:13.8,lon:-16.55,u:"2011",ep:"Amas coquilliers millénaires",pr:"Patrimoine mondial UNESCO (2011)",
+  d:"Mosaïque de bolongs, de mangroves et d'îles où pêcheurs et cueilleuses de coquillages vivent depuis plus de deux mille ans. Plus de deux cents amas coquilliers, dont certains portent des tumulus funéraires, gardent la trace de cette occupation."},
+ {id:"ngayene",wh:1226,dp:"Nioro du Rip",cm:"",wp:"Cercles mégalithiques de Sénégambie",i:"stones",n:"Cercles mégalithiques de Sine Ngayène",c:"memoire",r:"Kaolack",lat:13.69,lon:-15.53,u:"2006",ep:"IIIe s. av. J.-C. – XVIe s.",pr:"Patrimoine mondial UNESCO (2006)",
+  d:"Un des plus grands ensembles de cercles de pierres levées de Sénégambie, avec plus de cinquante cercles. Ces monuments funéraires taillés dans la latérite forment avec ceux de Gambie la plus forte concentration de mégalithes au monde."},
+ {id:"wanar",wh:1226,dp:"Kaffrine",cm:"",wp:"Cercles mégalithiques de Sénégambie",i:"stones",n:"Cercles mégalithiques de Wanar",c:"memoire",r:"Kaffrine",lat:13.8,lon:-15.53,u:"2006",ep:"Ier millénaire",pr:"Patrimoine mondial UNESCO (2006)",
+  d:"Vingt-et-un cercles de pierres levées, dont plusieurs pierres en forme de lyre. Le site appartient au bien « Cercles mégalithiques de Sénégambie »."},
+ {id:"xooy",ich:"00878",dp:"Fatick",cm:"Fatick",wp:"Xooy",i:"eye",n:"Le Xooy des Sereer",c:"immat",r:"Fatick",lat:14.34,lon:-16.41,u:"2013",ep:"Tradition vivante",pr:"Patrimoine culturel immatériel UNESCO (2013)",
+  d:"Cérémonie divinatoire sereer tenue chaque année avant la saison des pluies. Les saltigués, maîtres de la parole et de la divination, y livrent leurs prédictions sur les pluies, les récoltes et la vie de la communauté."},
+ {id:"joal",dp:"Mbour",cm:"Joal-Fadiouth",wp:"Joal-Fadiouth",i:"palm",n:"Joal-Fadiouth et son cimetière mixte",c:"culte",r:"Thiès",lat:14.162,lon:-16.83,ep:"Village historique",pr:"Site culturel",
+  d:"L'île de Fadiouth, bâtie sur un amas de coquillages et reliée à Joal par un pont de bois, est réputée pour son cimetière partagé par chrétiens et musulmans, symbole de la coexistence religieuse au Sénégal. Joal est aussi la ville natale de Léopold Sédar Senghor."},
+ {id:"popenguine",dp:"Mbour",cm:"Popenguine-Ndayane",wp:"Basilique Notre-Dame-de-la-Délivrance de Popenguine",i:"church",n:"Basilique Notre-Dame de la Délivrance de Popenguine",c:"culte",r:"Thiès",lat:14.553,lon:-17.112,ep:"Pèlerinage depuis 1888",pr:"Lieu de pèlerinage",
+  d:"Sanctuaire marial de la Petite Côte, but du grand pèlerinage catholique de Pentecôte qui réunit chaque année des dizaines de milliers de fidèles venus de tout le pays et de la sous-région."},
+ {id:"keurmoussa",dp:"Thiès",cm:"Keur Moussa",wp:"Abbaye de Keur Moussa",i:"church",n:"Abbaye de Keur Moussa",c:"culte",r:"Thiès",lat:14.78,lon:-17.11,ep:"Fondée en 1963",pr:"Lieu de culte",
+  d:"Monastère bénédictin installé dans la campagne de Thiès. Ses moines ont adapté la liturgie aux instruments africains, et la kora de Keur Moussa est connue bien au-delà du Sénégal."},
+ {id:"tivaouane",dp:"Tivaouane",cm:"Tivaouane",wp:"Tivaouane",i:"mosque",n:"Grande Mosquée de Tivaouane",c:"culte",r:"Thiès",lat:14.951,lon:-16.82,ep:"XXe siècle",pr:"Lieu de culte",
+  d:"Cœur de la confrérie tidjane fondée au Sénégal par El Hadji Malick Sy. Tivaouane accueille chaque année le Gamou, célébration de la naissance du Prophète, qui attire des foules considérables."},
+ {id:"medinabaye",dp:"Kaolack",cm:"Kaolack",wp:"Médina Baye",i:"mosque",n:"Grande Mosquée de Médina Baye",c:"culte",r:"Kaolack",lat:14.152,lon:-16.08,ep:"XXe siècle",pr:"Lieu de culte",
+  d:"Mosquée de la cité religieuse fondée par Cheikh Ibrahima Niasse dans les années 1930 à Kaolack. Elle est un centre majeur de la confrérie tidjane, qui rayonne bien au-delà du Sénégal."},
+ {id:"touba",dp:"Mbacké",cm:"Touba Mosquée",wp:"Grande mosquée de Touba",i:"mosque",n:"Grande Mosquée de Touba",c:"culte",r:"Diourbel",lat:14.858,lon:-15.876,ep:"Inaugurée en 1963",pr:"Lieu de culte",
+  d:"Ville sainte fondée par Cheikh Ahmadou Bamba, fondateur du mouridisme. Sa Grande Mosquée et son haut minaret accueillent chaque année des millions de pèlerins lors du Grand Magal."},
+ {id:"gounass",dp:"Vélingara",cm:"Médina Gounass",wp:"Médina Gounass",i:"mosque",n:"Médina Gounass",c:"culte",r:"Kolda",lat:13.13,lon:-13.82,ep:"Fondée en 1936",pr:"Cité religieuse",
+  d:"Cité religieuse du Fouladou fondée par Thierno Mouhamadou Saïdou Ba. Elle accueille chaque année le Daaka, grande retraite spirituelle en brousse qui réunit des fidèles de toute l'Afrique de l'Ouest."},
+ {id:"lacrose",li:2080,dp:"Rufisque",cm:"Bambylor",wp:"Lac Rose",i:"waves",n:"Lac Rose (lac Retba)",c:"nature",r:"Dakar",lat:14.84,lon:-17.23,ep:"Paysage",pr:"Site naturel · Liste indicative du patrimoine mondial (2005)",
+  d:"Lagune très salée séparée de l'océan par un cordon de dunes, dont la couleur rose est due à une micro-algue. Les récoltants de sel y travaillent à la main depuis des décennies."},
+ {id:"renaissance",dp:"Dakar",cm:"Ouakam",wp:"Monument de la Renaissance africaine",i:"statue",n:"Monument de la Renaissance africaine",c:"bati",r:"Dakar",lat:14.722,lon:-17.495,ep:"2010",pr:"Monument national",
+  d:"Statue de bronze de 52 mètres dressée sur l'une des collines des Mamelles et inaugurée en 2010 pour le cinquantenaire des indépendances. Elle domine la presqu'île du Cap-Vert."},
+ {id:"divinite",dp:"Dakar",cm:"Ouakam",wp:"Mosquée de la Divinité",i:"mosque",n:"Mosquée de la Divinité",c:"culte",r:"Dakar",lat:14.7235,lon:-17.511,ep:"Fin du XXe siècle",pr:"Lieu de culte",
+  d:"Mosquée blanche aux deux minarets bâtie au bord de l'océan, au pied des falaises de Ouakam. Sa silhouette face à la mer est l'une des images les plus connues de Dakar."},
+ {id:"layene",dp:"Dakar",cm:"Cambérène",wp:"Layène",i:"mausoleum",n:"Mausolée de Seydina Limamou Laye",c:"culte",r:"Dakar",lat:14.777,lon:-17.43,ep:"Début du XXe siècle",pr:"Lieu de pèlerinage",
+  d:"Lieu saint de la confrérie layène, fondée à la fin du XIXe siècle à Yoff par Seydina Limamou Laye. Les communautés lébou de Yoff et Cambérène y célèbrent chaque année l'Appel de Seydina Limamou."},
+ {id:"massalikoul",dp:"Dakar",cm:"Gueule Tapée-Fass-Colobane",wp:"Mosquée Massalikoul Djinane",i:"mosque",n:"Mosquée Massalikoul Djinane",c:"culte",r:"Dakar",lat:14.7005,lon:-17.4515,ep:"Inaugurée en 2019",pr:"Lieu de culte",
+  d:"Une des plus grandes mosquées d'Afrique de l'Ouest, édifiée par la communauté mouride au cœur de Dakar. Son nom reprend le titre d'un poème de Cheikh Ahmadou Bamba."},
+ {id:"mcn",dp:"Dakar",cm:"Dakar-Plateau",wp:"Musée des civilisations noires",i:"museum",n:"Musée des Civilisations noires",c:"memoire",r:"Dakar",lat:14.677,lon:-17.438,ep:"2018",pr:"Musée national",
+  d:"Musée inauguré en 2018, réalisant un projet porté dès le Festival mondial des arts nègres de 1966. Il présente les cultures africaines et de la diaspora, de la préhistoire à l'art contemporain."},
+ {id:"ifan",dp:"Dakar",cm:"Dakar-Plateau",wp:"Musée Théodore-Monod d'art africain",i:"museum",n:"Musée Théodore Monod d'art africain",c:"memoire",r:"Dakar",lat:14.663,lon:-17.434,ep:"Bâtiment de 1931",pr:"Musée (IFAN)",
+  d:"Un des plus anciens musées d'Afrique de l'Ouest, rattaché à l'Institut fondamental d'Afrique noire. Masques, textiles, instruments et objets rituels y sont conservés."},
+ {id:"gare",dp:"Dakar",cm:"Dakar-Plateau",wp:"Gare de Dakar",i:"building",n:"Gare de Dakar",c:"bati",r:"Dakar",lat:14.674,lon:-17.428,ep:"1914",pr:"Patrimoine bâti",
+  d:"Gare d'architecture néo-soudanaise ouverte sur la ligne Dakar–Niger. Restaurée, elle accueille aujourd'hui le Train express régional."},
+ {id:"cathedrale",dp:"Dakar",cm:"Dakar-Plateau",wp:"Cathédrale du Souvenir africain",i:"church",n:"Cathédrale du Souvenir africain",c:"culte",r:"Dakar",lat:14.672,lon:-17.442,ep:"Consacrée en 1936",pr:"Lieu de culte",
+  d:"Cathédrale de Dakar, dont l'architecture mêle influences néo-byzantines et soudanaises. Elle a été construite à la mémoire des missionnaires et des Africains morts pour la foi."},
+ {id:"grandemosquee",dp:"Dakar",cm:"Médina",wp:"Grande mosquée de Dakar",i:"mosque",n:"Grande Mosquée de Dakar",c:"culte",r:"Dakar",lat:14.681,lon:-17.449,ep:"Inaugurée en 1964",pr:"Lieu de culte",
+  d:"Mosquée de la Médina de Dakar, réalisée avec des artisans marocains et inaugurée en 1964. Son minaret de près de 70 mètres est un repère de la ville."},
+ {id:"carabane",li:2075,dp:"Oussouye",cm:"Diembéring",wp:"Carabane",i:"palm",n:"Île de Carabane",c:"memoire",r:"Ziguinchor",lat:12.54,lon:-16.70,ep:"Comptoir fondé en 1836",pr:"Liste indicative du patrimoine mondial (2005)",
+  d:"Île de l'embouchure de la Casamance où s'installa un comptoir français au XIXe siècle. On y voit les vestiges d'une église bretonne, d'une mission et de bâtiments de commerce au milieu des fromagers."},
+ {id:"enampore",li:2076,dp:"Ziguinchor",cm:"Enampore",wp:"Enampore",i:"building",n:"Case à impluvium d'Enampore",c:"bati",r:"Ziguinchor",lat:12.56,lon:-16.43,ep:"Architecture traditionnelle",pr:"Liste indicative du patrimoine mondial (2005), « cases à impluvium du royaume Bandial »",
+  d:"Grande case diola en banco, de plan circulaire, dont le toit en entonnoir recueille l'eau de pluie dans un bassin central. Elle illustre l'ingéniosité de l'architecture de Basse-Casamance."},
+ {id:"zig-cathedrale",dp:"Ziguinchor",cm:"Ziguinchor",wp:"Cathédrale Saint-Antoine-de-Padoue de Ziguinchor",i:"church",n:"Cathédrale Saint-Antoine-de-Padoue de Ziguinchor",c:"culte",r:"Ziguinchor",lat:12.5835,lon:-16.271,ep:"XXe siècle",pr:"Lieu de culte",
+  d:"Cathédrale du diocèse de Ziguinchor, au centre de la ville. Elle témoigne de l'ancienneté du christianisme en Casamance, où il cohabite avec l'islam et les religions traditionnelles."},
+ {id:"oussouye",dp:"Oussouye",cm:"Oussouye",wp:"Oussouye",i:"tree",n:"Royaume d'Oussouye et bois sacrés",c:"culte",r:"Ziguinchor",lat:12.485,lon:-16.546,ep:"Tradition vivante",pr:"Sites sacrés",
+  d:"En pays diola, le roi d'Oussouye est une autorité spirituelle gardienne des traditions. Les bois sacrés qui entourent les villages sont des lieux d'initiation et de culte des ancêtres, protégés par les communautés."},
+ {id:"kankurang",ich:"00190",dp:"Sédhiou",cm:"Sédhiou",wp:"Kankurang",i:"mask",n:"Le Kankurang, rite d'initiation mandingue",c:"immat",r:"Sédhiou",lat:12.71,lon:-15.56,u:"2008",ep:"Tradition vivante",pr:"Patrimoine culturel immatériel UNESCO (2008)",
+  d:"Personnage masqué vêtu de fibres d'écorce, gardien de l'ordre social et protecteur des initiés lors des cérémonies de circoncision chez les Mandingues de Casamance et de Mbour."},
+ {id:"sorano",dp:"Dakar",cm:"Dakar-Plateau",wp:"Théâtre national Daniel-Sorano",i:"drum",n:"Théâtre national Daniel Sorano",c:"culture",r:"Dakar",lat:14.6672,lon:-17.4378,ep:"Inauguré en 1965",pr:"Établissement culturel national",
+  d:"Grande scène nationale du Sénégal, créée au lendemain de l'indépendance. Elle accueille l'Ensemble lyrique traditionnel, le Ballet national La Linguère et la troupe dramatique nationale."},
+ {id:"villagearts",dp:"Dakar",cm:"Yoff",wp:"Village des arts de Dakar",i:"drum",n:"Village des Arts de Dakar",c:"culture",r:"Dakar",lat:14.745,lon:-17.466,ep:"Fin du XXe siècle",pr:"Lieu culturel",
+  d:"Cité d'artistes où peintres, sculpteurs et photographes travaillent dans des ateliers ouverts au public. Un lieu central de la création contemporaine à Dakar, notamment pendant la Biennale."},
+ {id:"dakart",dp:"Dakar",cm:"Dakar-Plateau",wp:"Biennale de Dakar",i:"museum",n:"Biennale de l'art africain contemporain (Dak'Art)",c:"culture",r:"Dakar",lat:14.6595,lon:-17.4325,ep:"Depuis 1990",pr:"Manifestation culturelle",
+  d:"Grande biennale consacrée à l'art contemporain africain, organisée à Dakar depuis 1990. Son exposition internationale se tient notamment dans l'ancien Palais de justice du Cap Manuel."},
+ {id:"msad",dp:"Thiès",cm:"Thiès",wp:"Manufactures sénégalaises des arts décoratifs",i:"building",n:"Manufacture des arts décoratifs de Thiès",c:"culture",r:"Thiès",lat:14.793,lon:-16.935,ep:"Créée en 1966",pr:"Établissement culturel",
+  d:"Atelier de tapisserie créé à l'initiative de Léopold Sédar Senghor. Des tapisseries tissées à la main d'après des œuvres d'artistes sénégalais y sont réalisées et offertes dans le monde entier."},
+ {id:"guetndar",dp:"Saint-Louis",cm:"Saint-Louis",wp:"Guet Ndar",i:"palm",n:"Guet Ndar, quartier des pêcheurs",c:"culture",r:"Saint-Louis",lat:16.018,lon:-16.512,ep:"Quartier historique",pr:"Patrimoine vivant",
+  d:"Sur la Langue de Barbarie, face à l'île de Saint-Louis, le quartier de Guet Ndar vit au rythme de la pêche artisanale. Ses centaines de pirogues peintes forment l'un des paysages les plus photographiés du pays."},
+ {id:"jazz",dp:"Saint-Louis",cm:"Saint-Louis",wp:"Festival international de jazz de Saint-Louis",i:"drum",n:"Festival international de jazz de Saint-Louis",c:"culture",r:"Saint-Louis",lat:16.0262,lon:-16.502,ep:"Depuis 1993",pr:"Manifestation culturelle",
+  d:"Un des grands festivals de jazz du continent, qui fait résonner chaque année les places et les cours de l'île de Saint-Louis."},
+ {id:"lutte",dp:"Pikine",cm:"",wp:"Lutte sénégalaise",i:"drum",n:"La lutte sénégalaise (làmb)",c:"culture",r:"Dakar",lat:14.757,lon:-17.402,ep:"Tradition vivante",pr:"Pratique culturelle",
+  d:"Sport national mêlant lutte, frappe, chants, danses et rituels protecteurs. Les grands combats remplissent l'Arène nationale de Pikine et rassemblent tout le pays devant les écrans."},
+ {id:"sabar",dp:"Dakar",cm:"Médina",wp:"Sabar",i:"drum",n:"Le sabar, danse et percussions",c:"immat",r:"Dakar",lat:14.689,lon:-17.452,ep:"Tradition vivante",pr:"Pratique culturelle",
+  d:"Ensemble de tambours wolof et danse qui l'accompagne, au cœur des fêtes de quartier, des baptêmes et des mariages. Les familles de griots en transmettent les rythmes de génération en génération."},
+ {id:"magal",dp:"Mbacké",cm:"Touba Mosquée",wp:"Grand Magal de Touba",i:"mosque",n:"Le Grand Magal de Touba",c:"immat",r:"Diourbel",lat:14.848,lon:-15.894,ep:"Chaque année, 18 Safar",pr:"Pèlerinage",
+  d:"Pèlerinage annuel commémorant le départ en exil de Cheikh Ahmadou Bamba en 1895. Il rassemble à Touba plusieurs millions de fidèles, ce qui en fait l'un des plus grands rassemblements religieux d'Afrique."},
+ {id:"senghor",dp:"Dakar",cm:"Fann-Point E-Amitié",wp:"",i:"building",n:"Maison-musée Léopold Sédar Senghor",c:"memoire",r:"Dakar",lat:14.6935,lon:-17.4665,ep:"Ouverte au public en 2014",pr:"Musée",
+  d:"Résidence dakaroise du premier président du Sénégal et poète de la négritude, transformée en musée. Mobilier, bibliothèque et souvenirs y sont conservés en l'état."},
+ {id:"thiaroye",dp:"Pikine",cm:"Thiaroye Gare",wp:"Massacre de Thiaroye",i:"stones",n:"Cimetière militaire de Thiaroye",c:"memoire",r:"Dakar",lat:14.752,lon:-17.364,ep:"1944",pr:"Lieu de mémoire",
+  d:"Lieu de mémoire des tirailleurs sénégalais tués au camp de Thiaroye le 1er décembre 1944, alors qu'ils réclamaient leurs soldes au retour de la guerre. Une commémoration nationale s'y tient chaque année."},
+ {id:"musee-goree",wh:26,dp:"Dakar",cm:"Gorée",wp:"Fort d'Estrées",i:"fort",n:"Musée historique du Sénégal (fort d'Estrées)",c:"memoire",r:"Dakar",lat:14.6705,lon:-17.3988,ep:"Fort du XIXe siècle",pr:"Dans le site UNESCO de Gorée",
+  d:"Fort circulaire du nord de l'île de Gorée, devenu musée d'histoire. Il retrace l'histoire du Sénégal de la préhistoire à l'indépendance."},
+ {id:"palais",dp:"Dakar",cm:"Dakar-Plateau",wp:"Palais présidentiel (Sénégal)",i:"museum",n:"Palais de la République",c:"bati",r:"Dakar",lat:14.6638,lon:-17.4355,ep:"1907",pr:"Monument historique",
+  d:"Ancien palais du gouverneur général de l'Afrique-Occidentale française, devenu résidence du président de la République. Ses jardins et sa façade blanche dominent la corniche du Plateau."},
+ {id:"hoteldeville",dp:"Dakar",cm:"Dakar-Plateau",wp:"Hôtel de ville de Dakar",i:"building",n:"Hôtel de ville de Dakar",c:"bati",r:"Dakar",lat:14.6678,lon:-17.4318,ep:"1914",pr:"Patrimoine bâti",
+  d:"Édifice municipal de style colonial sur la place de l'Indépendance, siège de la ville de Dakar."},
+ {id:"kermel",dp:"Dakar",cm:"Dakar-Plateau",wp:"Marché Kermel",i:"market",n:"Marché Kermel",c:"bati",r:"Dakar",lat:14.6705,lon:-17.4295,ep:"1910, reconstruit en 1997",pr:"Patrimoine bâti",
+  d:"Halle de marché à structure métallique et faïences, dans le quartier du Plateau. Détruite par un incendie en 1993, elle a été reconstruite à l'identique."},
+ {id:"phare",dp:"Dakar",cm:"Ouakam",wp:"Phare des Mamelles",i:"lighthouse",n:"Phare des Mamelles",c:"bati",r:"Dakar",lat:14.7265,lon:-17.5005,ep:"1864",pr:"Monument historique",
+  d:"Phare perché sur la plus haute des deux collines des Mamelles, à l'extrémité ouest de l'Afrique continentale. Il offre une vue sur toute la presqu'île du Cap-Vert."},
+ {id:"kaolack-marche",dp:"Kaolack",cm:"Kaolack",wp:"Kaolack",i:"market",n:"Marché central de Kaolack",c:"bati",r:"Kaolack",lat:14.1465,lon:-16.0745,ep:"Années 1950",pr:"Patrimoine bâti",
+  d:"Un des plus grands marchés couverts d'Afrique de l'Ouest, avec ses galeries à arcades de style soudanais. Il témoigne du rôle commercial de Kaolack au cœur du bassin arachidier."},
+ {id:"mlomp",dp:"Oussouye",cm:"Mlomp",wp:"Mlomp",i:"building",n:"Cases à étage de Mlomp",c:"bati",r:"Ziguinchor",lat:12.553,lon:-16.59,ep:"Architecture traditionnelle",pr:"Patrimoine bâti",
+  d:"En pays diola, ces grandes maisons en banco à étage, rares en Afrique de l'Ouest, témoignent du savoir-faire des bâtisseurs de Basse-Casamance."},
+ {id:"diourbel",dp:"Diourbel",cm:"Diourbel",wp:"Diourbel",i:"mosque",n:"Grande Mosquée de Diourbel",c:"culte",r:"Diourbel",lat:14.656,lon:-16.232,ep:"Années 1920",pr:"Lieu de culte",
+  d:"Mosquée édifiée à l'initiative de Cheikh Ahmadou Bamba pendant sa résidence surveillée à Diourbel. Elle est l'un des premiers grands sanctuaires mourides."},
+ {id:"leona",dp:"Kaolack",cm:"Kaolack",wp:"",i:"mosque",n:"Mosquée de Léona Niassène",c:"culte",r:"Kaolack",lat:14.141,lon:-16.083,ep:"Début du XXe siècle",pr:"Lieu de culte",
+  d:"Mosquée de la famille niassène à Kaolack, foyer historique de la confrérie tidjane, voisin de Médina Baye."},
+ {id:"ngasobil",dp:"Mbour",cm:"Joal-Fadiouth",wp:"Ngasobil",i:"church",n:"Mission de Ngasobil",c:"culte",r:"Thiès",lat:14.13,lon:-16.795,ep:"Fondée au XIXe siècle",pr:"Lieu de culte",
+  d:"Mission catholique proche de Joal, l'une des plus anciennes du pays. Le jeune Léopold Sédar Senghor y fit une partie de ses études."},
+ {id:"madeleine",li:2077,dp:"Dakar",cm:"Fann-Point E-Amitié",wp:"Parc national des îles de la Madeleine",i:"palm",n:"Parc national des îles de la Madeleine",c:"nature",r:"Dakar",lat:14.656,lon:-17.474,ep:"Créé en 1976",pr:"Parc national · Liste indicative du patrimoine mondial (2005)",
+  d:"Petit archipel volcanique au large de Dakar, l'un des plus petits parcs nationaux au monde. Il abrite des colonies d'oiseaux marins et des baobabs nains."},
+ {id:"bandia",dp:"Mbour",cm:"Sindia",wp:"Réserve de Bandia",i:"leaf",n:"Réserve de Bandia",c:"nature",r:"Thiès",lat:14.58,lon:-17.01,ep:"Créée en 1990",pr:"Réserve privée",
+  d:"Réserve animalière au milieu des baobabs, à une heure de Dakar, où ont été réintroduits girafes, rhinocéros, zèbres et antilopes."},
+ {id:"barbarie",dp:"Saint-Louis",cm:"Gandon",wp:"Parc national de la Langue de Barbarie",i:"bird",n:"Parc national de la Langue de Barbarie",c:"nature",r:"Saint-Louis",lat:15.92,lon:-16.505,ep:"Créé en 1976",pr:"Parc national",
+  d:"Flèche de sable entre l'océan et l'estuaire du fleuve Sénégal, refuge de sternes, goélands et tortues marines."},
+ {id:"lompoul",dp:"Kébémer",cm:"",wp:"Désert de Lompoul",i:"dunes",n:"Désert de Lompoul",c:"nature",r:"Louga",lat:15.42,lon:-16.67,ep:"Paysage",pr:"Site naturel",
+  d:"Massif de dunes de sable orangé à quelques kilomètres de l'océan, sur la Grande Côte. Un paysage de désert inattendu entre Dakar et Saint-Louis."},
+ {id:"dindefelo",dp:"Kédougou",cm:"Dindéfélo",wp:"Dindéfélo",i:"falls",n:"Cascade de Dindéfélo",c:"nature",r:"Kédougou",lat:12.38,lon:-12.33,ep:"Paysage",pr:"Réserve naturelle communautaire",
+  d:"Chute d'eau d'une centaine de mètres dans les contreforts du Fouta-Djalon, gérée par la communauté villageoise. Des chimpanzés vivent dans les forêts alentour."},
+ {id:"basse-casamance",dp:"Oussouye",cm:"",wp:"Parc national de Basse-Casamance",i:"tree",n:"Parc national de Basse-Casamance",c:"nature",r:"Ziguinchor",lat:12.42,lon:-16.6,ep:"Créé en 1970",pr:"Parc national",
+  d:"Forêts denses, mangroves et marigots du sud du pays, parmi les milieux les plus humides du Sénégal."},
+ {id:"aeropostale",dp:"Saint-Louis",cm:"Saint-Louis",wp:"Aéropostale (compagnie aérienne)",li:2072,i:"plane",n:"L'Aéropostale à Saint-Louis",c:"memoire",r:"Saint-Louis",lat:16.0252,lon:-16.5036,ep:"1925 – 1930",pr:"Liste indicative du patrimoine mondial (2005)",
+  d:"Traces de la ligne aérienne lancée en 1918 par Georges Latécoère pour relier la France, le Sénégal et l'Amérique du Sud. La liaison Dakar–Buenos Aires est inaugurée en 1925. À Saint-Louis subsistent l'hydrobase et l'Hôtel de la Poste où logeaient les équipages, dont Jean Mermoz et Antoine de Saint-Exupéry ; à Dakar, l'hydrobase, la première tour de contrôle et des plaques commémoratives."},
+ {id:"dagana",dp:"Dagana",cm:"Dagana",wp:"Dagana",li:2078,i:"fort",n:"Escale de Dagana",c:"bati",r:"Saint-Louis",lat:16.517,lon:-15.505,ep:"XIXe siècle",pr:"Liste indicative « Escales du fleuve Sénégal » (2005)",
+  d:"Une des principales escales du fleuve Sénégal, avec son quai, son poste fortifié et ses anciennes maisons de commerce. Les escales étaient l'arrière-pays commercial de Saint-Louis : gomme arabique, cuirs et ivoire y étaient échangés."},
+ {id:"richardtoll",dp:"Dagana",cm:"Richard Toll",wp:"Richard Toll",li:2078,i:"building",n:"Escale de Richard Toll et folie du baron Roger",c:"bati",r:"Saint-Louis",lat:16.462,lon:-15.697,ep:"XIXe siècle",pr:"Liste indicative « Escales du fleuve Sénégal » (2005)",
+  d:"Escale du fleuve née d'un jardin d'essai agricole créé dans les années 1820. Le château du baron Roger, gouverneur du Sénégal, en reste le témoin le plus connu, au bord de la Taouey."},
+ {id:"salde",dp:"Podor",cm:"Saldé",wp:"Saldé",li:2078,i:"fort",n:"Escale de Saldé",c:"bati",r:"Saint-Louis",lat:16.165,lon:-13.875,ep:"XIXe siècle",pr:"Liste indicative « Escales du fleuve Sénégal » (2005)",
+  d:"Escale du Fouta sur le fleuve Sénégal, dotée d'un poste fortifié au XIXe siècle pour contrôler la navigation et le commerce de la vallée."},
+ {id:"matam-escale",dp:"Matam",cm:"Matam",wp:"Matam",li:2078,i:"fort",n:"Escale de Matam",c:"bati",r:"Matam",lat:15.656,lon:-13.256,ep:"XIXe siècle",pr:"Liste indicative « Escales du fleuve Sénégal » (2005)",
+  d:"Escale de la moyenne vallée du fleuve, avec son quai et ses bâtiments de commerce et d'administration. Elle compte parmi les plus importantes escales citées par la Liste indicative."},
+ {id:"cekeen",dp:"Diourbel",cm:"",wp:"",li:2079,i:"hills",n:"Tumulus de Cekeen (Thiékène)",c:"memoire",r:"Diourbel",lat:14.70,lon:-15.95,ep:"Protohistoire",pr:"Liste indicative du patrimoine mondial (2005)",
+  d:"Ensemble de 56 tertres funéraires en sable, appelés mbanaar en wolof, dont le plus haut, « Wago Fal », atteint environ 12 mètres. Le Sénégal compte plus de 10 000 tumulus recensés, l'une des plus fortes concentrations d'Afrique ; Cekeen en est le site le plus remarquable."},
+ {id:"rufisque",dp:"Rufisque",cm:"Rufisque",wp:"Rufisque",li:2081,i:"building",n:"Le Vieux Rufisque",c:"bati",r:"Dakar",lat:14.6842,lon:-17.1866,ep:"XVIe – XIXe siècle",pr:"Liste indicative du patrimoine mondial (2005)",
+  d:"Ancien village de pêcheurs devenu au XIXe siècle un grand port arachidier et l'une des « Quatre communes » du Sénégal (commune de plein exercice en 1880). Le quartier de l'Escale conserve les villas et maisons des grands négociants, entre les quartiers lébou."}
+];
+
+let SITES=EDITO.slice();
+
+const PARCOURS=[
+ {t:"Mémoire atlantique, de Gorée à Dakar",dur:"1 journée",km:"Dakar et Gorée",ids:["goree","esclaves","goree-eglise","ifan","gare","cathedrale","grandemosquee","mcn","renaissance"],
+  d:"De la traversée en chaloupe vers Gorée aux musées du centre de Dakar : mémoire de la traite, ville coloniale et affirmation culturelle africaine."},
+ {t:"Dakar des croyants",dur:"1 journée",km:"environ 40 km",ids:["cathedrale","grandemosquee","massalikoul","layene","divinite","keurmoussa","popenguine"],
+  d:"Mosquées, sanctuaire layène, cathédrale, puis l'abbaye de Keur Moussa et la basilique de Popenguine : la diversité religieuse de la région de Dakar et de la Petite Côte."},
+ {t:"Le fleuve, de Saint-Louis à Bakel",dur:"4 à 6 jours",km:"environ 650 km",ids:["saintlouis","faidherbe","sl-cathedrale","sl-mosquee","djoudj","podor","bakel"],
+  d:"La ville tricentenaire, le sanctuaire du Djoudj, puis les escales du fleuve Sénégal et leurs forts du XIXe siècle."},
+ {t:"Sur la route des grandes cités religieuses",dur:"3 jours",km:"environ 450 km",ids:["tivaouane","touba","medinabaye","gounass"],
+  d:"Tivaouane, Touba, Médina Baye et Médina Gounass : les foyers des grandes confréries et leurs rassemblements annuels."},
+ {t:"Dakar créative",dur:"1 à 2 jours",km:"Dakar",ids:["sorano","dakart","palais","kermel","hoteldeville","senghor","villagearts","phare"],
+  d:"Théâtre, biennale, ateliers d'artistes et architecture du Plateau : la capitale comme scène culturelle."},
+ {t:"Les sites du patrimoine mondial",dur:"8 à 10 jours",km:"environ 1 800 km",ids:["goree","saintlouis","djoudj","saloum","ngayene","wanar","niokolo","bassari"],
+  d:"Les sept biens sénégalais inscrits sur la Liste du patrimoine mondial de l'UNESCO, de Gorée au pays Bassari."},
+ {t:"Les escales du fleuve Sénégal",dur:"4 à 5 jours",km:"environ 700 km",ids:["saintlouis","aeropostale","richardtoll","dagana","podor","salde","matam-escale","bakel"],
+  d:"De Saint-Louis à Bakel, les anciens comptoirs fluviaux inscrits sur la Liste indicative du patrimoine mondial."},
+ {t:"Sine-Saloum, terres et mers sereer",dur:"3 jours",km:"environ 300 km",ids:["joal","xooy","saloum","ngayene","wanar"],
+  d:"Fadiouth et son cimetière mixte, les bolongs du delta, la tradition divinatoire du Xooy et les cercles de pierres levées."},
+ {t:"Casamance et Sénégal oriental",dur:"5 à 7 jours",km:"environ 900 km",ids:["carabane","zig-cathedrale","oussouye","enampore","mlomp","kankurang","niokolo","dindefelo","bassari"],
+  d:"Bois sacrés et architecture diola, mémoire des comptoirs, rites mandingues, puis les grands espaces du Niokolo-Koba et des collines bassari."}
+];
+
+/* ---------- Illustrations générées pour chaque lieu (en attendant les photos) ---------- */
+const SCENE={
+ goree:{s:"gate",water:"sea",sky:"gold",houses:true},
+ esclaves:{s:"gate",water:"sea",sky:"day"},
+ "goree-eglise":{s:"church",water:"sea",sky:"gold",palms:1},
+ saintlouis:{s:"building",water:"river",sky:"gold",boats:2},
+ faidherbe:{s:"bridge",water:"river",sky:"dusk"},
+ "sl-cathedrale":{s:"church",sky:"day",classic:true},
+ "sl-mosquee":{s:"mosque",min:2,sky:"day",water:"river"},
+ ceebu:{s:"bowl",sky:"day"},
+ djoudj:{s:"bird",water:"lagoon",sky:"gold"},
+ podor:{s:"fort",water:"river",sky:"gold"},
+ bakel:{s:"fort",water:"river",sky:"day",hill:true},
+ niokolo:{s:"park",sky:"gold"},
+ bassari:{s:"hills",sky:"day"},
+ saloum:{s:"delta",water:"lagoon",sky:"dusk"},
+ ngayene:{s:"stones",sky:"gold"},
+ wanar:{s:"stones",sky:"dusk",lyre:true},
+ xooy:{s:"night"},
+ joal:{s:"island",water:"sea",sky:"day"},
+ popenguine:{s:"church",sky:"day",twin:true,palms:1},
+ keurmoussa:{s:"church",sky:"gold",abbey:true},
+ tivaouane:{s:"mosque",min:2,sky:"gold",dome:"#2f7a52"},
+ medinabaye:{s:"mosque",min:2,sky:"dusk",dome:"#2f7a52"},
+ touba:{s:"mosque",min:1,big:true,sky:"day",dome:"#2f7a52",side:4},
+ gounass:{s:"mosque",min:1,sky:"gold",savanna:true},
+ lacrose:{s:"delta",water:"pink",sky:"day"},
+ renaissance:{s:"statue",sky:"gold"},
+ divinite:{s:"mosque",min:2,water:"sea",sky:"dusk",cliff:true},
+ layene:{s:"mausoleum",water:"sea",sky:"day"},
+ massalikoul:{s:"mosque",min:5,big:true,sky:"dusk",dome:"#c9a24a"},
+ mcn:{s:"museum",sky:"day"},
+ ifan:{s:"museum",sky:"gold",columns:true},
+ gare:{s:"building",sky:"day",gare:true},
+ cathedrale:{s:"church",sky:"gold",classic:true,dome:true},
+ grandemosquee:{s:"mosque",min:1,big:true,sky:"day",dome:"#2f7a52"},
+ carabane:{s:"island",water:"sea",sky:"gold",ruin:true},
+ enampore:{s:"hut",sky:"day"},
+ "zig-cathedrale":{s:"church",sky:"day",palms:2},
+ oussouye:{s:"forest",sky:"day"},
+ kankurang:{s:"mask",sky:"gold"},
+ sorano:{s:"museum",columns:true,sky:"dusk"},
+ villagearts:{s:"drums",sky:"gold"},
+ dakart:{s:"museum",columns:true,sky:"day"},
+ msad:{s:"loom",sky:"day"},
+ guetndar:{s:"delta",water:"sea",sky:"gold",boats:6},
+ jazz:{s:"drums",sky:"dusk",jazz:true},
+ lutte:{s:"drums",sky:"dusk",arena:true},
+ sabar:{s:"drums",sky:"gold"},
+ magal:{s:"mosque",min:1,big:true,sky:"gold",dome:"#2f7a52",crowd:true},
+ senghor:{s:"building",sky:"day",villa:true},
+ thiaroye:{s:"cemetery",sky:"gold"},
+ "musee-goree":{s:"fort",water:"sea",sky:"day"},
+ palais:{s:"museum",columns:true,sky:"day",white:true},
+ hoteldeville:{s:"building",sky:"gold",gare:true},
+ kermel:{s:"market",sky:"day"},
+ phare:{s:"lighthouse",water:"sea",sky:"gold"},
+ "kaolack-marche":{s:"market",sky:"gold",arcade:true},
+ mlomp:{s:"hut",sky:"gold",storey:true},
+ diourbel:{s:"mosque",min:1,sky:"day",dome:"#2f7a52"},
+ leona:{s:"mosque",min:2,sky:"gold"},
+ ngasobil:{s:"church",sky:"gold",palms:2},
+ madeleine:{s:"island",water:"sea",sky:"day",bare:true},
+ bandia:{s:"park",sky:"day"},
+ barbarie:{s:"bird",water:"sea",sky:"day"},
+ lompoul:{s:"dunes",sky:"gold"},
+ dindefelo:{s:"falls",sky:"day"},
+ "basse-casamance":{s:"forest",sky:"day"},
+ aeropostale:{s:"plane",sky:"gold"},
+ dagana:{s:"fort",water:"river",sky:"day"},
+ richardtoll:{s:"building",villa:true,sky:"gold"},
+ salde:{s:"fort",water:"river",sky:"gold"},
+ "matam-escale":{s:"fort",water:"river",sky:"dusk"},
+ cekeen:{s:"tumulus",sky:"gold"},
+ rufisque:{s:"building",sky:"day"}
+};
+const BY_ICON={mosque:{s:"mosque",min:1},church:{s:"church"},tree:{s:"forest"},museum:{s:"museum"},stones:{s:"stones"},gate:{s:"cemetery"},fort:{s:"fort"},statue:{s:"statue"},leaf:{s:"park"},building:{s:"building"},drum:{s:"drums"},lighthouse:{s:"lighthouse",water:"sea"},market:{s:"market"},bird:{s:"bird",water:"lagoon"},waves:{s:"delta",water:"lagoon"},palm:{s:"island",water:"sea",bare:true},mausoleum:{s:"mausoleum",water:"sea"},hills:{s:"hills"},falls:{s:"falls"},dunes:{s:"dunes"}};
+let __sc=0;
+function rng(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return((h^=h>>>16)>>>0)/4294967296}}
+const SKY={day:["#7fb7e0","#dcecf4","#fff4d6"],gold:["#e9a35a","#f8dcae","#fff1cf"],dusk:["#3b4c7a","#d9825a","#f7c27d"]};
+function palm(x,y,s,R){const h=90*s,lean=(R()-.5)*30*s;let g=`<path d="M${x} ${y} Q${x+lean/2} ${y-h/2} ${x+lean} ${y-h}" stroke="#6b4a2b" stroke-width="${5*s}" fill="none" stroke-linecap="round"/>`;
+ const tx=x+lean,ty=y-h;[-150,-115,-70,-30,10,50].forEach(a=>{const r=a*Math.PI/180,l=48*s;g+=`<path d="M${tx} ${ty} Q${tx+Math.cos(r)*l*.6} ${ty+Math.sin(r)*l*.6-14*s} ${tx+Math.cos(r)*l} ${ty+Math.sin(r)*l+10*s}" stroke="#2f6b3a" stroke-width="${6*s}" fill="none" stroke-linecap="round"/>`});return g}
+function baobab(x,y,s){return `<path d="M${x-14*s} ${y} C${x-18*s} ${y-40*s} ${x-16*s} ${y-70*s} ${x-10*s} ${y-90*s} L${x+10*s} ${y-90*s} C${x+16*s} ${y-70*s} ${x+18*s} ${y-40*s} ${x+14*s} ${y}Z" fill="#7a5a44"/><path d="M${x-8*s} ${y-86*s} L${x-40*s} ${y-118*s} M${x} ${y-88*s} L${x-6*s} ${y-128*s} M${x+8*s} ${y-86*s} L${x+38*s} ${y-116*s} M${x+4*s} ${y-90*s} L${x+20*s} ${y-128*s}" stroke="#7a5a44" stroke-width="${6*s}" stroke-linecap="round"/><g fill="#6f8a45" opacity=".85"><circle cx="${x-40*s}" cy="${y-120*s}" r="${12*s}"/><circle cx="${x-6*s}" cy="${y-132*s}" r="${13*s}"/><circle cx="${x+38*s}" cy="${y-118*s}" r="${12*s}"/><circle cx="${x+20*s}" cy="${y-132*s}" r="${10*s}"/></g>`}
+function acacia(x,y,s){return `<path d="M${x} ${y} L${x} ${y-50*s} M${x} ${y-40*s} L${x-16*s} ${y-58*s} M${x} ${y-44*s} L${x+18*s} ${y-60*s}" stroke="#5b4430" stroke-width="${3*s}"/><ellipse cx="${x}" cy="${y-62*s}" rx="${40*s}" ry="${9*s}" fill="#5f7d3c"/>`}
+function boat(x,y,s,c){return `<path d="M${x-50*s} ${y-8*s} Q${x} ${y+10*s} ${x+50*s} ${y-8*s} L${x+56*s} ${y-16*s} Q${x} ${y-2*s} ${x-56*s} ${y-16*s}Z" fill="${c}"/><path d="M${x-44*s} ${y-9*s} Q${x} ${y+4*s} ${x+44*s} ${y-9*s}" stroke="#f3d34a" stroke-width="${2.5*s}" fill="none"/>`}
+function person(x,y,s,c){return `<circle cx="${x}" cy="${y-30*s}" r="${5*s}" fill="${c}"/><path d="M${x-6*s} ${y} L${x-5*s} ${y-24*s} Q${x} ${y-27*s} ${x+5*s} ${y-24*s} L${x+6*s} ${y}Z" fill="${c}"/>`}
+const WALL="#f4ede1",SHADE="#ddd0ba";
+
+function sceneSVG(site){
+  const R=rng(site.id),id="sc"+(++__sc);
+  const o=SCENE[site.id]||Object.assign({sky:["day","gold","dusk"][Math.floor(R()*3)]},BY_ICON[site.i]||{s:"building"});
+  const sk=SKY[o.sky||"day"];
+  let defs=`<linearGradient id="${id}s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sk[0]}"/><stop offset=".7" stop-color="${sk[1]}"/><stop offset="1" stop-color="${sk[2]}"/></linearGradient>`;
+  let g=`<rect width="600" height="400" fill="url(#${id}s)"/>`;
+  const sunX=120+R()*360,sunY=o.sky==="dusk"?210:70+R()*40;
+  if(o.s!=="night"&&o.s!=="bowl")g+=`<circle cx="${sunX}" cy="${sunY}" r="${o.sky==="dusk"?34:24}" fill="${o.sky==="day"?"#fff8e1":"#ffe2a8"}" opacity=".9"/>`;
+  if(o.sky==="day"&&o.s!=="bowl")for(let i=0;i<3;i++){const cx=R()*600,cy=40+R()*70;g+=`<g fill="#fff" opacity=".75"><ellipse cx="${cx}" cy="${cy}" rx="${40+R()*30}" ry="10"/><ellipse cx="${cx+22}" cy="${cy-7}" rx="26" ry="10"/></g>`}
+  const HZ=o.hill?225:250, GY=318;
+  const water=o.water;
+  // plans de fond
+  if(water==="sea"||water==="river"||water==="lagoon"||water==="pink"){
+    const wc=water==="pink"?["#e9a3b0","#d97f95"]:water==="lagoon"?["#7fb0b8","#4f8796"]:["#5d9cc6","#2f6f9c"];
+    defs+=`<linearGradient id="${id}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${wc[0]}"/><stop offset="1" stop-color="${wc[1]}"/></linearGradient>`;
+    if(water==="river")g+=`<path d="M0 ${HZ} L600 ${HZ-6} L600 ${HZ+8} L0 ${HZ+12}Z" fill="#b9a47a"/>`;
+    g+=`<rect y="${HZ+(water==="river"?10:0)}" width="600" height="${400-HZ}" fill="url(#${id}w)"/>`;
+    for(let i=0;i<14;i++){const y=HZ+20+R()*130,x=R()*560;g+=`<path d="M${x} ${y} h${20+R()*40}" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>`}
+  }else if(o.s!=="night"&&o.s!=="bowl"){
+    g+=`<path d="M0 ${HZ} Q150 ${HZ-25} 300 ${HZ-6} T600 ${HZ-14} V400 H0Z" fill="${o.s==="hills"||o.s==="forest"?"#8fae6a":"#d9c08a"}" opacity=".7"/>`;
+  }
+  const ground=(c,y=GY)=>`<path d="M0 ${y} Q300 ${y-14} 600 ${y+4} V400 H0Z" fill="${c}"/>`;
+  const SAND="#e2c48f",SAV="#c8ae6a";
+  const x=300;
+  switch(o.s){
+    case "mosque":{
+      if(o.cliff)g+=`<path d="M0 ${GY-60} L130 ${GY-70} L170 ${GY} L0 ${GY}Z" fill="#a8744c"/>`;
+      g+=water?`<path d="M0 ${GY} Q300 ${GY-10} 600 ${GY} V400 H0Z" fill="${SAND}"/>`:ground(o.savanna?SAV:SAND);
+      const w=o.big?250:200,bh=o.big?95:80,top=GY-bh,dome=o.dome||"#efe6d6";
+      // ailes
+      if(o.side)for(let i=0;i<o.side;i++){const sx=i<o.side/2?x-w/2-50-i*40:x+w/2+10+(i-o.side/2)*40;g+=`<rect x="${sx}" y="${GY-50}" width="40" height="50" fill="${SHADE}"/><path d="M${sx} ${GY-50} Q${sx+20} ${GY-72} ${sx+40} ${GY-50}" fill="${dome}"/>`}
+      g+=`<rect x="${x-w/2}" y="${top}" width="${w}" height="${bh}" fill="${WALL}"/><rect x="${x-w/2}" y="${top}" width="${w}" height="8" fill="${SHADE}"/>`;
+      const n=7;for(let i=0;i<n;i++){const ax=x-w/2+18+i*((w-36)/(n-1));g+=`<path d="M${ax-9} ${GY} V${GY-34} Q${ax} ${GY-48} ${ax+9} ${GY-34} V${GY}Z" fill="#8a7a64"/>`}
+      const dr=o.big?75:58;g+=`<path d="M${x-dr} ${top} Q${x-dr} ${top-dr*1.5} ${x} ${top-dr*1.55} Q${x+dr} ${top-dr*1.5} ${x+dr} ${top}Z" fill="${dome}"/><path d="M${x} ${top-dr*1.55} v-16" stroke="#c9a24a" stroke-width="3"/><circle cx="${x}" cy="${top-dr*1.55-20}" r="4" fill="#c9a24a"/>`;
+      const mh=o.big?235:170,pos=o.min===1?[x+w/2-18]:o.min===2?[x-w/2+8,x+w/2-8]:[x-w/2+8,x+w/2-8,x-w/4,x+w/4,x];
+      pos.forEach((mx,k)=>{const h=k>1?mh*.75:mh;g+=`<rect x="${mx-11}" y="${GY-h}" width="22" height="${h}" fill="${WALL}"/><rect x="${mx-11}" y="${GY-h}" width="6" height="${h}" fill="${SHADE}"/><rect x="${mx-16}" y="${GY-h*.72}" width="32" height="7" fill="${SHADE}"/><rect x="${mx-16}" y="${GY-h+18}" width="32" height="7" fill="${SHADE}"/><path d="M${mx-12} ${GY-h} Q${mx} ${GY-h-30} ${mx+12} ${GY-h}Z" fill="${dome}"/><path d="M${mx} ${GY-h-30} v-10" stroke="#c9a24a" stroke-width="2.5"/>`});
+      if(o.savanna)g+=baobab(70,GY+6,.9)+acacia(530,GY+4,1);
+      if(water==="sea"||water==="river")g+=boat(110+R()*40,GY+40,.8,"#2f6f9c");
+      g+=person(x-80,GY+30,.9,"#3a2f2a")+person(x+60,GY+40,1,"#4a3a6a");
+      if(o.crowd)for(let i=0;i<70;i++)g+=person(R()*600,GY+30+R()*70,.7+R()*.3,["#f4f1ea","#e9e2d0","#3a2f2a","#2f6b5a"][i%4]);
+      break;}
+    case "church":{
+      g+=water?`<path d="M0 ${GY} Q300 ${GY-10} 600 ${GY} V400 H0Z" fill="${SAND}"/>`:ground(o.abbey?"#a9b874":SAND);
+      const roof="#b5653f";
+      if(o.classic){g+=`<rect x="${x-110}" y="${GY-130}" width="220" height="130" fill="${WALL}"/><path d="M${x-120} ${GY-130} L${x} ${GY-185} L${x+120} ${GY-130}Z" fill="${SHADE}"/>`;
+        for(let i=0;i<6;i++)g+=`<rect x="${x-96+i*38}" y="${GY-122}" width="12" height="122" fill="${SHADE}"/>`;
+        g+=`<path d="M${x-20} ${GY} V${GY-55} Q${x} ${GY-75} ${x+20} ${GY-55} V${GY}Z" fill="#6b5a48"/>`;
+        if(o.dome)g+=`<path d="M${x-45} ${GY-185} Q${x} ${GY-260} ${x+45} ${GY-185}Z" fill="#d9cdb8"/><path d="M${x} ${GY-245} v-22 M${x-8} ${GY-258} h16" stroke="#6b5a48" stroke-width="3"/>`;
+        else g+=`<path d="M${x} ${GY-185} v-22 M${x-8} ${GY-198} h16" stroke="#6b5a48" stroke-width="3"/>`;
+      }else{
+        g+=`<rect x="${x-50}" y="${GY-110}" width="170" height="110" fill="${WALL}"/><path d="M${x-58} ${GY-110} L${x+35} ${GY-160} L${x+128} ${GY-110}Z" fill="${roof}"/>`;
+        for(let i=0;i<3;i++)g+=`<path d="M${x-20+i*45} ${GY-40} V${GY-75} Q${x-10+i*45} ${GY-88} ${x+i*45} ${GY-75} V${GY-40}Z" fill="#7aa0c4"/>`;
+        const towers=o.twin?[x-95,x+150]:[x-95];
+        towers.forEach(tx=>{g+=`<rect x="${tx-24}" y="${GY-180}" width="48" height="180" fill="${WALL}"/><rect x="${tx-24}" y="${GY-180}" width="10" height="180" fill="${SHADE}"/><path d="M${tx-28} ${GY-180} L${tx} ${GY-240} L${tx+28} ${GY-180}Z" fill="${roof}"/><path d="M${tx} ${GY-240} v-24 M${tx-9} ${GY-254} h18" stroke="#5b4a3a" stroke-width="3"/><circle cx="${tx}" cy="${GY-140}" r="10" fill="#6b5a48"/><path d="M${tx-12} ${GY} V${GY-40} Q${tx} ${GY-56} ${tx+12} ${GY-40} V${GY}Z" fill="#6b5a48"/>`});
+        if(o.abbey)g+=`<rect x="${x+125}" y="${GY-60}" width="150" height="60" fill="${SHADE}"/><path d="M${x+120} ${GY-60} L${x+200} ${GY-85} L${x+280} ${GY-60}Z" fill="${roof}"/>`;
+      }
+      for(let i=0;i<(o.palms||0);i++)g+=palm(i?520:70,GY+20,1.1,R);
+      g+=person(x+10,GY+36,1,"#3a2f2a")+person(x+30,GY+40,.95,"#a8433a");
+      break;}
+    case "fort":{
+      g+=water?`<path d="M0 ${GY-20} Q300 ${GY-30} 600 ${GY-16} V400 H0Z" fill="${SAND}"/>`:ground(SAND);
+      const top=GY-110,c="#c98b4a",d="#a96f38";
+      if(o.hill)g+=`<path d="M60 ${GY-10} Q300 ${GY-90} 540 ${GY-10}Z" fill="#b89a62"/>`;
+      g+=`<rect x="${x-170}" y="${top+20}" width="340" height="80" fill="${c}"/>`;
+      for(let i=0;i<14;i++)g+=`<rect x="${x-168+i*24.5}" y="${top+8}" width="14" height="14" fill="${c}"/>`;
+      [x-190,x+150].forEach(tx=>{g+=`<rect x="${tx}" y="${top-20}" width="40" height="120" fill="${d}"/>`;for(let i=0;i<3;i++)g+=`<rect x="${tx+i*15}" y="${top-32}" width="10" height="14" fill="${d}"/>`;g+=`<rect x="${tx+15}" y="${top+10}" width="8" height="18" fill="#3b2a1e"/>`});
+      g+=`<path d="M${x-28} ${top+100} V${top+55} Q${x} ${top+28} ${x+28} ${top+55} V${top+100}Z" fill="#3b2a1e"/>`;
+      for(let i=0;i<5;i++)g+=`<rect x="${x-140+i*60+(i>1?60:0)}" y="${top+45}" width="12" height="18" fill="#5b3f28"/>`;
+      if(water)g+=boat(140,GY+30,1,"#2f6f9c")+boat(470,GY+60,.8,"#b5423a");
+      g+=acacia(560,GY-20,.9);
+      break;}
+    case "bridge":{
+      g+=`<path d="M0 ${HZ+12} L0 ${HZ-30} L80 ${HZ-40} L80 ${HZ+12}Z" fill="#c9b08a"/><path d="M520 ${HZ+12} L520 ${HZ-34} L600 ${HZ-28} L600 ${HZ+12}Z" fill="#e6d3b3"/>`;
+      const dy=HZ+30,c="#55606c";
+      g+=`<rect x="-10" y="${dy}" width="620" height="9" fill="${c}"/>`;
+      for(let a=-40;a<600;a+=160){g+=`<path d="M${a} ${dy} Q${a+80} ${dy-70} ${a+160} ${dy}" stroke="${c}" stroke-width="6" fill="none"/>`;for(let k=1;k<8;k++){const px=a+k*20,py=dy-70*4*(k/8)*(1-k/8);g+=`<path d="M${px} ${dy} L${px} ${py+2}" stroke="${c}" stroke-width="2"/>`}
+        g+=`<rect x="${a-6}" y="${dy}" width="12" height="70" fill="#6b7480"/>`}
+      for(let i=0;i<5;i++)g+=`<path d="M${R()*600} ${dy+80+R()*60} h${30+R()*30}" stroke="#fff" stroke-opacity=".4" stroke-width="2"/>`;
+      g+=boat(380,GY+50,1,"#2a8a5a")+boat(150,GY+70,.8,"#c9502e");
+      break;}
+    case "building":{
+      if(water)g+=`<path d="M0 ${GY+20} L600 ${GY+16} V${GY+40} H0Z" fill="#b8a27c"/>`;else g+=ground("#d8c49c");
+      if(o.villa){g+=`<rect x="${x-150}" y="${GY-90}" width="300" height="90" fill="#f4ede1"/><rect x="${x-160}" y="${GY-98}" width="320" height="10" fill="#cbbd9f"/>`;for(let i=0;i<5;i++)g+=`<rect x="${x-130+i*56}" y="${GY-70}" width="30" height="46" fill="#7a9aa8"/>`;g+=palm(x-200,GY+10,1.3,R)+palm(x+210,GY+10,1.1,R)+`<path d="M0 ${GY+10} H600 V${GY+40} H0Z" fill="#7fae4a"/>`;}
+      else if(o.gare){g+=`<rect x="${x-220}" y="${GY-80}" width="440" height="80" fill="#e8d3ad"/><rect x="${x-60}" y="${GY-150}" width="120" height="150" fill="#dcb98a"/>`;
+        for(let i=0;i<5;i++)g+=`<rect x="${x-60+8+i*22}" y="${GY-162}" width="14" height="14" fill="#dcb98a"/>`;
+        g+=`<circle cx="${x}" cy="${GY-118}" r="16" fill="#fff8ea" stroke="#8a6a44" stroke-width="3"/><path d="M${x} ${GY-118} v-10 M${x} ${GY-118} h7" stroke="#3b2a1e" stroke-width="2"/><path d="M${x-28} ${GY} V${GY-50} Q${x} ${GY-80} ${x+28} ${GY-50} V${GY}Z" fill="#6b5236"/>`;
+        for(let i=0;i<8;i++){const wx=i<4?x-205+i*36:x+75+(i-4)*36;g+=`<path d="M${wx} ${GY-20} V${GY-50} Q${wx+11} ${GY-62} ${wx+22} ${GY-50} V${GY-20}Z" fill="#7a6248"/>`}
+        g+=`<rect x="${x-230}" y="${GY-8}" width="460" height="8" fill="#9a8466"/>`;
+      }else{
+        const cols=["#e7c9a0","#d98f6b","#f0e2c4","#c9a27a","#e3b08a"],sh=["#2f6b5a","#2f5d8a","#7a3b2a"];
+        const base=water?GY+20:GY;
+        for(let i=0;i<4;i++){const bx=40+i*132,h=120+R()*30,w=128,c=cols[(i+Math.floor(R()*5))%5],s=sh[i%3];
+          g+=`<rect x="${bx}" y="${base-h}" width="${w}" height="${h}" fill="${c}"/><rect x="${bx-4}" y="${base-h-8}" width="${w+8}" height="10" fill="#8f7a60"/><rect x="${bx-6}" y="${base-h/2-4}" width="${w+12}" height="5" fill="#5b4a3a"/>`;
+          for(let k=0;k<8;k++)g+=`<rect x="${bx-4+k*17}" y="${base-h/2-20}" width="2" height="16" fill="#5b4a3a"/>`;
+          g+=`<rect x="${bx-6}" y="${base-h/2-22}" width="${w+12}" height="3" fill="#5b4a3a"/>`;
+          for(let k=0;k<3;k++){g+=`<rect x="${bx+14+k*38}" y="${base-h+18}" width="20" height="${h/2-46}" fill="${s}"/><rect x="${bx+14+k*38}" y="${base-36}" width="20" height="30" fill="${s}"/>`}}
+        if(water)for(let i=0;i<(o.boats||2);i++)g+=boat(120+i*240+R()*60,GY+70+i*14,1,["#2a8a5a","#c9502e","#2f6f9c"][i%3]);
+      }
+      g+=person(x-150,water?GY+30:GY+34,.9,"#3a2f2a")+person(x+170,water?GY+30:GY+40,1,"#2f5d8a");
+      break;}
+    case "statue":{
+      g+=`<path d="M0 ${GY+20} Q300 ${GY-120} 600 ${GY+20} V400 H0Z" fill="#a98a5c"/><path d="M0 ${GY+40} Q300 ${GY-40} 600 ${GY+40} V400 H0Z" fill="#c8ae6a"/>`;
+      const b="#4a3b2c",top=GY-80;
+      g+=`<rect x="${x-50}" y="${top}" width="100" height="22" fill="#d9cdb8"/><rect x="${x-60}" y="${top+18}" width="120" height="16" fill="#cbbd9f"/>`;
+      g+=`<path d="M${x-40} ${top} L${x-30} ${top-140} Q${x-34} ${top-170} ${x-20} ${top-190} L${x+10} ${top-200} L${x+18} ${top-150} L${x+5} ${top}Z" fill="${b}"/>`;
+      g+=`<path d="M${x+5} ${top} L${x+20} ${top-120} L${x+40} ${top-180} Q${x+46} ${top-200} ${x+30} ${top-215} L${x+44} ${top-212} L${x+60} ${top-170} L${x+40} ${top-110} L${x+30} ${top}Z" fill="#5b4934"/>`;
+      g+=`<circle cx="${x-2}" cy="${top-205}" r="13" fill="${b}"/><circle cx="${x+36}" cy="${top-228}" r="10" fill="#5b4934"/><path d="M${x+42} ${top-232} L${x+80} ${top-262}" stroke="#5b4934" stroke-width="9" stroke-linecap="round"/><circle cx="${x+86}" cy="${top-270}" r="9" fill="#5b4934"/>`;
+      g+=person(x-150,GY+40,1,"#3a2f2a")+person(x+150,GY+46,1,"#a8433a");
+      break;}
+    case "museum":{
+      g+=ground("#d8c49c");
+      if(o.columns){g+=`<rect x="${x-170}" y="${GY-110}" width="340" height="110" fill="${o.white?"#fbf8f2":"#e9d6b3"}"/><path d="M${x-190} ${GY-110} L${x} ${GY-150} L${x+190} ${GY-110}Z" fill="${o.white?"#e6e0d4":"#b5653f"}"/>`;
+        for(let i=0;i<8;i++)g+=`<rect x="${x-150+i*42}" y="${GY-100}" width="14" height="100" fill="#f6ecd8"/><rect x="${x-154+i*42}" y="${GY-104}" width="22" height="6" fill="#d9c3a0"/>`;
+        g+=`<rect x="${x-180}" y="${GY-6}" width="360" height="8" fill="#b9a27c"/>`;
+      }else{g+=`<rect x="${x-150}" y="${GY-120}" width="300" height="120" fill="#c98b4a"/><ellipse cx="${x}" cy="${GY-120}" rx="150" ry="22" fill="#b07436"/>`;
+        for(let i=0;i<13;i++)g+=`<rect x="${x-140+i*22}" y="${GY-112}" width="8" height="112" fill="#a8692f"/>`;
+        g+=`<rect x="${x-40}" y="${GY-60}" width="80" height="60" fill="#3b2a1e"/><rect x="${x-180}" y="${GY-4}" width="360" height="6" fill="#9a8466"/>`;}
+      g+=person(x-80,GY+38,1,"#2f5d8a")+person(x-60,GY+42,.9,"#a8433a")+person(x+110,GY+40,1,"#3a2f2a");
+      g+=palm(60,GY+20,1,R)+palm(540,GY+24,1.1,R);
+      break;}
+    case "gate":{
+      g+=`<path d="M0 ${GY} Q300 ${GY-10} 600 ${GY} V400 H0Z" fill="${SAND}"/>`;
+      if(o.houses){[["#d98f6b",40],["#f0e2c4",150],["#e7c9a0",420],["#c97b63",510]].forEach(([c,bx])=>{g+=`<rect x="${bx}" y="${GY-110}" width="100" height="110" fill="${c}"/><rect x="${bx-4}" y="${GY-58}" width="108" height="4" fill="#5b4a3a"/>`;for(let k=0;k<2;k++)g+=`<rect x="${bx+18+k*44}" y="${GY-96}" width="18" height="28" fill="#2f6b5a"/><rect x="${bx+18+k*44}" y="${GY-44}" width="18" height="30" fill="#2f6b5a"/>`})}
+      const c="#c97b63",top=GY-150;
+      g+=`<rect x="${x-110}" y="${top}" width="220" height="150" fill="${c}"/><rect x="${x-116}" y="${top-8}" width="232" height="10" fill="#9a5642"/>`;
+      for(let k=0;k<3;k++)g+=`<rect x="${x-80+k*60}" y="${top+18}" width="40" height="44" fill="#5b3a2c"/><rect x="${x-84+k*60}" y="${top+62}" width="48" height="4" fill="#9a5642"/>`;
+      g+=`<path d="M${x-100} ${GY} Q${x-40} ${GY-10} ${x-30} ${top+75} L${x-14} ${top+75} Q${x-24} ${GY-14} ${x-80} ${GY}Z" fill="#b5694f"/><path d="M${x+100} ${GY} Q${x+40} ${GY-10} ${x+30} ${top+75} L${x+14} ${top+75} Q${x+24} ${GY-14} ${x+80} ${GY}Z" fill="#b5694f"/>`;
+      g+=`<path d="M${x-18} ${GY} V${GY-52} Q${x} ${GY-66} ${x+18} ${GY-52} V${GY}Z" fill="#1f2a36"/><path d="M${x-14} ${GY-30} h28 V${GY} h-28Z" fill="#4f93c4"/>`;
+      g+=person(x+150,GY+40,1,"#3a2f2a");
+      break;}
+    case "stones":{
+      g+=ground(SAV);
+      g+=acacia(80,GY-6,1.1)+baobab(520,GY,.8);
+      const n=13;const pts=[];for(let i=0;i<n;i++){const a=i/n*Math.PI*2;pts.push({x:x+Math.cos(a)*150,y:GY+30+Math.sin(a)*38,a})}
+      pts.sort((p,q)=>p.y-q.y).forEach((p,i)=>{const s=.6+(p.y-(GY-8))/76*.6,h=(40+R()*30)*s,w=16*s,col=p.y<GY+30?"#a35538":"#b5623f";
+        if(o.lyre&&i===n-3)g+=`<path d="M${p.x-w*1.2} ${p.y} L${p.x-w*1.5} ${p.y-h} L${p.x-w*.4} ${p.y-h} L${p.x} ${p.y-h*.4} L${p.x+w*.4} ${p.y-h} L${p.x+w*1.5} ${p.y-h} L${p.x+w*1.2} ${p.y}Z" fill="${col}"/>`;
+        else g+=`<rect x="${p.x-w/2}" y="${p.y-h}" width="${w}" height="${h}" rx="${w/2}" fill="${col}"/><rect x="${p.x-w/2}" y="${p.y-h}" width="${w/3}" height="${h}" rx="${w/6}" fill="#000" opacity=".12"/>`});
+      g+=person(x+210,GY+70,1,"#3a2f2a");
+      break;}
+    case "bird":{
+      for(let i=0;i<30;i++){const rx=R()*600,ry=GY+R()*40;g+=`<path d="M${rx} ${ry} l${-4+R()*8} -${20+R()*25}" stroke="#6f7d3c" stroke-width="2"/>`}
+      for(let i=0;i<7;i++){const bx=60+R()*480,by=GY+20+R()*60,s=.8+R()*.5;g+=`<ellipse cx="${bx}" cy="${by}" rx="${22*s}" ry="${11*s}" fill="#fbfaf6"/><path d="M${bx+14*s} ${by-6*s} q${6*s} -${18*s} ${14*s} -${18*s}" stroke="#fbfaf6" stroke-width="${6*s}" fill="none" stroke-linecap="round"/><path d="M${bx+28*s} ${by-24*s} l${22*s} ${8*s}" stroke="#e8a33c" stroke-width="${4*s}" stroke-linecap="round"/><path d="M${bx-30*s} ${by+4*s} h${60*s}" stroke="#fff" stroke-opacity=".5"/>`}
+      for(let i=0;i<12;i++){const fx=R()*600,fy=60+R()*130,s=.5+R()*.8;g+=`<path d="M${fx-12*s} ${fy} q${6*s} -${8*s} ${12*s} 0 q${6*s} -${8*s} ${12*s} 0" stroke="#3b3b3b" stroke-width="2" fill="none"/>`}
+      break;}
+    case "park":{
+      g+=ground(SAV)+`<path d="M0 ${GY-30} Q200 ${GY-50} 400 ${GY-36} T600 ${GY-40} V${GY} H0Z" fill="#9b9a55"/>`;
+      g+=baobab(130,GY+10,1.4)+acacia(420,GY-10,1.2)+acacia(560,GY,.9);
+      for(let i=0;i<4;i++){const ax=260+i*45+R()*20,ay=GY+40+R()*20;g+=`<path d="M${ax} ${ay-22} h26 l6 -10 l6 2 l-6 10 v20 M${ax} ${ay-22} v22 M${ax+8} ${ay-22} v22 M${ax+22} ${ay-22} v22" stroke="#6b4a2b" stroke-width="4" fill="none"/><ellipse cx="${ax+13}" cy="${ay-24}" rx="16" ry="7" fill="#8a5a33"/><path d="M${ax+30} ${ay-36} l-2 -12 M${ax+34} ${ay-36} l2 -12" stroke="#4a3220" stroke-width="2"/>`}
+      break;}
+    case "hills":{
+      g+=`<path d="M0 ${GY-40} Q120 ${GY-150} 260 ${GY-60} Q380 ${GY-160} 600 ${GY-70} V400 H0Z" fill="#6f9654"/><path d="M0 ${GY+10} Q200 ${GY-60} 420 ${GY} T600 ${GY-10} V400 H0Z" fill="#88a85f"/>`;
+      [[150,GY-58],[200,GY-48],[245,GY-56],[330,GY-30],[380,GY-22]].forEach(([hx,hy],i)=>{const s=.8+i*.08;g+=`<rect x="${hx-14*s}" y="${hy-18*s}" width="${28*s}" height="${18*s}" fill="#a5734a"/><path d="M${hx-22*s} ${hy-16*s} L${hx} ${hy-46*s} L${hx+22*s} ${hy-16*s}Z" fill="#c9a24a"/>`});
+      g+=baobab(520,GY+30,1)+person(260,GY+60,1,"#3a2f2a")+person(280,GY+62,.9,"#b5423a");
+      break;}
+    case "hut":{
+      g+=ground("#a7b86a");
+      if(o.storey){g+=`<rect x="${x-150}" y="${GY-130}" width="300" height="130" fill="#a8693f"/><rect x="${x-150}" y="${GY-70}" width="300" height="8" fill="#7a4a2a"/>`;for(let i=0;i<4;i++)g+=`<rect x="${x-120+i*70}" y="${GY-115}" width="26" height="30" fill="#3b2a1e"/>`;g+=`<path d="M${x-180} ${GY-122} L${x} ${GY-190} L${x+180} ${GY-122}Z" fill="#c9a24a"/><path d="M${x-18} ${GY} V${GY-50} h36 V${GY}Z" fill="#3b2a1e"/>`+palm(60,GY+20,1.2,R)+baobab(540,GY+10,.8);break;}
+      g+=`<ellipse cx="${x}" cy="${GY+4}" rx="200" ry="22" fill="#000" opacity=".1"/><rect x="${x-170}" y="${GY-70}" width="340" height="70" fill="#a8693f"/><rect x="${x-170}" y="${GY-70}" width="340" height="10" fill="#8a542f"/>`;
+      g+=`<path d="M${x-210} ${GY-62} L${x-150} ${GY-140} L${x+150} ${GY-140} L${x+210} ${GY-62} L${x+60} ${GY-110} L${x-60} ${GY-110}Z" fill="#c9a24a"/><path d="M${x-150} ${GY-140} L${x-60} ${GY-110} L${x+60} ${GY-110} L${x+150} ${GY-140}" stroke="#a8843a" stroke-width="3" fill="none"/>`;
+      g+=`<path d="M${x-20} ${GY} V${GY-48} h40 V${GY}Z" fill="#3b2a1e"/>`+palm(60,GY+20,1.2,R)+palm(550,GY+16,1,R);
+      for(let i=0;i<3;i++)g+=`<path d="M${470+i*20} ${GY+10} q-10 -40 10 -70 q20 30 -4 70" fill="#5f8f3c"/>`;
+      break;}
+    case "mausoleum":{
+      g+=`<path d="M0 ${GY} Q300 ${GY-10} 600 ${GY} V400 H0Z" fill="${SAND}"/>`;
+      g+=`<rect x="${x-80}" y="${GY-100}" width="160" height="100" fill="#fbf8f2"/><rect x="${x-80}" y="${GY-100}" width="20" height="100" fill="#e6e0d4"/><path d="M${x-62} ${GY-100} Q${x-62} ${GY-180} ${x} ${GY-184} Q${x+62} ${GY-180} ${x+62} ${GY-100}Z" fill="#2f7a52"/><path d="M${x} ${GY-184} v-16" stroke="#c9a24a" stroke-width="3"/>`;
+      g+=`<path d="M${x-22} ${GY} V${GY-50} Q${x} ${GY-70} ${x+22} ${GY-50} V${GY}Z" fill="#2f7a52"/><rect x="${x+120}" y="${GY-170}" width="20" height="170" fill="#fbf8f2"/><path d="M${x+118} ${GY-170} Q${x+130} ${GY-196} ${x+142} ${GY-170}Z" fill="#2f7a52"/>`;
+      for(let i=0;i<6;i++)g+=person(x-200+i*22,GY+40+(i%2)*6,.9,"#f4f1ea");
+      g+=boat(470,GY+60,1,"#2a8a5a");
+      break;}
+    case "forest":{
+      g+=ground("#5f7d3c")+`<path d="M0 ${GY-20} ${Array.from({length:13},(_,i)=>`Q${i*50+25} ${GY-130-R()*60} ${i*50+50} ${GY-30}`).join(" ")} V${GY} H0Z" fill="#355e32"/>`;
+      g+=`<path d="M${x-60} ${GY+20} Q${x-40} ${GY-10} ${x-24} ${GY-40} L${x-20} ${GY-230} L${x+20} ${GY-230} L${x+24} ${GY-40} Q${x+40} ${GY-10} ${x+64} ${GY+20} Q${x+20} ${GY} ${x} ${GY+16} Q${x-20} ${GY} ${x-60} ${GY+20}Z" fill="#8f8170"/>`;
+      g+=`<ellipse cx="${x}" cy="${GY-240}" rx="160" ry="50" fill="#2f5a2c"/><ellipse cx="${x-90}" cy="${GY-220}" rx="80" ry="34" fill="#3b6b34"/><ellipse cx="${x+100}" cy="${GY-226}" rx="80" ry="34" fill="#3b6b34"/>`;
+      g+=`<path d="M${x-26} ${GY-70} h52" stroke="#b5302a" stroke-width="7"/><path d="M${x+10} ${GY-70} l6 26" stroke="#b5302a" stroke-width="5"/><rect x="${x-14}" y="${GY+4}" width="28" height="14" rx="4" fill="#d9cdb8"/>`;
+      g+=`<path d="M${x-10} 400 Q${x} ${GY+40} ${x+40} ${GY+24}" stroke="#b89a62" stroke-width="30" fill="none" opacity=".5"/>`;
+      break;}
+    case "mask":{
+      g+=ground("#d39a5a");
+      for(let i=0;i<16;i++){const px=20+i*37+R()*10;g+=person(px,GY-4+R()*6,.75,["#3a2f2a","#5a3a2a","#2f5d8a","#a8433a"][i%4])}
+      const top=GY-210;let f="";for(let i=0;i<60;i++){const t=i/59,bx=x-95+t*190,ex=bx+(R()-.5)*10;f+=`<path d="M${x+(t-.5)*20} ${top+30} Q${x+(t-.5)*90} ${top+120} ${ex} ${GY+40}" stroke="${i%3?"#9a5428":"#c27a3a"}" stroke-width="4" fill="none"/>`}
+      g+=`<path d="M${x-14} ${top+34} Q${x} ${top-16} ${x+14} ${top+34}Z" fill="#7a3f1e"/>${f}`;
+      g+=`<path d="M${x-80} ${top+110} l-60 -50 M${x+80} ${top+110} l60 -50" stroke="#9aa4ad" stroke-width="5" stroke-linecap="round"/>`;
+      for(let i=0;i<20;i++)g+=`<circle cx="${R()*600}" cy="${GY+20+R()*60}" r="${2+R()*5}" fill="#e7c08a" opacity=".6"/>`;
+      break;}
+    case "night":{
+      defs+=`<radialGradient id="${id}f"><stop offset="0" stop-color="#ffd27a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>`;
+      g=`<rect width="600" height="400" fill="#182340"/>`;
+      for(let i=0;i<70;i++)g+=`<circle cx="${R()*600}" cy="${R()*220}" r="${R()*1.6+.3}" fill="#fff" opacity="${.4+R()*.6}"/>`;
+      g+=`<circle cx="480" cy="70" r="22" fill="#f4ecd0"/><circle cx="490" cy="64" r="20" fill="#182340"/>`;
+      g+=`<path d="M0 ${GY} Q300 ${GY-16} 600 ${GY} V400 H0Z" fill="#3a2e24"/>`+baobab(110,GY+4,1.3).replace(/#7a5a44/g,"#221a14").replace(/#6f8a45/g,"#1f2a1c");
+      g+=`<circle cx="${x}" cy="${GY+30}" r="120" fill="url(#${id}f)"/><path d="M${x-20} ${GY+40} Q${x-12} ${GY} ${x} ${GY-20} Q${x+12} ${GY} ${x+20} ${GY+40}Z" fill="#ffb347"/><path d="M${x-9} ${GY+40} Q${x} ${GY+10} ${x+9} ${GY+40}Z" fill="#fff1c1"/>`;
+      [[-150,40],[-100,62],[-40,74],[50,74],[110,60],[160,40]].forEach(([dx,dy])=>{const px=x+dx,py=GY+dy;g+=`<circle cx="${px}" cy="${py-26}" r="8" fill="#1b140f"/><path d="M${px-16} ${py} Q${px-14} ${py-22} ${px} ${py-20} Q${px+14} ${py-22} ${px+16} ${py}Z" fill="#1b140f"/>`});
+      g+=`<path d="M${x+40} ${GY+64} q20 -10 40 0" stroke="#d9cdb8" stroke-width="5" fill="none"/>`;
+      break;}
+    case "bowl":{
+      g=`<rect width="600" height="400" fill="#e6c79a"/><rect y="0" width="600" height="170" fill="#d9a46a"/>`;
+      for(let i=0;i<12;i++)g+=`<rect x="0" y="${180+i*20}" width="600" height="10" fill="${i%2?"#c7884a":"#b56f3a"}" opacity=".55"/>`;
+      g+=`<ellipse cx="${x}" cy="270" rx="230" ry="80" fill="#5b4a3a" opacity=".25"/><ellipse cx="${x}" cy="250" rx="220" ry="74" fill="#e8e1d4"/><ellipse cx="${x}" cy="244" rx="200" ry="62" fill="#c7743a"/>`;
+      for(let i=0;i<220;i++){const a=R()*Math.PI*2,r=Math.sqrt(R());g+=`<circle cx="${x+Math.cos(a)*190*r}" cy="${244+Math.sin(a)*56*r}" r="2" fill="${R()<.5?"#d98a4a":"#b8602e"}"/>`}
+      g+=`<path d="M${x-90} 236 q70 -40 150 -6 l20 -14 l-4 24 q-80 30 -166 -4z" fill="#8a8f96"/><circle cx="${x+40}" cy="226" r="3" fill="#222"/>`;
+      g+=`<path d="M${x-150} 250 l70 -12 l-6 14z" fill="#e8742a"/><circle cx="${x+120}" cy="256" r="28" fill="#7fae4a"/><circle cx="${x+116}" cy="252" r="16" fill="#a5cf6a"/><path d="M${x-60} 270 q20 -14 50 0 q-24 12 -50 0z" fill="#f4ead6"/><circle cx="${x+40}" cy="276" r="14" fill="#6b3f8a"/>`;
+      break;}
+
+    case "drums":{
+      g+=ground(o.arena?"#e2c48f":SAND);
+      if(o.arena){g+=`<path d="M0 ${GY-10} L600 ${GY-10} L600 ${GY-120} L0 ${GY-100}Z" fill="#6b5a7a"/>`;for(let r=0;r<4;r++)for(let i=0;i<40;i++)g+=`<circle cx="${i*15+R()*6}" cy="${GY-108+r*24}" r="5" fill="${["#f4f1ea","#c9502e","#2f6f9c","#e7c08a"][(i+r)%4]}"/>`;
+        g+=`<ellipse cx="${x}" cy="${GY+50}" rx="200" ry="40" fill="#f0dcb0"/>`;
+        g+=`<g fill="#3a2a20"><circle cx="${x-30}" cy="${GY-10}" r="11"/><path d="M${x-48} ${GY+50} L${x-40} ${GY+2} Q${x-30} ${GY-4} ${x-14} ${GY+4} L${x+4} ${GY+18} L${x-16} ${GY+24} L${x-20} ${GY+50}Z"/><circle cx="${x+30}" cy="${GY-6}" r="11"/><path d="M${x+48} ${GY+50} L${x+40} ${GY+6} Q${x+30} ${GY} ${x+14} ${GY+8} L${x-4} ${GY+20} L${x+16} ${GY+26} L${x+20} ${GY+50}Z"/></g>`;
+      }else{
+        if(o.jazz)g+=`<rect x="${x-180}" y="${GY-140}" width="360" height="12" fill="#3a2a20"/><rect x="${x-180}" y="${GY-140}" width="10" height="140" fill="#3a2a20"/><rect x="${x+170}" y="${GY-140}" width="10" height="140" fill="#3a2a20"/>`+[0,1,2,3,4].map(i=>`<circle cx="${x-120+i*60}" cy="${GY-120}" r="6" fill="#ffd27a"/>`).join("");
+        else g+=baobab(90,GY,1.1);
+        [[x-110,0],[x-40,1],[x+30,0],[x+100,1]].forEach(([dx,k])=>{g+=`<circle cx="${dx}" cy="${GY-62}" r="10" fill="#3a2a20"/><path d="M${dx-14} ${GY+10} L${dx-12} ${GY-50} Q${dx} ${GY-56} ${dx+12} ${GY-50} L${dx+14} ${GY+10}Z" fill="${k?"#c9502e":"#2f6f9c"}"/>`;
+          g+=o.jazz&&k?`<path d="M${dx+8} ${GY-40} l26 -14 q8 10 -4 18z" fill="#d9a02a"/>`:`<path d="M${dx+6} ${GY-30} q14 -4 18 0 v34 q-9 6 -18 0z" fill="#8a5a33"/><ellipse cx="${dx+15}" cy="${GY-30}" rx="9" ry="3" fill="#e7d3b0"/>`});
+        for(let i=0;i<5;i++){const dx=x-200+i*100;if(Math.abs(dx-x)<130)continue;g+=`<circle cx="${dx}" cy="${GY+26}" r="9" fill="#3a2a20"/><path d="M${dx-12} ${GY+90} L${dx-4} ${GY+36} L${dx+4} ${GY+36} L${dx+18} ${GY+90}Z" fill="${["#d9a02a","#7a3b8a","#2a8a5a"][i%3]}"/><path d="M${dx-4} ${GY+42} l-20 -26 M${dx+4} ${GY+42} l22 -20" stroke="#3a2a20" stroke-width="5" stroke-linecap="round"/>`}
+      }
+      break;}
+    case "market":{
+      g+=ground("#d8c49c");
+      if(o.arcade){g+=`<rect x="${x-220}" y="${GY-90}" width="440" height="90" fill="#e1b98a"/>`;for(let i=0;i<10;i++)g+=`<path d="M${x-205+i*43} ${GY} V${GY-50} Q${x-188+i*43} ${GY-74} ${x-171+i*43} ${GY-50} V${GY}Z" fill="#7a5236"/>`;
+        g+=`<rect x="${x-50}" y="${GY-150}" width="100" height="70" fill="#e1b98a"/><path d="M${x-50} ${GY-150} Q${x} ${GY-200} ${x+50} ${GY-150}Z" fill="#c98b4a"/>`;
+      }else{g+=`<rect x="${x-180}" y="${GY-90}" width="360" height="90" fill="#efe4cc"/><path d="M${x-200} ${GY-90} L${x} ${GY-150} L${x+200} ${GY-90}Z" fill="#5b7a8a"/>`;
+        for(let i=0;i<9;i++)g+=`<rect x="${x-170+i*42}" y="${GY-84}" width="8" height="84" fill="#2f5d6a"/><rect x="${x-158+i*42}" y="${GY-70}" width="26" height="30" fill="#7aa6c4" opacity=".7"/>`;
+        g+=`<path d="M${x-24} ${GY} V${GY-50} Q${x} ${GY-70} ${x+24} ${GY-50} V${GY}Z" fill="#3b2a1e"/>`;}
+      for(let i=0;i<6;i++){const sx=40+i*100+R()*20;g+=`<path d="M${sx-24} ${GY+30} L${sx} ${GY+12} L${sx+24} ${GY+30}Z" fill="${["#c9502e","#2f6f9c","#d9a02a"][i%3]}"/><rect x="${sx-18}" y="${GY+30}" width="36" height="14" fill="#8a5a33"/>`+person(sx+30,GY+56,.9,"#3a2f2a")}
+      break;}
+    case "lighthouse":{
+      g+=`<path d="M0 ${GY+20} Q300 ${GY-150} 600 ${GY+30} V400 H0Z" fill="#8a7a50"/><path d="M80 ${GY+40} Q300 ${GY-110} 520 ${GY+40}Z" fill="#a39060"/>`;
+      const top=GY-210;g+=`<rect x="${x-60}" y="${GY-70}" width="120" height="50" fill="#f4ede1"/><path d="M${x-66} ${GY-70} L${x} ${GY-96} L${x+66} ${GY-70}Z" fill="#b5653f"/>`;
+      g+=`<path d="M${x-20} ${GY-60} L${x-13} ${top} L${x+13} ${top} L${x+20} ${GY-60}Z" fill="#fbf8f2"/><rect x="${x-18}" y="${top-6}" width="36" height="8" fill="#3b3f46"/><rect x="${x-11}" y="${top-28}" width="22" height="22" fill="#ffe08a"/><path d="M${x-14} ${top-28} Q${x} ${top-46} ${x+14} ${top-28}Z" fill="#3b3f46"/>`;
+      g+=`<path d="M${x} ${top-18} L${x-260} ${top-60} L${x-260} ${top+20}Z" fill="#fff3c4" opacity=".35"/>`;
+      g+=acacia(470,GY-20,.8)+person(x+90,GY-10,.8,"#3a2f2a");
+      break;}
+    case "dunes":{
+      g+=`<path d="M0 ${HZ+10} Q150 ${HZ-60} 300 ${HZ} T600 ${HZ-20} V400 H0Z" fill="#e8a65a"/><path d="M0 ${GY} Q200 ${GY-110} 380 ${GY-10} T600 ${GY-40} V400 H0Z" fill="#f0b46a"/><path d="M0 ${GY+50} Q250 ${GY-20} 600 ${GY+60} V400 H0Z" fill="#f5c27e"/>`;
+      g+=`<path d="M200 ${GY-60} Q260 ${GY-90} 330 ${GY-30}" stroke="#d98f45" stroke-width="3" fill="none"/>`;
+      for(let i=0;i<4;i++){const tx=380+i*40;g+=`<path d="M${tx} ${GY+40} L${tx+16} ${GY+14} L${tx+32} ${GY+40}Z" fill="#fbf8f2"/>`}
+      g+=`<g fill="#5b3f28"><ellipse cx="160" cy="${GY+44}" rx="26" ry="12"/><path d="M180 ${GY+40} q14 -24 26 -22 l2 8 q-12 0 -18 20z"/><path d="M144 ${GY+50} v26 M156 ${GY+52} v26 M170 ${GY+52} v26 M180 ${GY+50} v26" stroke="#5b3f28" stroke-width="4"/></g>`+person(130,GY+78,.9,"#2f5d8a");
+      break;}
+    case "falls":{
+      g+=`<path d="M0 60 L180 40 L190 400 L0 400Z" fill="#6b5a48"/><path d="M420 30 L600 50 L600 400 L410 400Z" fill="#5b4a3a"/><rect x="185" y="30" width="230" height="40" fill="#4f7a3c"/>`;
+      g+=`<rect x="180" y="60" width="240" height="300" fill="#5b4a3a"/>`;
+      for(let i=0;i<22;i++){const fx=268+i*3;g+=`<path d="M${fx} 62 Q${fx+(R()-.5)*6} 200 ${fx+(R()-.5)*14} 330" stroke="#eaf4f8" stroke-width="${2+R()*3}" opacity=".9" fill="none"/>`}
+      g+=`<ellipse cx="300" cy="350" rx="190" ry="40" fill="#5d9cc6"/><ellipse cx="300" cy="334" rx="70" ry="14" fill="#fff" opacity=".6"/>`;
+      g+=`<path d="M0 0 h600 v40 Q300 70 0 40Z" fill="#3b6b34"/>`;for(let i=0;i<10;i++)g+=`<circle cx="${R()*600}" cy="${30+R()*30}" r="${18+R()*14}" fill="#3f7a3a"/>`;
+      g+=person(120,380,1,"#a8433a")+person(480,382,1,"#2f5d8a");
+      break;}
+    case "loom":{
+      g=`<rect width="600" height="400" fill="#efe2c8"/><rect y="320" width="600" height="80" fill="#c9a77a"/>`;
+      g+=`<rect x="140" y="40" width="320" height="250" fill="#f6efe0" stroke="#8a6a44" stroke-width="10"/>`;
+      const pal=["#c9502e","#2f6f9c","#d9a02a","#2a8a5a","#3a2a20","#7a3b8a"];for(let i=0;i<14;i++)g+=`<path d="M150 ${60+i*16} Q${300} ${50+i*16+(R()-.5)*30} 450 ${60+i*16}" stroke="${pal[Math.floor(R()*6)]}" stroke-width="10" fill="none"/>`;
+      g+=`<circle cx="300" cy="150" r="46" fill="#d9a02a" opacity=".85"/>`;
+      for(let i=0;i<30;i++)g+=`<path d="M${150+i*10} 290 v40" stroke="#8a6a44" stroke-width="1.5"/>`;
+      g+=`<rect x="120" y="300" width="360" height="14" fill="#8a6a44"/>`+person(80,380,1.4,"#3a2f2a")+person(520,384,1.4,"#2f5d8a");
+      break;}
+    case "cemetery":{
+      g+=ground("#cdb983");
+      for(let r=0;r<4;r++)for(let i=0;i<9;i++){const cx=60+i*62+r*12,cy=GY-6+r*22,s=.6+r*.18;g+=`<path d="M${cx} ${cy} v-${30*s} M${cx-9*s} ${cy-22*s} h${18*s}" stroke="#fbf8f2" stroke-width="${5*s}"/>`}
+      g+=`<rect x="${x-20}" y="${GY-130}" width="40" height="110" fill="#d9cdb8"/><path d="M${x-30} ${GY-20} h60 v14 h-60z" fill="#b9ab90"/>`+acacia(540,GY-10,1);
+      break;}
+    case "plane":{
+      g+=`<rect y="${GY-20}" width="600" height="${420-GY}" fill="#5d9cc6"/><path d="M0 ${GY+30} H600 V400 H0Z" fill="${SAND}"/>`;
+      g+=`<rect x="${x+40}" y="${GY-70}" width="180" height="100" fill="#f4ede1"/><path d="M${x+30} ${GY-70} L${x+130} ${GY-100} L${x+230} ${GY-70}Z" fill="#b5653f"/>`;for(let i=0;i<4;i++)g+=`<rect x="${x+58+i*42}" y="${GY-50}" width="22" height="30" fill="#2f6b5a"/>`;
+      const px=x-120,py=GY-150;
+      g+=`<path d="M${px-90} ${py} Q${px} ${py-14} ${px+90} ${py+2} L${px+96} ${py+12} Q${px} ${py+14} ${px-90} ${py+10}Z" fill="#e4e1d8"/><path d="M${px-20} ${py-34} h80 v8 h-80z M${px-20} ${py+20} h80 v8 h-80z" fill="#c9502e"/><path d="M${px} ${py-26} v46 M${px+40} ${py-26} v46" stroke="#5b4a3a" stroke-width="2"/><circle cx="${px+96}" cy="${py+7}" r="6" fill="#5b4a3a"/><path d="M${px+102} ${py-10} v34" stroke="#888" stroke-width="2"/>`;
+      g+=`<path d="M${px-20} ${py+30} l-8 40 M${px+40} ${py+30} l8 40" stroke="#5b4a3a" stroke-width="3"/><ellipse cx="${px-30}" cy="${py+74}" rx="40" ry="8" fill="#e4e1d8"/><ellipse cx="${px+50}" cy="${py+74}" rx="40" ry="8" fill="#e4e1d8"/>`;
+      g+=person(x+250,GY+50,1,"#3a2f2a");
+      break;}
+    case "tumulus":{
+      g+=ground(SAV);
+      for(let i=0;i<9;i++){const tx=40+i*68+R()*20,ty=GY+(i%3)*18,w=40+R()*40,h=(i===4?90:18+R()*26);g+=`<path d="M${tx-w} ${ty+10} Q${tx} ${ty-h} ${tx+w} ${ty+10}Z" fill="${i===4?"#b8925a":"#c9a66a"}"/>`}
+      g+=acacia(560,GY-10,1)+baobab(60,GY-4,.7)+person(x+60,GY+60,1,"#3a2f2a");
+      break;}
+    case "island":{
+      g+=`<path d="M60 ${GY} Q300 ${GY-60} 560 ${GY} Q300 ${GY+20} 60 ${GY}Z" fill="#f2ede4"/>`;
+      for(let i=0;i<60;i++)g+=`<circle cx="${110+R()*390}" cy="${GY-14+R()*20}" r="${2+R()*3}" fill="#fff" stroke="#d9d0c0" stroke-width=".6"/>`;
+      if(o.ruin)g+=`<path d="M${x-50} ${GY-20} V${GY-100} L${x-20} ${GY-130} L${x+10} ${GY-100} V${GY-60} L${x+30} ${GY-60} V${GY-20}Z" fill="#c9b8a0"/><path d="M${x-36} ${GY-70} v-20 q14 -14 28 0 v20" fill="#5a6a7a"/>`;
+      else if(!o.bare){[[x-160,GY+60],[x-110,GY+70],[x+150,GY+56]].forEach(([gx,gy])=>{g+=`<path d="M${gx-16} ${gy} v-20 M${gx+16} ${gy} v-20 M${gx} ${gy} v-20" stroke="#6b4a2b" stroke-width="3"/><rect x="${gx-20}" y="${gy-44}" width="40" height="26" fill="#b0784a"/><path d="M${gx-28} ${gy-42} L${gx} ${gy-74} L${gx+28} ${gy-42}Z" fill="#c9a24a"/>`});
+        g+=`<path d="M0 ${GY+30} L${x-60} ${GY-6}" stroke="#7a5a3a" stroke-width="6"/>`;}
+      g+=palm(x-120,GY-8,1.2,R)+palm(x+40,GY-18,1.4,R)+palm(x+170,GY-4,1,R)+boat(480,GY+70,1,"#c9502e");
+      break;}
+    case "delta":{
+      if(water==="pink"){g+=`<path d="M0 ${HZ} Q300 ${HZ-30} 600 ${HZ-6} V${HZ+10} H0Z" fill="#e7d3a6"/>`;
+        g+=`<path d="M0 ${GY+40} Q300 ${GY+20} 600 ${GY+44} V400 H0Z" fill="#f1e2bf"/>`;
+        for(let i=0;i<7;i++){const mx=40+i*85;g+=`<path d="M${mx} ${GY+50} L${mx+26} ${GY+10} L${mx+52} ${GY+50}Z" fill="#fbfaf6"/>`}
+        g+=boat(300,GY,1,"#2f6f9c")+person(200,GY+80,1,"#3a2f2a")+person(420,GY+84,1,"#2f5d8a");
+      }else if(water==="sea"){g+=`<path d="M0 ${GY+20} Q300 ${GY} 600 ${GY+24} V400 H0Z" fill="${SAND}"/>`;
+        for(let i=0;i<(o.boats||4);i++)g+=boat(50+i*95+R()*20,GY+40+(i%2)*28,1.1,["#2a8a5a","#c9502e","#2f6f9c","#d9a02a","#7a3b8a"][i%5]);
+        for(let i=0;i<8;i++)g+=person(R()*600,GY+70+R()*40,.9,"#3a2f2a");
+      }else{let m="";for(let i=0;i<20;i++){const mx=i*32;m+=`<ellipse cx="${mx}" cy="${HZ+4}" rx="30" ry="${18+R()*14}" fill="#2f5a34"/>`;for(let k=0;k<3;k++)m+=`<path d="M${mx-10+k*10} ${HZ+12} q-6 12 ${-4+k*4} 22" stroke="#4a3a2a" stroke-width="2" fill="none"/>`}
+        g+=m+boat(260,GY+30,1.3,"#2a8a5a")+person(250,GY+16,.9,"#1f1f1f")+boat(480,GY+80,.9,"#c9502e");
+        for(let i=0;i<8;i++){const fx=R()*600,fy=70+R()*100;g+=`<path d="M${fx-8} ${fy} q4 -6 8 0 q4 -6 8 0" stroke="#2b2b2b" stroke-width="1.8" fill="none"/>`}}
+      break;}
+  }
+  return `<svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration : ${site.n.replace(/"/g,"")}"><defs>${defs}</defs>${g}</svg>`;
+}
+
+
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const esc=t=>String(t??"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const ALL=Object.keys(CATS);
+let state={q:"",cats:new Set(ALL),region:"",unesco:"",sel:null,route:null,mode:"explore",cluster:true,src:"all",dep:"",com:"",sort:"az",bbox:false};
+let OSM=[], shown=60;
+let PHOTOS={}, assetsNS=null, dbNS=null, introHidden=false;
+try{introHidden=localStorage.getItem("snp-intro")==="0"}catch(e){}
+const photoUrl=(id,big)=>PHOTOS[id]&&PHOTOS[id].asset?"/_blob/"+PHOTOS[id].asset:(typeof WIKI!=="undefined"&&WIKI[id]&&(big?WIKI[id].b:WIKI[id].t))||null;
+
+/* ---------- carte : fond gris, sans routes ---------- */
+const SN_BOUNDS=L.latLngBounds([12.25,-17.6],[16.72,-11.3]);
+const map=L.map("map",{zoomControl:false,attributionControl:false,minZoom:6,maxZoom:15,maxBounds:SN_BOUNDS.pad(0.6),zoomSnap:0.25,renderer:L.svg({padding:0.5})});
+L.control.scale({imperial:false,position:"bottomleft",maxWidth:120}).addTo(map);
+const fitSN=()=>map.fitBounds(SN_BOUNDS,{padding:[24,24]});
+fitSN();
+const ORTHO=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,maxNativeZoom:18,crossOrigin:false});
+let orthoOk=null,tileErr=0;
+ORTHO.on("tileload",()=>{orthoOk=true;document.getElementById("bmnote").hidden=true});
+ORTHO.on("tileerror",()=>{tileErr++;if(!orthoOk&&tileErr>=3)orthoFail()});
+function orthoFail(){if(orthoOk||basemap!=="ortho")return;orthoOk=false;setBasemap("plan");const n=document.getElementById("bmnote");n.hidden=false;
+  n.innerHTML="L'orthophoto ne peut pas s'afficher dans cet aperçu : les images satellite sont bloquées par la plateforme. Elle s'affiche quand l'application est publiée sur votre site (GitHub Pages, serveur web).";setTimeout(()=>n.hidden=true,9000)}
+function setBasemap(b){basemap=b;const el=document.getElementById("map");
+  if(b==="ortho"){ORTHO.addTo(map);ORTHO.bringToBack();el.classList.add("ortho")}else{map.removeLayer(ORTHO);el.classList.remove("ortho")}
+  document.getElementById("bm-ortho").setAttribute("aria-pressed",b==="ortho");document.getElementById("bm-plan").setAttribute("aria-pressed",b==="plan");
+  if(typeof regionLayer!=="undefined")regionLayer.setStyle(regionStyle);updAttrib();}
+function updAttrib(){const a=document.getElementById("attrib");if(!a)return;const parts=[basemap==="ortho"?"Orthophoto : Esri, Maxar, Earthstar Geographics":"Limites : Natural Earth"];
+  if(typeof OSM!=="undefined"&&OSM.length)parts.push('Lieux OSM : © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">contributeurs OpenStreetMap</a>');a.innerHTML=parts.join(" · ")}
+const regionLabels=[];
+let basemap="ortho";
+function regionStyle(f){
+  if(basemap==="ortho"){const on=state.region===f.properties.n;return f.properties.c!=="SEN"?{fillOpacity:0,color:"#ffffff",weight:.8,opacity:.5,dashArray:"3 3",interactive:false}:{fillColor:"#ffffff",fillOpacity:on?.12:0,color:on?"#ffd27a":"#ffffff",weight:on?3:1.3,opacity:.85};}
+  if(f.properties.c!=="SEN")return{fillColor:css("--gambia"),fillOpacity:1,color:css("--land"),weight:1,dashArray:"3 3",interactive:false};
+  const on=state.region===f.properties.n;
+  return{fillColor:css("--land"),fillOpacity:1,color:on?css("--indigo"):css("--land-line"),weight:on?2.4:1.4};
+}
+const regionLayer=L.geoJSON(REGIONS,{style:regionStyle,onEachFeature:(f,layer)=>{
+  if(f.properties.c!=="SEN")return;
+  layer.on("click",()=>{const n=f.properties.n;setWhere(state.region===n?"":n,"","",false)});
+  regionLabels.push(L.tooltip({permanent:true,direction:"center",className:"region",interactive:false}).setLatLng(layer.getBounds().getCenter()).setContent(f.properties.n));
+}}).addTo(map);
+L.tooltip({permanent:true,direction:"center",className:"region",interactive:false}).setLatLng([13.45,-15.4]).setContent("Gambie").addTo(map);
+L.layerGroup(regionLabels).addTo(map);
+document.getElementById("bm-ortho").onclick=()=>{if(orthoOk===false){const n=document.getElementById("bmnote");n.hidden=false;setTimeout(()=>n.hidden=true,7000);return}setBasemap("ortho")};
+document.getElementById("bm-plan").onclick=()=>setBasemap("plan");
+setBasemap("ortho");setTimeout(()=>{if(!orthoOk)orthoFail()},5000);
+
+const markerLayer=L.layerGroup().addTo(map), routeLayer=L.layerGroup().addTo(map);
+const colOf=c=>`var(--c-${c})`;
+
+function filtered(){
+  const q=state.q.trim().toLowerCase(),bnd=state.bbox?map.getBounds():null;
+  return SITES.filter(s=>state.cats.has(s.c)&&(state.src==="all"||(state.src==="osm")===(s.src==="osm"))&&(!state.region||s.r===state.region)&&(!state.dep||s.dp===state.dep)&&(!state.com||s.cm===state.com)&&(!state.unesco||uMatch(s,state.unesco))&&(!q||(s.n+" "+s.r+" "+(s.dp||"")+" "+(s.cm||"")).toLowerCase().includes(q))&&(!state.bbox||bnd.contains([s.lat,s.lon])));
+}
+const U_LBL={wh:"Patrimoine mondial",li:"Liste indicative",ich:"Patrimoine immatériel UNESCO",any:"Tout statut UNESCO"};
+function uKind(s){if(s.ich||(s.c==="immat"&&s.u&&!s.wh))return"ich";if(s.wh||s.u)return"wh";if(s.li)return"li";return""}
+function uMatch(s,f){const k=uKind(s);return f==="any"?!!k:k===f}
+function uBadge(s){const k=uKind(s);return k==="wh"?`<span class="u">UNESCO</span>`:k==="ich"?`<span class="u">UNESCO · PCI</span>`:k==="li"?`<span class="li">Liste indicative</span>`:""}
+function uBlock(s){const k=uKind(s);if(!k)return"";
+  const link=k==="wh"&&s.wh?`https://whc.unesco.org/fr/list/${s.wh}/`:k==="li"?`https://whc.unesco.org/fr/listesindicatives/${s.li}/`:k==="ich"?`https://ich.unesco.org/fr/etat/senegal-SN?info=elements-sur-les-listes`:"";
+  const txt=k==="wh"?(s.u?"Bien inscrit sur la Liste du patrimoine mondial en "+s.u+".":"Ce lieu fait partie d'un bien inscrit sur la Liste du patrimoine mondial."):k==="li"?"Proposé par le Sénégal sur sa Liste indicative du patrimoine mondial (2005), étape préalable à une candidature.":"Élément inscrit sur la Liste représentative du patrimoine culturel immatériel de l'humanité"+(s.u?" en "+s.u:"")+".";
+  return `<div class="ublock ${k}"><span class="ulogo" aria-hidden="true">${k==="li"?"LI":"PM"}</span><div><strong>${U_LBL[k]}</strong><p>${txt}</p>${link?`<a href="${link}" target="_blank" rel="noopener">Voir la fiche sur le site de l'UNESCO</a>`:""}</div></div>`}
+function pinIcon(s){return L.divIcon({className:"",iconSize:null,html:`<div class="pin${uKind(s)==="wh"||uKind(s)==="ich"?" u":uKind(s)==="li"?" li":""}${state.sel===s.id?" on":""}" style="background:${colOf(s.c)}">${svgIcon(s.i,8)}</div>`})}
+function drawMarkers(){
+  markerLayer.clearLayers();routeLayer.clearLayers();
+  let list=state.route?state.route.ids.map(id=>SITES.find(s=>s.id===id)):filtered();
+  if(state.route){
+    L.polyline(list.map(s=>[s.lat,s.lon]),{color:css("--ochre"),weight:3,dashArray:"7 6",interactive:false}).addTo(routeLayer);
+    list.forEach((s,i)=>L.marker([s.lat,s.lon],{icon:L.divIcon({className:"",iconSize:null,html:`<div class="step">${i+1}</div>`}),interactive:false,zIndexOffset:1000}).addTo(routeLayer));
+  }
+  // regroupement par distance à l'écran
+  const groups=[];
+  const R=state.cluster&&!state.route&&map.getZoom()<12.5?46:0;
+  list.forEach(s=>{
+    const p=map.latLngToLayerPoint([s.lat,s.lon]);
+    const g=R?groups.find(g=>g.p.distanceTo(p)<R):null;
+    if(g){g.items.push(s);const n=g.items.length;g.p=L.point((g.p.x*(n-1)+p.x)/n,(g.p.y*(n-1)+p.y)/n);}else groups.push({p,items:[s]});
+  });
+  groups.forEach(g=>{
+    if(g.items.length===1){
+      const s=g.items[0];
+      L.marker([s.lat,s.lon],{icon:pinIcon(s),keyboard:true,title:s.n,riseOnHover:true,zIndexOffset:state.sel===s.id?900:0})
+        .bindTooltip(s.n,{direction:"top",offset:[0,-9]}).on("click",()=>select(s.id,false)).addTo(markerLayer);
+    }else{
+      const n=g.items.length,size=Math.round(30+Math.sqrt(n)*9);
+      const ll=map.layerPointToLatLng(g.p);
+      L.marker(ll,{icon:L.divIcon({className:"",iconSize:[size,size],iconAnchor:[size/2,size/2],html:`<div class="clu" style="width:${size}px;height:${size}px">${n}</div>`}),keyboard:true,title:n+" lieux"})
+        .bindTooltip(g.items.slice(0,4).map(s=>esc(s.n)).join("<br>")+(n>4?`<br>+ ${n-4} autres`:""),{direction:"top",offset:[0,-size/2]})
+        .on("click",()=>{const b=L.latLngBounds(g.items.map(s=>[s.lat,s.lon]));if(map.getZoom()>=12)return;map.flyToBounds(b,{padding:[70,70],maxZoom:13.5,duration:.7})}).addTo(markerLayer);
+    }
+  });
+}
+map.on("zoomend",drawMarkers);
+
+/* ---------- outils carte ---------- */
+document.getElementById("zin").onclick=()=>map.zoomIn();
+document.getElementById("zout").onclick=()=>map.zoomOut();
+document.getElementById("zhome").onclick=fitSN;
+document.getElementById("zdakar").onclick=()=>map.flyTo([14.705,-17.44],11.5,{duration:.8});
+
+const lg=document.getElementById("legend");
+lg.innerHTML=Object.entries(CATS).map(([k,c])=>`<div><span class="ic" style="background:${colOf(k)}">${svgIcon(c.icon,13)}</span>${c.label}</div>`).join("")+
+  `<div><span class="ic" style="background:var(--muted);box-shadow:0 0 0 2px var(--surface),0 0 0 3.5px var(--ochre)"></span>Patrimoine mondial UNESCO</div><div><span class="ic" style="background:var(--muted);box-shadow:0 0 0 2px var(--surface),0 0 0 3.5px var(--muted)"></span>Liste indicative UNESCO</div><div><span class="cl">12</span>Regroupement de lieux</div>`;
+document.getElementById("t-legend").onclick=e=>{lg.hidden=!lg.hidden;e.currentTarget.setAttribute("aria-pressed",!lg.hidden)};
+document.getElementById("t-cluster").onclick=e=>{state.cluster=!state.cluster;e.currentTarget.setAttribute("aria-pressed",state.cluster);drawMarkers()};
+function restyle(){regionLayer.setStyle(regionStyle);drawMarkers()}
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",restyle);
+new MutationObserver(restyle).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+
+/* ---------- bandeau des thématiques ---------- */
+const band=document.getElementById("band");
+function renderBand(){
+  const all=state.cats.size===ALL.length;
+  band.innerHTML=`<button class="theme all" data-k="" aria-pressed="${all}">Toutes <small>${SITES.length}</small></button>`+
+    Object.entries(CATS).map(([k,c])=>`<button class="theme" data-k="${k}" aria-pressed="${!all&&state.cats.has(k)}"><span class="ic" style="background:${colOf(k)}">${svgIcon(c.icon,8)}</span>${c.label} <small>${SITES.filter(s=>s.c===k).length}</small></button>`).join("");
+  band.querySelectorAll(".theme").forEach(b=>b.onclick=()=>{const k=b.dataset.k;
+    if(!k)state.cats=new Set(ALL);
+    else if(state.cats.size===ALL.length)state.cats=new Set([k]);
+    else if(state.cats.has(k)){state.cats.delete(k);if(!state.cats.size)state.cats=new Set(ALL)}
+    else state.cats.add(k);
+    if(state.route)leaveRoute(false);go("carte");state.sel=null;renderAll()});
+}
+
+/* ---------- panneau ---------- */
+const scroll=document.getElementById("scroll"),pList=document.getElementById("p-list");
+const $=id=>document.getElementById(id);
+function setMode(m){state.mode=m;state.sel=null;$("m-explore").setAttribute("aria-pressed",m==="explore");$("m-filter").setAttribute("aria-pressed",m==="filter");renderPanel();drawMarkers()}
+$("m-explore").onclick=()=>setMode("explore");
+$("m-filter").onclick=()=>setMode("filter");
+$("q").oninput=e=>{state.q=e.target.value;$("q-clr").hidden=!state.q;state.sel=null;if(state.mode!=="explore"){state.mode="explore";setMode("explore")}renderAll()};
+$("q-clr").onclick=()=>{state.q="";$("q").value="";$("q-clr").hidden=true;renderAll();$("q").focus()};
+$("sort").onchange=e=>{state.sort=e.target.value;renderPanel()};
+$("bbox").onclick=e=>{state.bbox=!state.bbox;e.currentTarget.setAttribute("aria-pressed",state.bbox);renderAll()};
+map.on("moveend",()=>{if(state.bbox||state.sort==="near"){if(!state.sel)renderPanel();if(state.bbox)drawMarkers()}});
+
+/* localisation en cascade : région > département > commune */
+const uniq=a=>[...new Set(a.filter(Boolean))].sort((x,y)=>x.localeCompare(y,"fr"));
+function fillWhere(){
+  const base=SITES.filter(s=>state.cats.has(s.c));
+  const opt=(v,l,n,sel)=>`<option value="${esc(v)}" ${sel?"selected":""}>${esc(l)}${n!=null?` (${n})`:""}</option>`;
+  $("w-reg").innerHTML=opt("","Toutes",null,!state.region)+REGIONS_LIST.map(r=>{const n=base.filter(s=>s.r===r).length;return opt(r,r,n,state.region===r)}).join("");
+  const inReg=base.filter(s=>!state.region||s.r===state.region);
+  const deps=uniq(inReg.map(s=>s.dp));
+  $("w-dep").innerHTML=opt("",state.region?"Tous":"Choisir une région",null,!state.dep)+deps.map(d=>opt(d,d,inReg.filter(s=>s.dp===d).length,state.dep===d)).join("");
+  $("w-dep").disabled=!state.region;
+  const inDep=inReg.filter(s=>!state.dep||s.dp===state.dep);
+  const coms=uniq(inDep.map(s=>s.cm));
+  $("w-com").innerHTML=opt("",state.dep?"Toutes":"Choisir un département",null,!state.com)+coms.map(c=>opt(c,c,inDep.filter(s=>s.cm===c).length,state.com===c)).join("");
+  $("w-com").disabled=!state.dep;
+}
+function flyToList(list){if(!list.length)return;const b=L.latLngBounds(list.map(s=>[s.lat,s.lon]));map.flyToBounds(b,{padding:[60,60],maxZoom:list.length===1?14:12,duration:.7})}
+function regionBounds(n){let b=null;regionLayer.eachLayer(l=>{if(l.feature.properties.n===n&&l.feature.properties.c==="SEN")b=l.getBounds()});return b}
+function setWhere(reg,dep,com,fly=true){
+  state.region=reg;state.dep=dep;state.com=com;state.sel=null;state.bbox=false;$("bbox").setAttribute("aria-pressed",false);renderAll();
+  if(!fly)return;
+  if(com||dep)flyToList(SITES.filter(s=>s.r===reg&&(!dep||s.dp===dep)&&(!com||s.cm===com)));
+  else if(reg){const b=regionBounds(reg);if(b)map.flyToBounds(b,{padding:[30,30],duration:.7})}
+  else fitSN();
+}
+$("w-reg").onchange=e=>setWhere(e.target.value,"","");
+$("w-dep").onchange=e=>setWhere(state.region,e.target.value,"");
+$("w-com").onchange=e=>setWhere(state.region,state.dep,e.target.value);
+
+function chips(){
+  const c=[];
+  if(state.q)c.push(["q",`« ${state.q} »`]);
+  if(state.cats.size<ALL.length)[...state.cats].forEach(k=>c.push(["cat:"+k,CATS[k].label]));
+  if(state.com)c.push(["com",state.com]);else if(state.dep)c.push(["dep","Dép. "+state.dep]);else if(state.region)c.push(["reg","Région "+state.region]);
+  if(state.unesco)c.push(["unesco",U_LBL[state.unesco]]);
+  if(state.src!=="all")c.push(["src",state.src==="osm"?"Source OSM":"Sélection éditoriale"]);
+  if(state.bbox)c.push(["bbox","Zone visible"]);
+  const el=$("chips");el.hidden=!c.length;
+  el.innerHTML=c.map(([k,l])=>`<button class="chip" data-k="${esc(k)}" title="Retirer ce filtre">${esc(l)}<b aria-hidden="true">×</b></button>`).join("")+(c.length>1?`<button class="clear-all" id="clear-all">Tout effacer</button>`:"");
+  el.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{const k=b.dataset.k;
+    if(k==="q"){state.q="";$("q").value="";$("q-clr").hidden=true}
+    else if(k.startsWith("cat:")){state.cats.delete(k.slice(4));if(!state.cats.size)state.cats=new Set(ALL)}
+    else if(k==="com")state.com="";else if(k==="dep"){state.dep="";state.com=""}else if(k==="reg"){state.region="";state.dep="";state.com=""}
+    else if(k==="unesco")state.unesco="";else if(k==="src")state.src="all";else if(k==="bbox"){state.bbox=false;$("bbox").setAttribute("aria-pressed",false)}
+    renderAll()});
+  const ca=$("clear-all");if(ca)ca.onclick=resetAll;
+  return c.length;
+}
+function resetAll(){state.cats=new Set(ALL);state.region="";state.dep="";state.com="";state.unesco="";state.q="";state.src="all";state.bbox=false;$("q").value="";$("q-clr").hidden=true;$("bbox").setAttribute("aria-pressed",false);renderAll()}
+
+function cover(s,big){
+  const u=photoUrl(s.id,big);
+  const ill=`<div class="cover">${sceneSVG(s)}</div>`;
+  if(u)return `<div class="cover">${sceneSVG(s)}</div><img src="${u}" alt="${esc(s.n)}" loading="lazy" style="position:absolute;inset:0" onerror="this.remove()">`;
+  return ill+(big?`<span class="illu">Illustration · en attente d'une photo</span>`:"");
+}
+const place=s=>[s.cm&&s.cm!==s.r?s.cm:"",s.r].filter(Boolean).join(" · ");
+function sorted(list){
+  const by=state.sort;
+  if(by==="reg")return list.sort((a,b)=>(a.r||"~").localeCompare(b.r||"~","fr")||a.n.localeCompare(b.n,"fr"));
+  const ur={wh:3,ich:2,li:1,"":0};if(by==="unesco")return list.sort((a,b)=>(ur[uKind(b)]-ur[uKind(a)])||a.n.localeCompare(b.n,"fr"));
+  if(by==="near"){const c=map.getCenter();return list.sort((a,b)=>c.distanceTo([a.lat,a.lon])-c.distanceTo([b.lat,b.lon]))}
+  return list.sort((a,b)=>a.n.localeCompare(b.n,"fr"));
+}
+function renderPanel(){
+  fillWhere();
+  const nActive=chips();
+  const list=sorted(filtered());
+  $("count").innerHTML=`<span><strong>${list.length}</strong> lieu${list.length>1?"x":""}${state.bbox?" dans la zone visible":""}</span>`;
+  if(state.sel){pList.hidden=true;$("count").parentElement.hidden=true;renderFiche();return}
+  pList.hidden=false;$("count").parentElement.hidden=false;
+  if(state.mode==="filter"){
+    scroll.innerHTML=`<div class="filters">
+      <div class="fgroup"><h3>Thématiques</h3>${Object.entries(CATS).map(([k,c])=>`<label class="fopt"><input type="checkbox" data-c="${k}" ${state.cats.has(k)?"checked":""}><span class="ic" style="background:${colOf(k)}">${svgIcon(c.icon,14)}</span>${c.label}<small>${SITES.filter(s=>s.c===k).length}</small></label>`).join("")}</div>
+      <div class="fgroup"><h3>Statut UNESCO</h3>${[["","Tous les lieux",SITES.length],["any","Tout statut UNESCO",SITES.filter(s=>uKind(s)).length],["wh","Patrimoine mondial",SITES.filter(s=>uKind(s)==="wh").length],["li","Liste indicative",SITES.filter(s=>uKind(s)==="li").length],["ich","Patrimoine culturel immatériel",SITES.filter(s=>uKind(s)==="ich").length]].map(([v,l,n])=>`<label class="fopt"><input type="radio" name="un" value="${v}" ${state.unesco===v?"checked":""}>${l}<small>${n}</small></label>`).join("")}</div>
+      <div class="fgroup"><h3>Source</h3>${[["all","Toutes les sources",SITES.length],["edito","Sélection éditoriale",EDITO.length],["osm","OpenStreetMap",OSM.length]].map(([v,l,n])=>`<label class="fopt"><input type="radio" name="src" value="${v}" ${state.src===v?"checked":""}>${l}<small>${n}</small></label>`).join("")}</div>
+      <button class="btn" id="f-see">Voir les ${list.length} lieux</button>
+      <div class="fgroup"><h3>Données OpenStreetMap</h3>${osmBox()}</div></div>`;
+    scroll.querySelectorAll('input[name=src]').forEach(i=>i.onchange=()=>{state.src=i.value;renderAll()});
+    bindOsmBox();
+    scroll.querySelectorAll("[data-c]").forEach(i=>i.onchange=()=>{i.checked?state.cats.add(i.dataset.c):state.cats.delete(i.dataset.c);if(!state.cats.size)state.cats=new Set(ALL);renderAll()});
+    scroll.querySelectorAll('input[name=un]').forEach(i=>i.onchange=()=>{state.unesco=i.value;renderAll()});
+    $("f-see").onclick=()=>setMode("explore");
+    return;
+  }
+  const intro="";
+  scroll.innerHTML=intro+(list.length?`<div class="cards">${list.slice(0,shown).map(s=>`<button class="card-ph" data-id="${s.id}" aria-label="${esc(s.n)}, ${esc(place(s))}"><span class="thumb">${cover(s)}<span class="badge"><span style="background:${colOf(s.c)}" title="${CATS[s.c].label}">${svgIcon(s.i,6)}</span></span></span><span class="ttl">${esc(s.n)}<small>${esc(place(s))}</small><span class="badge-r">${uBadge(s)}${s.src==="osm"?`<span class="o">OSM</span>`:""}</span></span></button>`).join("")}</div>${list.length>shown?`<button class="btn ghost more" id="more">Afficher ${Math.min(60,list.length-shown)} lieux de plus (${list.length-shown} restants)</button>`:""}`
+    :`<div class="empty"><p><strong>Aucun lieu ne correspond.</strong></p><p>${state.bbox?"Déplacez ou dézoomez la carte, ou ":""}retirez un filtre ci-dessus.</p><button class="btn ghost" id="empty-reset">Tout afficher</button></div>`);
+  const er=$("empty-reset");if(er)er.onclick=resetAll;
+  const mo=$("more");if(mo)mo.onclick=()=>{shown+=60;const y=scroll.scrollTop;renderPanel();scroll.scrollTop=y};
+  const ix=$("intro-x");if(ix)ix.onclick=()=>{introHidden=true;try{localStorage.setItem("snp-intro","0")}catch(e){}renderPanel()};
+  scroll.querySelectorAll(".card-ph").forEach(b=>{b.onclick=()=>select(b.dataset.id,true);b.onmouseenter=()=>hl(b.dataset.id,true);b.onmouseleave=()=>hl(b.dataset.id,false);b.onfocus=()=>hl(b.dataset.id,true);b.onblur=()=>hl(b.dataset.id,false)});
+}
+let hlLayer=null;
+function hl(id,on){if(hlLayer){map.removeLayer(hlLayer);hlLayer=null}if(!on)return;const s=SITES.find(x=>x.id===id);if(!s)return;hlLayer=L.circleMarker([s.lat,s.lon],{radius:22,color:css("--ochre"),weight:3,fill:false,interactive:false}).addTo(map)}
+function flashCard(id){const c=scroll.querySelector(`.card-ph[data-id="${id}"]`);if(!c)return;c.scrollIntoView({block:"nearest",behavior:"smooth"});c.classList.add("cur");setTimeout(()=>c.classList.remove("cur"),1400)}
+
+function renderFiche(){
+  const s=SITES.find(x=>x.id===state.sel),ph=PHOTOS[s.id],wk=WIKI[s.id];
+  const near=SITES.filter(o=>o.id!==s.id&&(o.cm&&o.cm===s.cm||o.dp&&o.dp===s.dp||o.r===s.r)).slice(0,4).concat(SITES.filter(o=>o.id!==s.id&&o.c===s.c&&o.r!==s.r).slice(0,3));
+  const inRoutes=PARCOURS.filter(p=>p.ids.includes(s.id));
+  const credit=ph&&ph.asset?(ph.credit?`© ${esc(ph.credit)}`:""):wk&&photoUrl(s.id,true)?`Photo : <a href="${esc(wk.f)}" target="_blank" rel="noopener" style="color:#fff">Wikimedia Commons</a> (auteur et licence)`:"";
+  const sv=`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${s.lat},${s.lon}`;
+  scroll.scrollTop=0;
+  scroll.innerHTML=`<div class="fiche-hero">${cover(s,true)}<button class="back" id="back">← Retour à la liste</button>${credit?`<span class="credit">${credit}</span>`:""}</div>
+  <nav class="actions" aria-label="Actions">
+    <a class="pri" href="${sv}" target="_blank" rel="noopener">${svgIcon("eye",15)}Street View</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}" target="_blank" rel="noopener">Itinéraire</a>
+    <button type="button" id="f-map">Centrer la carte</button>
+    <button type="button" id="f-copy">Copier les coordonnées</button>
+  </nav>
+  <div class="fiche-body">
+    <div class="eyebrow" style="color:${colOf(s.c)}"><span class="ic" style="background:${colOf(s.c)}">${svgIcon(s.i,13)}</span>${CATS[s.c].label}</div>
+    <h2>${esc(s.n)}</h2>
+    <div class="crumbs">${[["reg",s.r],["dep",s.dp],["com",s.cm]].filter(x=>x[1]).map(([k,v])=>`<button data-w="${k}">${esc(v)}</button>`).join(" › ")}</div>
+    <p>${esc(s.d)}</p>
+    ${uBlock(s)}
+    ${wk&&wk.p?`<p><a href="${esc(wk.p)}" target="_blank" rel="noopener">Lire l'article Wikipédia</a></p>`:s.wiki?`<p><a href="${esc(s.wiki)}" target="_blank" rel="noopener">Lire l'article Wikipédia</a></p>`:s.wp?`<p><a href="https://fr.wikipedia.org/wiki/${encodeURIComponent(s.wp.replace(/ /g,"_"))}" target="_blank" rel="noopener">Lire l'article Wikipédia</a></p>`:""}
+    <dl class="facts"><dt>Époque</dt><dd>${esc(s.ep)}</dd><dt>Protection</dt><dd>${esc(s.pr)}</dd><dt>Localisation</dt><dd>${esc([s.cm,s.dp?"département de "+s.dp:"",s.r?"région de "+s.r:""].filter(Boolean).join(", ")||"—")}</dd>${(s.x||[]).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}<dt>Coordonnées</dt><dd style="font-family:var(--mono);font-size:.82rem">${s.lat.toFixed(4)}, ${s.lon.toFixed(4)} <span class="note">(indicatives)</span></dd><dt>Source</dt><dd>${s.src==="osm"?`OpenStreetMap <a href="https://www.openstreetmap.org/${esc(s.osm)}" target="_blank" rel="noopener">${esc(s.osm)}</a> · © contributeurs OSM (ODbL)`:"Sélection éditoriale Sénégal Patrimoines"}</dd></dl>
+    <div class="h3">Autres vues</div>
+    <div class="links">
+      <a href="https://www.mapillary.com/app/?lat=${s.lat}&lng=${s.lon}&z=17" target="_blank" rel="noopener">Mapillary 360°</a>
+      <a href="https://www.google.com/maps/@${s.lat},${s.lon},400m/data=!3m1!1e3" target="_blank" rel="noopener">Vue satellite</a>
+      <a href="https://www.openstreetmap.org/?mlat=${s.lat}&mlon=${s.lon}#map=17/${s.lat}/${s.lon}" target="_blank" rel="noopener">OpenStreetMap</a>
+    </div>
+    <p class="note" style="margin:6px 0 0">Street View et Mapillary montrent l'image disponible la plus proche du point, parfois à quelques rues du lieu.</p>
+    ${inRoutes.length?`<div class="h3">Dans les parcours</div><div class="related">${inRoutes.map(p=>`<button data-route="${PARCOURS.indexOf(p)}">${p.t}</button>`).join("")}</div>`:""}
+    <div class="h3">À proximité et sur le même thème</div><div class="related">${near.map(o=>`<button data-id="${o.id}">${esc(o.n)}</button>`).join("")}</div>
+    ${assetsNS&&dbNS?`<div class="photo-admin"><strong>${ph?"Remplacer la photo":"Ajouter une photo"}</strong>
+      <span class="note">Visible par tous les visiteurs. Vérifiez que vous avez le droit de la diffuser.</span>
+      <input type="text" id="ph-credit" placeholder="Crédit photo (ex. Mamadou Fall / CEGIT)" value="${esc(ph?ph.credit:"")}">
+      <div class="row"><input type="file" id="ph-file" accept="image/*">${ph?`<button class="btn ghost" id="ph-del" type="button">Retirer la photo</button>`:""}</div>
+      <span class="note" id="ph-msg"></span></div>`:""}
+    <div class="h3">Vous connaissez ce lieu ?</div>
+    <p class="note" style="margin:4px 0 10px">Partagez un souvenir, une photo ou un document.</p>
+    <button class="btn ghost" id="fcontrib">Ajouter un témoignage</button>
+  </div>`;
+  $("back").onclick=()=>{const id=state.sel;state.sel=null;renderPanel();drawMarkers();requestAnimationFrame(()=>flashCard(id))};
+  $("f-map").onclick=()=>map.flyTo([s.lat,s.lon],Math.max(map.getZoom(),13),{duration:.7});
+  $("f-copy").onclick=e=>{const txt=`${s.n} — ${s.lat.toFixed(5)}, ${s.lon.toFixed(5)}`;const b=e.currentTarget;
+    Promise.resolve().then(()=>navigator.clipboard.writeText(txt)).then(()=>{b.textContent="Coordonnées copiées"},()=>{b.textContent=`${s.lat.toFixed(5)}, ${s.lon.toFixed(5)}`})};
+  scroll.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>{const k=b.dataset.w;setWhere(s.r,k==="reg"?"":s.dp,k==="com"?s.cm:"")});
+  scroll.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>select(b.dataset.id,true));
+  scroll.querySelectorAll("[data-route]").forEach(b=>b.onclick=()=>showRoute(+b.dataset.route));
+  $("fcontrib").onclick=()=>{go("contribuer");$("f-lieu").value=s.n;$("f-cat").value=s.c;$("f-region").value=s.r;$("f-recit").focus()};
+  const file=$("ph-file");
+  if(file){
+    file.onchange=()=>uploadPhoto(s.id,file.files[0]);
+    const del=$("ph-del");
+    if(del)del.onclick=async()=>{const old=PHOTOS[s.id];try{await dbNS.doc("photos/"+s.id).delete();if(old&&old.asset)assetsNS.delete(old.asset).catch(()=>{})}catch(e){msg("Impossible de retirer la photo : "+(e.message||e.code))}};
+  }
+}
+const msg=t=>{const m=$("ph-msg");if(m)m.textContent=t};
+async function shrink(file){
+  try{const bmp=await createImageBitmap(file);const k=Math.min(1,1600/Math.max(bmp.width,bmp.height));
+    const c=document.createElement("canvas");c.width=Math.round(bmp.width*k);c.height=Math.round(bmp.height*k);c.getContext("2d").drawImage(bmp,0,0,c.width,c.height);
+    return await new Promise(r=>c.toBlob(b=>r(b||file),"image/jpeg",.85));}catch(e){return file}
+}
+async function uploadPhoto(id,file){
+  if(!file)return;msg("Envoi en cours…");
+  try{
+    const blob=await shrink(file);const res=await assetsNS.upload(blob);
+    const old=PHOTOS[id];
+    await dbNS.doc("photos/"+id).set({asset:res.id,credit:($("ph-credit")||{}).value||"",updated:Date.now()});
+    if(old&&old.asset&&old.asset!==res.id)assetsNS.delete(old.asset).catch(()=>{});
+    msg("Photo enregistrée.");
+  }catch(e){msg("La photo n'a pas pu être enregistrée : "+(e.message||e.code||"erreur"))}
+}
+
+function select(id,fly){
+  const s=SITES.find(x=>x.id===id);if(!s)return;
+  state.sel=id;
+  if(fly)map.flyTo([s.lat,s.lon],Math.max(map.getZoom(),s.r==="Dakar"?13:9.5),{duration:.7});
+  renderPanel();drawMarkers();
+  if(innerWidth<=860)document.querySelector(".panel").scrollIntoView({behavior:"smooth"});
+}
+function renderAll(){shown=60;regionLayer.setStyle(regionStyle);renderBand();renderPanel();drawMarkers()}
+
+/* ---------- photos Wikipédia (chargées par le navigateur quand l'hébergement le permet) ---------- */
+var WIKI={};try{WIKI=JSON.parse(localStorage.getItem("snp-wiki-v1")||"{}")}catch(e){}
+const IMG_OK=/\.(jpe?g|webp)$/i;
+function sized(src,w,orig){if(!src)return "";if(orig&&orig.width&&orig.width<=w)return orig.source;return src.replace(/\/(\d+)px-([^/]+)$/,`/${w}px-$2`)}
+async function loadWiki(){
+  const todo=EDITO.filter(s=>s.wp&&!(WIKI[s.id]&&Date.now()-WIKI[s.id].ts<7*864e5));
+  let blocked=false,changed=0;
+  async function one(s){
+    if(blocked)return;
+    try{
+      const r=await fetch("https://fr.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(s.wp.replace(/ /g,"_")),{headers:{accept:"application/json"}});
+      if(!r.ok){WIKI[s.id]={ts:Date.now()};return}
+      const j=await r.json(),o=j.originalimage,th=j.thumbnail;
+      const src=th&&th.source,ok=o&&IMG_OK.test(o.source);
+      const file=o?decodeURIComponent(o.source.split("/").pop()):"";
+      WIKI[s.id]={ts:Date.now(),t:ok?sized(src,640,o):"",b:ok?sized(src,1280,o):"",f:file?"https://commons.wikimedia.org/wiki/File:"+encodeURIComponent(file):"",p:j.content_urls&&j.content_urls.desktop&&j.content_urls.desktop.page||""};
+      changed++;
+    }catch(e){blocked=true}
+  }
+  const q=todo.slice();const workers=Array.from({length:6},async()=>{while(q.length&&!blocked)await one(q.shift())});
+  await Promise.all(workers);
+  try{localStorage.setItem("snp-wiki-v1",JSON.stringify(WIKI))}catch(e){}
+  if(changed)renderPanel();
+}
+
+/* ---------- parcours ---------- */
+const rb=document.getElementById("rbanner");
+function showRoute(i){
+  const p=PARCOURS[i];state.route=p;state.sel=null;go("carte");
+  rb.innerHTML=`<div class="count" style="color:var(--ochre)">Parcours · ${p.ids.length} étapes · ${p.dur}</div><strong>${p.t}</strong><br><button id="rclose">Quitter le parcours</button>`;
+  rb.hidden=false;document.getElementById("rclose").onclick=()=>leaveRoute(true);
+  renderAll();
+  setTimeout(()=>map.flyToBounds(L.latLngBounds(p.ids.map(id=>{const s=SITES.find(x=>x.id===id);return[s.lat,s.lon]})),{padding:[60,60],duration:.8}),60);
+}
+function leaveRoute(refit){state.route=null;rb.hidden=true;if(refit)fitSN();renderAll()}
+document.getElementById("parcours").innerHTML=PARCOURS.map((p,i)=>`
+  <article class="card"><div class="count" style="color:var(--ochre)">${p.dur} · ${p.km}</div><h3>${p.t}</h3><p>${p.d}</p>
+  <ol class="steps">${p.ids.map(id=>{const s=SITES.find(x=>x.id===id);return `<li><span>${s.n} <span class="meta">· ${s.r}</span></span></li>`}).join("")}</ol>
+  <button class="btn" data-r="${i}">Voir sur la carte</button></article>`).join("");
+document.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>showRoute(+b.dataset.r));
+
+/* ---------- contribuer ---------- */
+const fc=document.getElementById("f-cat"),fr=document.getElementById("f-region");
+fc.innerHTML=Object.entries(CATS).map(([k,c])=>`<option value="${k}">${c.label}</option>`).join("");
+fr.innerHTML=REGIONS_LIST.map(r=>`<option>${r}</option>`).join("");
+function loadMine(){try{return JSON.parse(localStorage.getItem("snp-contrib")||"[]")}catch(e){return[]}}
+function renderMine(){const m=loadMine();document.getElementById("mine").innerHTML=m.length?`<div class="count">Vos contributions sur cet appareil</div>`+m.map(c=>`<div class="card" style="padding:14px 16px"><div class="count" style="color:var(--c-${c.cat})">${CATS[c.cat]?CATS[c.cat].label:""} · ${esc(c.region)}</div><strong>${esc(c.lieu)}</strong><p>${esc(c.recit)}</p><div class="meta">Par ${esc(c.nom)} · ${c.date} · en attente de validation</div></div>`).join(""):""}
+const fv=id=>document.getElementById(id).value.trim();
+document.getElementById("form").addEventListener("submit",e=>{e.preventDefault();
+  const c={nom:fv("f-nom"),lieu:fv("f-lieu"),cat:fc.value,region:fr.value,recit:fv("f-recit"),source:fv("f-source"),date:new Date().toLocaleDateString("fr-FR")};
+  const m=loadMine();m.unshift(c);try{localStorage.setItem("snp-contrib",JSON.stringify(m))}catch(err){}
+  e.target.reset();const el=document.getElementById("f-msg");el.textContent="Contribution enregistrée sur cet appareil, en attente de validation.";el.className="note ok";renderMine()});
+renderMine();
+
+
+/* ---------- événements ---------- */
+const SRC_AS="https://au-senegal.com/les-grands-festivals-au-senegal-en-2026-ce-qu-il-ne-fallait-pas-manquer-et-les-rendez-vous-a-venir,18117.html";
+const EVENTS=[
+ {n:"Dakar Music Expo (DMX)",s:"2026-03-26",e:"2026-03-29",pl:"Institut français du Sénégal, Dakar",r:"Dakar",t:"Musique",lat:14.669,lon:-17.434,d:"Conférences, showcases et rencontres professionnelles autour des musiques africaines et de leurs industries.",u:SRC_AS},
+ {n:"Festival sur le fleuve Casamance (2e édition)",s:"2026-04-02",e:"2026-04-04",pl:"Ziguinchor",r:"Ziguinchor",t:"Festival",lat:12.583,lon:-16.272,d:"Culture, artisanat et tourisme responsable autour du fleuve, sur le thème « Casamance créative ».",u:SRC_AS},
+ {n:"Dombondir Festival & Camping",s:"2026-04-03",e:"2026-04-05",pl:"Dombondir, Casamance",r:"Ziguinchor",t:"Festival",d:"Trois jours autour des traditions et de la vie communautaire, entre mangroves, forêts et villages.",u:SRC_AS},
+ {n:"Fête de l'indépendance",s:"2026-04-04",pl:"Saint-Louis",r:"Saint-Louis",t:"Célébration",site:"saintlouis",d:"Les célébrations nationales du 4 Avril se sont tenues à Saint-Louis en 2026.",u:"https://fr.allafrica.com/stories/202602270150.html"},
+ {n:"Films Femmes Afrique (6e édition)",s:"2026-04-10",e:"2026-04-27",pl:"Dakar, puis les régions",r:"Dakar",t:"Cinéma",d:"Une soixantaine de films réalisés par des femmes, avec débats et projections gratuites.",u:SRC_AS},
+ {n:"Festival Banlieue Wake Up (11e édition)",s:"2026-04-17",e:"2026-04-27",pl:"Diamaguène Sicap Mbao",r:"Dakar",t:"Musique",d:"Concerts, débats et ateliers pour les talents de la banlieue, avec un village artisanal.",u:SRC_AS},
+ {n:"Dialaw Festival, « Rythmes & Formes du Monde »",s:"2026-04-24",e:"2026-04-28",pl:"Dialaw",r:"Thiès",t:"Festival",lat:14.61,lon:-17.11,d:"Musique, danse, théâtre, marché artisanal et culture lébou en bord de mer.",u:SRC_AS},
+ {n:"StLouis'Docs (17e édition)",s:"2026-04-28",e:"2026-05-02",pl:"Saint-Louis",r:"Saint-Louis",t:"Cinéma",site:"saintlouis",d:"Festival du film documentaire : projections, rencontres et débats.",u:SRC_AS},
+ {n:"Jant Bi Festival",s:"2026-04-29",e:"2026-05-02",pl:"Grand Théâtre national, Dakar",r:"Dakar",t:"Musique",lat:14.673,lon:-17.442,d:"Festival de musique en live avec de nombreux artistes invités.",u:SRC_AS},
+ {n:"Stereo Africa Festival (4e édition)",s:"2026-05-05",e:"2026-05-10",pl:"Les Mamelles, Dakar",r:"Dakar",t:"Musique",lat:14.725,lon:-17.497,d:"Programme professionnel et artistique pour les musiques africaines.",u:SRC_AS},
+ {n:"Festival international de jazz de Saint-Louis (34e édition)",s:"2026-05-13",e:"2026-05-17",pl:"Île de Saint-Louis",r:"Saint-Louis",t:"Musique",site:"jazz",d:"Concerts en plein air et en salle avec des artistes africains et internationaux.",u:SRC_AS},
+ {n:"Pèlerinage marial de Popenguine",s:"2026-05-23",e:"2026-05-25",pl:"Popenguine",r:"Thiès",t:"Religieux",site:"popenguine",d:"Grand pèlerinage catholique de Pentecôte vers le sanctuaire Notre-Dame de la Délivrance."},
+ {n:"Fête de la musique",s:"2026-06-21",pl:"Dakar (trois pôles)",r:"Dakar",t:"Musique",d:"Concerts gratuits répartis sur trois grands pôles de la capitale.",u:"https://fr.allafrica.com/stories/202606210034.html"},
+ {n:"Gorée Island Music Days (3e édition)",s:"2026-06-27",e:"2026-06-28",pl:"Île de Gorée",r:"Dakar",t:"Musique",site:"goree",d:"Deux jours de musique live et d'échanges sur la culture, la santé et l'environnement.",u:SRC_AS},
+ {n:"Grand Magal de Touba",s:"2026-08-02",pl:"Touba",r:"Diourbel",t:"Religieux",site:"magal",d:"Pèlerinage commémorant le départ en exil de Cheikh Ahmadou Bamba.",u:"https://lesoleil.sn/actualites/societe-fait-divers/le-grand-magal-de-touba-celebre-le-2-aout-2026-le-4-safar-place-sous-le-signe-du-savoir-et-de-la-transmission/"},
+ {n:"Gamou de Tivaouane",s:"2026-08-25",pl:"Tivaouane",r:"Thiès",t:"Religieux",site:"tivaouane",d:"Célébration de la naissance du Prophète dans la cité religieuse tidjane.",u:"https://lesoleil.sn/actualites/tivaouane-la-celebration-du-gamou-fixee-au-25-aout/"},
+ {n:"Grand Carnaval de Dakar",s:"2026-11-01",e:"2026-11-30",tbc:true,pl:"Dakar",r:"Dakar",t:"Festival",d:"Défilés, spectacles, concerts et expositions célébrant la diversité culturelle. Dates exactes à confirmer (novembre).",u:SRC_AS},
+ {n:"Dak'Art, Biennale de l'art africain contemporain",s:"2026-11-19",e:"2026-12-19",pl:"Dakar",r:"Dakar",t:"Arts visuels",site:"dakart",d:"Exposition internationale, Dak'Art OFF dans les galeries, résidences d'artistes et semaine de la mode.",u:"https://lesoleil.sn/actualites/arts-et-culture/arts-contemporains-africains-la-biennale-prevue-a-dakar-du-19-novembre-au-19-decembre-2026/"},
+ {n:"Festival international de courts-métrages de Dakar (Dakar Court)",s:"2026-12-08",e:"2026-12-12",pl:"Dakar",r:"Dakar",t:"Cinéma",d:"Projections, rencontres professionnelles et ateliers autour de la fiction courte africaine.",u:SRC_AS}
+];
+let evState={p:"soon",t:"",r:""};
+const D=s=>new Date(s+"T12:00:00");
+const fmtD=(s,o)=>D(s).toLocaleDateString("fr-FR",o);
+function evStatus(ev){const now=new Date(),s=D(ev.s),e=D(ev.e||ev.s);e.setHours(23,59);if(e<now)return"past";if(s<=now)return"now";return"soon"}
+function upcoming(){return EVENTS.filter(e=>evStatus(e)!=="past").sort((a,b)=>a.s.localeCompare(b.s))}
+function renderEvents(){
+  const types=[...new Set(EVENTS.map(e=>e.t))].sort();
+  const ty=document.getElementById("ev-type"),rg=document.getElementById("ev-reg");
+  ty.innerHTML=`<option value="">Tous les types</option>`+types.map(x=>`<option ${evState.t===x?"selected":""}>${x}</option>`).join("");
+  rg.innerHTML=`<option value="">Toutes les régions</option>`+REGIONS_LIST.filter(r=>EVENTS.some(e=>e.r===r)).map(x=>`<option ${evState.r===x?"selected":""}>${x}</option>`).join("");
+  ty.onchange=e=>{evState.t=e.target.value;renderEvents()};rg.onchange=e=>{evState.r=e.target.value;renderEvents()};
+  document.querySelectorAll("[data-p]").forEach(b=>{b.setAttribute("aria-pressed",b.dataset.p===evState.p);b.onclick=()=>{evState.p=b.dataset.p;renderEvents()}});
+  let list=EVENTS.filter(e=>(!evState.t||e.t===evState.t)&&(!evState.r||e.r===evState.r)&&(evState.p==="all"||(evState.p==="past"?evStatus(e)==="past":evStatus(e)!=="past")));
+  list.sort((a,b)=>evState.p==="past"?b.s.localeCompare(a.s):a.s.localeCompare(b.s));
+  let html="",cur="";
+  list.forEach((e,i)=>{const m=fmtD(e.s,{month:"long",year:"numeric"});if(m!==cur){cur=m;html+=`<div class="month">${m}</div>`}
+    const st=evStatus(e),pill=e.tbc&&st!=="past"?`<span class="pill tbc">Dates à confirmer</span>`:st==="past"?`<span class="pill past">Passé</span>`:st==="now"?`<span class="pill soon">En cours</span>`:`<span class="pill soon">À venir</span>`;
+    const when=e.e&&e.e!==e.s?`Du ${fmtD(e.s,{day:"numeric",month:"long"})} au ${fmtD(e.e,{day:"numeric",month:"long",year:"numeric"})}`:fmtD(e.s,{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+    const site=e.site&&EDITO.find(s=>s.id===e.site);
+    html+=`<article class="ev ${st==="past"?"past":""}" data-type="${e.t}"><div class="d"><b>${e.tbc?"—":D(e.s).getDate()}</b><span>${fmtD(e.s,{month:"short"})}</span></div><div>
+      <h3>${esc(e.n)}</h3><div class="meta2">${pill}<span>${when}</span><span>${esc(e.pl)} · ${e.r}</span><span>${e.t}</span></div>
+      <p>${esc(e.d)}</p><div class="acts">${site?`<button data-evs="${site.id}">Voir la fiche du lieu</button>`:""}${site||e.lat?`<button data-evm="${i}">Sur la carte</button>`:""}${e.u?`<a href="${e.u}" target="_blank" rel="noopener">Source</a>`:""}</div></div></article>`});
+  const el=document.getElementById("evlist");
+  el.innerHTML=html||`<p class="empty">Aucun événement pour ces critères. ${evState.p==="soon"?"Consultez les événements passés ou retirez un filtre.":""}</p>`;
+  el.querySelectorAll("[data-evs]").forEach(b=>b.onclick=()=>{go("carte");select(b.dataset.evs,true);document.getElementById("v-carte").scrollIntoView({behavior:"smooth"})});
+  el.querySelectorAll("[data-evm]").forEach(b=>b.onclick=()=>{const e=list[+b.dataset.evm],s=e.site&&EDITO.find(x=>x.id===e.site),ll=s?[s.lat,s.lon]:[e.lat,e.lon];go("carte");document.getElementById("v-carte").scrollIntoView({behavior:"smooth"});setTimeout(()=>{map.flyTo(ll,13,{duration:.8});const m=L.circleMarker(ll,{radius:24,color:css("--ochre"),weight:4,fill:false,interactive:false}).bindTooltip(esc(e.n),{permanent:true,direction:"top",offset:[0,-24]}).addTo(map);setTimeout(()=>map.removeLayer(m),7000)},200)});
+}
+function renderHero(){if(!document.getElementById("hero-figs"))return;
+  const up=upcoming(),n=up[0];
+  document.getElementById("hero-figs").innerHTML=`<div><b>${SITES.length}</b><span>lieux patrimoniaux</span></div><div><b>${SITES.filter(s=>s.c==="culte").length}</b><span>lieux religieux</span></div><div><b>${new Set(SITES.filter(s=>s.wh).map(s=>s.wh)).size}</b><span>biens du patrimoine mondial</span></div><div><b>${up.length}</b><span>événements à venir</span></div>`+
+    (n?`<button class="next-ev" id="next-ev"><span>Prochain rendez-vous : <strong>${esc(n.n)}</strong>, ${n.tbc?"novembre 2026":fmtD(n.s,{day:"numeric",month:"long"})} · ${esc(n.pl)}</span></button>`:"");
+  const b=document.getElementById("next-ev");if(b)b.onclick=()=>{go("evenements");window.scrollTo({top:0})};
+}
+
+/* ---------- navigation ---------- */
+function go(v){document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===v));
+  document.getElementById("hero").hidden=v!=="carte";document.querySelector(".band").hidden=v!=="carte";
+  if(v==="evenements")renderEvents();
+  document.querySelectorAll(".view").forEach(s=>s.hidden=s.id!=="v-"+v);
+  if(v==="carte")setTimeout(()=>map.invalidateSize(),0)}
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{go(b.dataset.v);window.scrollTo({top:0})});
+document.getElementById("hd-cta").onclick=()=>{go("contribuer");window.scrollTo({top:0})};
+document.querySelectorAll("footer [data-go]").forEach(b=>b.onclick=()=>{go(b.dataset.go);window.scrollTo({top:0,behavior:"smooth"})});
+document.getElementById("home").onclick=e=>{e.preventDefault();go("carte");window.scrollTo({top:0,behavior:"smooth"})};
+
+const h=(location.hash||"").slice(1);if(["parcours","contribuer","apropos","evenements"].includes(h))go(h);
+renderHero();
+document.getElementById("ft-themes").innerHTML=Object.entries(CATS).map(([k,c])=>`<li><button class="lk" data-th="${k}">${c.label}</button></li>`).join("");
+document.querySelectorAll("[data-th]").forEach(b=>b.onclick=()=>{state.cats=new Set([b.dataset.th]);go("carte");renderAll();document.getElementById("v-carte").scrollIntoView({behavior:"smooth"})});
+window.addEventListener("resize",()=>{map.invalidateSize();drawMarkers()});
+renderAll();setTimeout(()=>{map.invalidateSize();fitSN();drawMarkers()},60);
+loadWiki();
+
+
+/* ---------- OpenStreetMap : import et affichage ---------- */
+const OSM_Q=`[out:json][timeout:180];
+area["ISO3166-1"="SN"][admin_level=2]->.sn;
+(
+  nwr["historic"]["name"](area.sn);
+  nwr["heritage"]["name"](area.sn);
+  nwr["amenity"="place_of_worship"]["name"](area.sn);
+  nwr["tourism"~"museum|attraction|artwork"]["name"](area.sn);
+  nwr["amenity"~"theatre|arts_centre"]["name"](area.sn);
+  nwr["man_made"="lighthouse"]["name"](area.sn);
+  nwr["boundary"~"national_park|protected_area"]["name"](area.sn);
+  nwr["leisure"="nature_reserve"]["name"](area.sn);
+);
+out center tags;`;
+const OSM_LINK="https://overpass-turbo.eu/?Q="+encodeURIComponent(OSM_Q)+"&R";
+function inRing(pt,ring){let ins=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const[xi,yi]=ring[i],[xj,yj]=ring[j];if((yi>pt[1])!==(yj>pt[1])&&pt[0]<(xj-xi)*(pt[1]-yi)/(yj-yi)+xi)ins=!ins}return ins}
+function regionOf(lat,lon){for(const f of REGIONS.features){if(f.properties.c!=="SEN")continue;const g=f.geometry,polys=g.type==="Polygon"?[g.coordinates]:g.coordinates;if(polys.some(p=>inRing([lon,lat],p[0])))return f.properties.n}return ""}
+function classify(t){
+  const rel=t.religion||"";
+  if(t.amenity==="place_of_worship")return{c:"culte",i:rel==="muslim"?"mosque":rel==="christian"?"church":"tree"};
+  if(t.amenity==="theatre"||t.amenity==="arts_centre")return{c:"culture",i:"drum"};
+  if(t.tourism==="museum")return{c:"memoire",i:"museum"};
+  if(t.historic==="archaeological_site"||t.historic==="tomb")return{c:"memoire",i:"stones"};
+  if(t.historic==="memorial"||t.historic==="wayside_cross"||t.historic==="battlefield")return{c:"memoire",i:"gate"};
+  if(t.historic==="fort"||t.historic==="castle"||t.historic==="city_gate")return{c:"bati",i:"fort"};
+  if(t.man_made==="lighthouse")return{c:"bati",i:"lighthouse"};
+  if(t.historic==="monument"||t.tourism==="artwork")return{c:"bati",i:"statue"};
+  if(t.boundary||t.leisure==="nature_reserve"||t.natural)return{c:"nature",i:"leaf"};
+  return{c:"bati",i:"building"};
+}
+const REL={muslim:"islam",christian:"christianisme",animist:"religion traditionnelle",traditional:"religion traditionnelle"};
+function toSite(type,id,lat,lon,t){
+  if(!t||!t.name||!isFinite(lat)||!isFinite(lon))return null;
+  if(lat<12.2||lat>16.8||lon<-17.7||lon>-11.2)return null;
+  const k=classify(t),x=[];
+  if(t.religion)x.push(["Religion",REL[t.religion]||t.religion]);
+  if(t.denomination)x.push(["Confession",t.denomination]);
+  if(t.historic)x.push(["Type (historic)",t.historic]);
+  if(t.tourism)x.push(["Type (tourism)",t.tourism]);
+  if(t["addr:city"])x.push(["Localité",t["addr:city"]]);
+  const wp=t.wikipedia&&/^(\w+):(.+)$/.exec(t.wikipedia);
+  const d=t["description:fr"]||t.description||`${t.name} : ${k.c==="culte"?"lieu de culte":k.c==="nature"?"espace naturel":k.c==="memoire"?"lieu de mémoire":k.c==="culture"?"lieu culturel":"élément du patrimoine bâti"} recensé par les contributeurs d'OpenStreetMap. Fiche à compléter.`;
+  return{id:"osm-"+type[0]+id,src:"osm",osm:type+"/"+id,n:String(t["name:fr"]||t.name).slice(0,140),c:k.c,i:k.i,lat:+(+lat).toFixed(6),lon:+(+lon).toFixed(6),r:regionOf(lat,lon),
+    ep:t.start_date||"—",pr:t.heritage?("Protection patrimoniale (niveau "+t.heritage+")"):"Donnée OpenStreetMap",d:String(d).slice(0,800),x:x.slice(0,5),wiki:wp?`https://${wp[1]}.wikipedia.org/wiki/${encodeURIComponent(wp[2].replace(/ /g,"_"))}`:""};
+}
+function centroid(g){const pts=[];(function walk(a){if(typeof a[0]==="number")pts.push(a);else a.forEach(walk)})(g.coordinates);let xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);return[(Math.min(...ys)+Math.max(...ys))/2,(Math.min(...xs)+Math.max(...xs))/2]}
+function parseOsm(json){
+  const out=new Map();
+  if(Array.isArray(json.elements))json.elements.forEach(e=>{const lat=e.lat??(e.center&&e.center.lat),lon=e.lon??(e.center&&e.center.lon);const s=toSite(e.type,e.id,lat,lon,e.tags);if(s)out.set(s.id,s)});
+  else if(Array.isArray(json.features))json.features.forEach(f=>{const p=f.properties||{},rid=(p["@id"]||f.id||"").toString(),m=/(node|way|relation)\/(\d+)/.exec(rid);if(!m||!f.geometry)return;
+    const [lat,lon]=f.geometry.type==="Point"?[f.geometry.coordinates[1],f.geometry.coordinates[0]]:centroid(f.geometry);const tags=p.tags||p;const s=toSite(m[1],m[2],lat,lon,tags);if(s)out.set(s.id,s)});
+  return[...out.values()];
+}
+function osmBox(){
+  const canEdit=assetsNS&&dbNS;
+  return `<div class="osmbox"><span>${OSM.length?`<b>${OSM.length}</b> lieux importés depuis OpenStreetMap, marqués <span class="osmtag">OSM</span> sur la carte et les vignettes.`:"Aucune donnée OpenStreetMap importée pour l'instant."}</span>
+   ${canEdit?`<span><b>Importer ou mettre à jour</b> (réservé aux éditeurs)</span>
+   <span>1. Ouvrez la requête préparée dans <a href="${OSM_LINK}" target="_blank" rel="noopener">Overpass Turbo</a> : elle se lance seule et sélectionne monuments, lieux de culte, musées, sites historiques, théâtres et aires protégées du Sénégal.</span>
+   <span>2. Cliquez sur « Exporter », puis « GeoJSON » ou « données brutes », et enregistrez le fichier.</span>
+   <span>3. Déposez le fichier ici :</span>
+   <div class="row"><input type="file" id="osm-file" accept=".json,.geojson,application/json,application/geo+json">${OSM.length?`<button class="btn ghost" id="osm-clear" type="button">Retirer les données OSM</button>`:""}</div>
+   <span class="note" id="osm-msg"></span>
+   <details><summary class="note">Voir la requête</summary><pre>${esc(OSM_Q)}</pre></details>`:`<span class="note">Les éditeurs de la plateforme peuvent importer les lieux patrimoniaux recensés dans OpenStreetMap.</span>`}
+   <span class="note">Données OpenStreetMap © contributeurs OpenStreetMap, licence ODbL.</span></div>`;
+}
+let osmBusy=false;
+function bindOsmBox(){
+  const f=document.getElementById("osm-file"),m=t=>{const e=document.getElementById("osm-msg");if(e)e.textContent=t};
+  if(f)f.onchange=async()=>{const file=f.files[0];if(!file||osmBusy)return;
+    let sites;try{sites=parseOsm(JSON.parse(await file.text()))}catch(e){m("Fichier illisible : exportez en GeoJSON ou en données brutes (JSON) depuis Overpass Turbo.");return}
+    if(!sites.length){m("Aucun lieu nommé situé au Sénégal dans ce fichier.");return}
+    sites=sites.slice(0,1500);osmBusy=true;let done=0,fail=0;
+    for(let i=0;i<sites.length;i+=10){await Promise.all(sites.slice(i,i+10).map(s=>{const {id,...body}=s;return dbNS.doc("osm/"+id).set(body).then(()=>done++,()=>fail++)}));m(`Import : ${done} / ${sites.length}${fail?` (${fail} refusés)`:""}`)}
+    osmBusy=false;m(`${done} lieux importés${fail?`, ${fail} refusés`:""}.`)};
+  const c=document.getElementById("osm-clear");
+  if(c)c.onclick=async()=>{if(osmBusy)return;if(c.dataset.ok!=="1"){c.dataset.ok="1";c.textContent=`Confirmer : retirer ${OSM.length} lieux`;return}
+    osmBusy=true;const ids=OSM.map(s=>s.id);let k=0;for(let i=0;i<ids.length;i+=10){await Promise.all(ids.slice(i,i+10).map(id=>dbNS.doc("osm/"+id).delete().catch(()=>{})));k=Math.min(ids.length,i+10);m(`Suppression : ${k} / ${ids.length}`)}osmBusy=false};
+}
+function applyOsm(list){
+  OSM=list;SITES=EDITO.concat(OSM);
+  updAttrib();
+  if(state.sel&&!SITES.find(s=>s.id===state.sel))state.sel=null;
+  renderBand();renderPanel();drawMarkers();if(typeof renderHero==='function')renderHero();
+}
+/* ---------- photos partagées (stockage de l'artefact) ---------- */
+(async()=>{
+  if(!window.claude||!claude.use)return;
+  try{dbNS=await claude.use("db")}catch(e){}
+  if(dbNS){dbNS.collection("osm").onSnapshot(snap=>{applyOsm(snap.docs.filter(d=>d.exists).map(d=>Object.assign({id:d.id},d.data())))},()=>{});
+    dbNS.collection("photos").onSnapshot(snap=>{const p={};snap.docs.forEach(d=>{if(d.exists)p[d.id]=d.data()});PHOTOS=p;renderPanel()},()=>{})}
+  try{assetsNS=await claude.use("assets")}catch(e){}
+  if(assetsNS&&(state.sel||state.mode==="filter"))renderPanel();
+})();
+</script>
+
+</body>
+</html>
